@@ -323,30 +323,30 @@ func (t *RemediationTask) formatJiraDescription() string {
 
 	sb.WriteString("h2. WCAG Criteria\n")
 	for _, sc := range t.SuccessCriteria {
-		sb.WriteString(fmt.Sprintf("* %s (Level %s)\n", sc, t.WCAGLevel))
+		fmt.Fprintf(&sb, "* %s (Level %s)\n", sc, t.WCAGLevel)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("h2. Affected Elements\n")
-	sb.WriteString(fmt.Sprintf("*%d elements affected*\n\n", t.AffectedCount))
+	fmt.Fprintf(&sb, "*%d elements affected*\n\n", t.AffectedCount)
 	for i, el := range t.AffectedElements {
 		if i >= 5 {
-			sb.WriteString(fmt.Sprintf("... and %d more\n", t.AffectedCount-5))
+			fmt.Fprintf(&sb, "... and %d more\n", t.AffectedCount-5)
 			break
 		}
-		sb.WriteString(fmt.Sprintf("* {{%s}} on [%s|%s]\n", el.Selector, el.PageTitle, el.PageURL))
+		fmt.Fprintf(&sb, "* {{%s}} on [%s|%s]\n", el.Selector, el.PageTitle, el.PageURL)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("h2. Acceptance Criteria\n")
 	for _, ac := range t.AcceptanceCriteria {
-		sb.WriteString(fmt.Sprintf("* %s\n", ac))
+		fmt.Fprintf(&sb, "* %s\n", ac)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("h2. References\n")
 	for _, ref := range t.References {
-		sb.WriteString(fmt.Sprintf("* [%s|%s]\n", ref.Title, ref.URL))
+		fmt.Fprintf(&sb, "* [%s|%s]\n", ref.Title, ref.URL)
 	}
 
 	if t.SuggestedFix != "" {
@@ -379,30 +379,30 @@ func (t *RemediationTask) formatGitHubBody() string {
 
 	sb.WriteString("## WCAG Criteria\n\n")
 	for _, sc := range t.SuccessCriteria {
-		sb.WriteString(fmt.Sprintf("- **%s** (Level %s)\n", sc, t.WCAGLevel))
+		fmt.Fprintf(&sb, "- **%s** (Level %s)\n", sc, t.WCAGLevel)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("## Affected Elements\n\n")
-	sb.WriteString(fmt.Sprintf("**%d elements affected**\n\n", t.AffectedCount))
+	fmt.Fprintf(&sb, "**%d elements affected**\n\n", t.AffectedCount)
 	for i, el := range t.AffectedElements {
 		if i >= 5 {
-			sb.WriteString(fmt.Sprintf("\n... and %d more\n", t.AffectedCount-5))
+			fmt.Fprintf(&sb, "\n... and %d more\n", t.AffectedCount-5)
 			break
 		}
-		sb.WriteString(fmt.Sprintf("- `%s` on [%s](%s)\n", el.Selector, el.PageTitle, el.PageURL))
+		fmt.Fprintf(&sb, "- `%s` on [%s](%s)\n", el.Selector, el.PageTitle, el.PageURL)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("## Acceptance Criteria\n\n")
 	for _, ac := range t.AcceptanceCriteria {
-		sb.WriteString(fmt.Sprintf("- [ ] %s\n", ac))
+		fmt.Fprintf(&sb, "- [ ] %s\n", ac)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("## References\n\n")
 	for _, ref := range t.References {
-		sb.WriteString(fmt.Sprintf("- [%s](%s)\n", ref.Title, ref.URL))
+		fmt.Fprintf(&sb, "- [%s](%s)\n", ref.Title, ref.URL)
 	}
 
 	if t.SuggestedFix != "" {

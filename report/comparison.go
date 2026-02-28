@@ -409,11 +409,14 @@ func (w *Writer) writeComparisonVPAT(out io.Writer, result *ComparisonResult) er
 	sb.WriteString("|-----------|-------|--------|-------|--------|\n")
 
 	for _, c := range result.Comparison.CriteriaComparison {
-		change := "→"
-		if c.Status == "fixed" || c.Status == "improved" {
+		var change string
+		switch c.Status {
+		case "fixed", "improved":
 			change = "✓ Improved"
-		} else if c.Status == "regressed" {
+		case "regressed":
 			change = "✗ Regressed"
+		default:
+			change = "→"
 		}
 
 		fmt.Fprintf(&sb, "| %s %s | %s | %s | %s | %s |\n",

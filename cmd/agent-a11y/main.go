@@ -577,10 +577,12 @@ func writeReportsForResult(result *audit.AuditResult, dir, baseName string, form
 				return err
 			}
 			if err := writer.Write(f, result); err != nil {
-				f.Close()
+				_ = f.Close()
 				return err
 			}
-			f.Close()
+			if err := f.Close(); err != nil {
+				return err
+			}
 			logger.Debug("wrote report", "path", path)
 
 		case "markdown":
@@ -591,10 +593,12 @@ func writeReportsForResult(result *audit.AuditResult, dir, baseName string, form
 				return err
 			}
 			if err := writer.Write(f, result); err != nil {
-				f.Close()
+				_ = f.Close()
 				return err
 			}
-			f.Close()
+			if err := f.Close(); err != nil {
+				return err
+			}
 			logger.Debug("wrote report", "path", path)
 
 		case "pdf":
@@ -614,10 +618,12 @@ func writeReportsForResult(result *audit.AuditResult, dir, baseName string, form
 					return err
 				}
 				if err := writer.Write(f, result); err != nil {
-					f.Close()
+					_ = f.Close()
 					return err
 				}
-				f.Close()
+				if err := f.Close(); err != nil {
+					return err
+				}
 			}
 
 			if err := runPandoc(pandocPath, mdPath, pdfPath); err != nil {
@@ -642,10 +648,12 @@ func writeComparisonReports(result *report.ComparisonResult, dir string, formats
 				return err
 			}
 			if err := writer.WriteComparison(f, result); err != nil {
-				f.Close()
+				_ = f.Close()
 				return err
 			}
-			f.Close()
+			if err := f.Close(); err != nil {
+				return err
+			}
 			logger.Debug("wrote report", "path", path)
 
 		case "markdown":
@@ -656,10 +664,12 @@ func writeComparisonReports(result *report.ComparisonResult, dir string, formats
 				return err
 			}
 			if err := writer.WriteComparison(f, result); err != nil {
-				f.Close()
+				_ = f.Close()
 				return err
 			}
-			f.Close()
+			if err := f.Close(); err != nil {
+				return err
+			}
 			logger.Debug("wrote report", "path", path)
 
 		case "pdf":
@@ -677,10 +687,12 @@ func writeComparisonReports(result *report.ComparisonResult, dir string, formats
 					return err
 				}
 				if err := writer.WriteComparison(f, result); err != nil {
-					f.Close()
+					_ = f.Close()
 					return err
 				}
-				f.Close()
+				if err := f.Close(); err != nil {
+					return err
+				}
 			}
 
 			if err := runPandoc(pandocPath, mdPath, pdfPath); err != nil {

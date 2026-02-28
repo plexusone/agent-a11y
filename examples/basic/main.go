@@ -21,7 +21,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to create auditor: %v", err)
 	}
-	defer auditor.Close()
+	defer func() { _ = auditor.Close() }()
 
 	ctx := context.Background()
 

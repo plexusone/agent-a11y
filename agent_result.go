@@ -210,19 +210,19 @@ func (r *Result) Narrative() *mas.NarrativeSection {
 	)
 
 	var analysisBuilder strings.Builder
-	analysisBuilder.WriteString(fmt.Sprintf(
+	fmt.Fprintf(&analysisBuilder,
 		"The audit identified %d accessibility issues across %d page(s). ",
 		r.Stats.TotalFindings, r.Stats.TotalPages,
-	))
+	)
 
 	if r.Stats.TotalFindings > 0 {
-		analysisBuilder.WriteString(fmt.Sprintf(
+		fmt.Fprintf(&analysisBuilder,
 			"Severity breakdown: %d critical, %d serious, %d moderate, %d minor. ",
 			r.Stats.Critical, r.Stats.Serious, r.Stats.Moderate, r.Stats.Minor,
-		))
+		)
 	}
 
-	analysisBuilder.WriteString(fmt.Sprintf("Overall conformance score: %d/100.", r.Score))
+	fmt.Fprintf(&analysisBuilder, "Overall conformance score: %d/100.", r.Score)
 
 	var recommendation string
 	if r.Conformant() {
