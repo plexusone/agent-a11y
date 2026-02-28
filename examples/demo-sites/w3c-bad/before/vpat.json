@@ -1,0 +1,1985 @@
+{
+  "id": "audit-1772244925858082000",
+  "startTime": "2026-02-27T18:15:25.857579-08:00",
+  "endTime": "2026-02-27T18:24:24.60923-08:00",
+  "durationMs": 538751,
+  "targetUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+  "wcagVersion": "2.2",
+  "wcagLevel": "AA",
+  "llmEnabled": false,
+  "pages": [
+    {
+      "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
+      "title": "",
+      "startTime": "2026-02-27T18:21:57.950034-08:00",
+      "endTime": "2026-02-27T18:24:24.609229-08:00",
+      "durationMs": 146659,
+      "loadTimeMs": 0,
+      "isSPA": false,
+      "findings": [
+        {
+          "id": "link-distinguishable-0",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-1",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-2",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-3",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-4",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-5",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-6",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-7",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-8",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-9",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-10",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-11",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "link-distinguishable-12",
+          "ruleId": "link-distinguishable",
+          "description": "Link relies on color alone to be distinguishable",
+          "help": "Add underline, bold, or other non-color indicator",
+          "successCriteria": [
+            "1.4.1"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "a",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "form-input-name-0",
+          "ruleId": "form-input-name",
+          "description": "Form object has no accessible name",
+          "help": "Add a \u003clabel\u003e element or aria-label attribute",
+          "successCriteria": [
+            "4.1.2"
+          ],
+          "level": "A",
+          "impact": "serious",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "object",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "color-contrast-0",
+          "ruleId": "color-contrast",
+          "description": "Contrast ratio is :1, requires 0:1",
+          "help": "Increase color contrast between text and background",
+          "successCriteria": [
+            "1.4.3"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "color-contrast-1",
+          "ruleId": "color-contrast",
+          "description": "Contrast ratio is :1, requires 0:1",
+          "help": "Increase color contrast between text and background",
+          "successCriteria": [
+            "1.4.3"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "html-lang-0",
+          "ruleId": "html-lang",
+          "description": "HTML element is missing lang attribute",
+          "help": "Add lang attribute to \u003chtml\u003e element",
+          "successCriteria": [
+            "3.1.1"
+          ],
+          "level": "A",
+          "impact": "serious",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "html",
+          "pageUrl": "",
+          "pageTitle": "",
+          "screenshot": "",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-focus-order-a",
+          "ruleId": "focus-order",
+          "description": "Element appears out of visual order: a",
+          "help": "Ensure focus order matches visual reading order",
+          "successCriteria": [
+            "2.4.3"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-focus-order-a",
+          "ruleId": "focus-order",
+          "description": "Element appears out of visual order: a",
+          "help": "Ensure focus order matches visual reading order",
+          "successCriteria": [
+            "2.4.3"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-focus-order-select",
+          "ruleId": "focus-order",
+          "description": "Element appears out of visual order: select",
+          "help": "Ensure focus order matches visual reading order",
+          "successCriteria": [
+            "2.4.3"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "select",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-focus-order-a",
+          "ruleId": "focus-order",
+          "description": "Element appears out of visual order: a",
+          "help": "Ensure focus order matches visual reading order",
+          "successCriteria": [
+            "2.4.3"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-focus-order-a",
+          "ruleId": "focus-order",
+          "description": "Element appears out of visual order: a",
+          "help": "Ensure focus order matches visual reading order",
+          "successCriteria": [
+            "2.4.3"
+          ],
+          "level": "A",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-horizontal-scroll",
+          "ruleId": "reflow-horizontal-scroll",
+          "description": "Horizontal scrolling required at 320px width (overflow: 480px)",
+          "help": "Content should reflow without requiring horizontal scrolling at 320px width",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-reflow-overflow-",
+          "ruleId": "reflow-overflow",
+          "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+          "help": "Ensure elements resize or wrap at narrow viewport widths",
+          "successCriteria": [
+            "1.4.10"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (1x1px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (72x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (194x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a.report",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a.report (94x20px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a.report",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a.page",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a.page (125x20px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a.page",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a.report",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a.report (94x20px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a.report",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (443x18px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-select",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: select (143x19px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "select",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (118x18px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (114x18px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (123x18px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (123x18px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (48x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (48x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (48x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (62x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (62x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (84x18px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (84x18px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (49x12px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (23x12px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (18x12px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (33x12px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (21x12px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (66x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (116x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (315x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (63x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (62x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (125x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (88x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (146x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (46x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (100x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (158x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (79x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (62x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (32x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (23x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (46x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (29x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (42x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (65x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (90x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (114x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (38x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-target-size-a",
+          "ruleId": "target-size-minimum",
+          "description": "Touch target too small: a (53x16px, minimum 24x24px)",
+          "help": "Interactive elements should be at least 24x24 CSS pixels",
+          "successCriteria": [
+            "2.5.8"
+          ],
+          "level": "AA",
+          "impact": "moderate",
+          "selector": "a",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "moderate",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-text-spacing-a.report[21]",
+          "ruleId": "text-spacing-loss",
+          "description": "Text clipped when spacing increased: a.report[21]",
+          "help": "Content should adapt to increased text spacing without loss",
+          "successCriteria": [
+            "1.4.12"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "a.report[21]",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-text-spacing-a.annotoggle[23]",
+          "ruleId": "text-spacing-loss",
+          "description": "Text clipped when spacing increased: a.annotoggle[23]",
+          "help": "Content should adapt to increased text spacing without loss",
+          "successCriteria": [
+            "1.4.12"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "a.annotoggle[23]",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-text-spacing-a.page.current[14]",
+          "ruleId": "text-spacing-loss",
+          "description": "Text clipped when spacing increased: a.page.current[14]",
+          "help": "Content should adapt to increased text spacing without loss",
+          "successCriteria": [
+            "1.4.12"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "a.page.current[14]",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-text-spacing-li.inaccessible[13]",
+          "ruleId": "text-spacing-loss",
+          "description": "Text clipped when spacing increased: li.inaccessible[13]",
+          "help": "Content should adapt to increased text spacing without loss",
+          "successCriteria": [
+            "1.4.12"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "li.inaccessible[13]",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-text-spacing-li.accessible[18]",
+          "ruleId": "text-spacing-loss",
+          "description": "Text clipped when spacing increased: li.accessible[18]",
+          "help": "Content should adapt to increased text spacing without loss",
+          "successCriteria": [
+            "1.4.12"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "li.accessible[18]",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-text-spacing-a.page[19]",
+          "ruleId": "text-spacing-loss",
+          "description": "Text clipped when spacing increased: a.page[19]",
+          "help": "Content should adapt to increased text spacing without loss",
+          "successCriteria": [
+            "1.4.12"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "a.page[19]",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        },
+        {
+          "id": "specialized-text-spacing-a.report[16]",
+          "ruleId": "text-spacing-loss",
+          "description": "Text clipped when spacing increased: a.report[16]",
+          "help": "Content should adapt to increased text spacing without loss",
+          "successCriteria": [
+            "1.4.12"
+          ],
+          "level": "AA",
+          "impact": "serious",
+          "selector": "a.report[16]",
+          "xpath": "",
+          "html": "",
+          "element": "",
+          "pageUrl": "https://www.w3.org/WAI/demos/bad/before/home.html",
+          "pageTitle": "",
+          "screenshot": "",
+          "severity": "serious",
+          "foundAt": "0001-01-01T00:00:00Z"
+        }
+      ],
+      "language": "",
+      "doctype": "",
+      "hasSkipNav": false,
+      "landmarks": 0
+    }
+  ],
+  "stats": {
+    "totalPages": 1,
+    "totalFindings": 97,
+    "critical": 0,
+    "serious": 8,
+    "moderate": 72,
+    "minor": 0,
+    "levelA": 0,
+    "levelAA": 0,
+    "levelAAA": 0,
+    "byCategory": null,
+    "llmEvaluations": 0,
+    "manualReviews": 0
+  },
+  "conformance": {
+    "targetLevel": "AA",
+    "version": "2.2",
+    "overallStatus": "Non-Conformant",
+    "levelA": {
+      "status": "Does Not Support",
+      "totalIssues": 20,
+      "blockingIssues": 0
+    },
+    "levelAA": {
+      "status": "Does Not Support",
+      "totalIssues": 77,
+      "blockingIssues": 0
+    },
+    "levelAAA": {
+      "status": "Supports",
+      "totalIssues": 0,
+      "blockingIssues": 0
+    },
+    "criteria": null
+  }
+}

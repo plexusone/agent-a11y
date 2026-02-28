@@ -1,0 +1,2841 @@
+{
+  "name": "AccessComputing Demo",
+  "generatedAt": "2026-02-28T06:46:07.657438-08:00",
+  "before": {
+    "id": "audit-1772288859786560000",
+    "startTime": "2026-02-28T06:27:39.786086-08:00",
+    "endTime": "2026-02-28T06:37:21.439412-08:00",
+    "durationMs": 581653,
+    "targetUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+    "wcagVersion": "2.2",
+    "wcagLevel": "AA",
+    "llmEnabled": false,
+    "pages": [
+      {
+        "url": "https://projects.accesscomputing.uw.edu/au/before.html",
+        "title": "",
+        "startTime": "2026-02-28T06:34:14.775749-08:00",
+        "endTime": "2026-02-28T06:37:21.439411-08:00",
+        "durationMs": 186663,
+        "loadTimeMs": 0,
+        "isSPA": false,
+        "findings": [
+          {
+            "id": "form-input-name-0",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-1",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-2",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-3",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-4",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-5",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-6",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-7",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-8",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "form-input-name-9",
+            "ruleId": "form-input-name",
+            "description": "Form object has no accessible name",
+            "help": "Add a \u003clabel\u003e element or aria-label attribute",
+            "successCriteria": [
+              "4.1.2"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "object",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "html-lang-0",
+            "ruleId": "html-lang",
+            "description": "HTML element is missing lang attribute",
+            "help": "Add lang attribute to \u003chtml\u003e element",
+            "successCriteria": [
+              "3.1.1"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "html",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-0",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-1",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-2",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-3",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-4",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-5",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-6",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-7",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-8",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-9",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-10",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-11",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-12",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-13",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-14",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-focus-order-a",
+            "ruleId": "focus-order",
+            "description": "Element appears out of visual order: a",
+            "help": "Ensure focus order matches visual reading order",
+            "successCriteria": [
+              "2.4.3"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-focus-order-a",
+            "ruleId": "focus-order",
+            "description": "Element appears out of visual order: a",
+            "help": "Ensure focus order matches visual reading order",
+            "successCriteria": [
+              "2.4.3"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-focus-order-a",
+            "ruleId": "focus-order",
+            "description": "Element appears out of visual order: a",
+            "help": "Ensure focus order matches visual reading order",
+            "successCriteria": [
+              "2.4.3"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-horizontal-scroll",
+            "ruleId": "reflow-horizontal-scroll",
+            "description": "Horizontal scrolling required at 320px width (overflow: 409px)",
+            "help": "Content should reflow without requiring horizontal scrolling at 320px width",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "serious",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (68x17px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (68x17px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (68x17px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (616x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (616x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (616x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input (616x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#submit",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#submit (58x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#submit",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (88x16px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (159x16px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/before.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          }
+        ],
+        "language": "",
+        "doctype": "",
+        "hasSkipNav": false,
+        "landmarks": 0
+      }
+    ],
+    "stats": {
+      "totalPages": 1,
+      "totalFindings": 66,
+      "critical": 0,
+      "serious": 1,
+      "moderate": 39,
+      "minor": 0,
+      "levelA": 0,
+      "levelAA": 0,
+      "levelAAA": 0,
+      "byCategory": null,
+      "llmEvaluations": 0,
+      "manualReviews": 0
+    },
+    "conformance": {
+      "targetLevel": "AA",
+      "version": "2.2",
+      "overallStatus": "Non-Conformant",
+      "levelA": {
+        "status": "Does Not Support",
+        "totalIssues": 29,
+        "blockingIssues": 0
+      },
+      "levelAA": {
+        "status": "Does Not Support",
+        "totalIssues": 37,
+        "blockingIssues": 0
+      },
+      "levelAAA": {
+        "status": "Supports",
+        "totalIssues": 0,
+        "blockingIssues": 0
+      },
+      "criteria": null
+    }
+  },
+  "after": {
+    "id": "audit-1772289441450595000",
+    "startTime": "2026-02-28T06:37:21.450591-08:00",
+    "endTime": "2026-02-28T06:46:07.647301-08:00",
+    "durationMs": 526196,
+    "targetUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+    "wcagVersion": "2.2",
+    "wcagLevel": "AA",
+    "llmEnabled": false,
+    "pages": [
+      {
+        "url": "https://projects.accesscomputing.uw.edu/au/after.html",
+        "title": "",
+        "startTime": "2026-02-28T06:43:54.38784-08:00",
+        "endTime": "2026-02-28T06:46:07.6473-08:00",
+        "durationMs": 133259,
+        "loadTimeMs": 0,
+        "isSPA": false,
+        "findings": [
+          {
+            "id": "descriptive-headings-0",
+            "ruleId": "descriptive-headings",
+            "description": "Heading may not be descriptive",
+            "help": "Ensure heading text describes the section content",
+            "successCriteria": [
+              "2.4.6"
+            ],
+            "level": "AA",
+            "impact": "minor",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-0",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-1",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-2",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-3",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-4",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-5",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-6",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-7",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-8",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-9",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-10",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-11",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-12",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-13",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "link-distinguishable-14",
+            "ruleId": "link-distinguishable",
+            "description": "Link relies on color alone to be distinguishable",
+            "help": "Add underline, bold, or other non-color indicator",
+            "successCriteria": [
+              "1.4.1"
+            ],
+            "level": "A",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "a",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "html-lang-0",
+            "ruleId": "html-lang",
+            "description": "HTML element is missing lang attribute",
+            "help": "Add lang attribute to \u003chtml\u003e element",
+            "successCriteria": [
+              "3.1.1"
+            ],
+            "level": "A",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "html",
+            "pageUrl": "",
+            "pageTitle": "",
+            "screenshot": "",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-horizontal-scroll",
+            "ruleId": "reflow-horizontal-scroll",
+            "description": "Horizontal scrolling required at 320px width (overflow: 413px)",
+            "help": "Content should reflow without requiring horizontal scrolling at 320px width",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "serious",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "serious",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-reflow-overflow-",
+            "ruleId": "reflow-overflow",
+            "description": "Element causes horizontal overflow:  (width: 0px, overflow: 0px)",
+            "help": "Ensure elements resize or wrap at narrow viewport widths",
+            "successCriteria": [
+              "1.4.10"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (27x17px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (144x17px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#name",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#name (616x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#name",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#email",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#email (616x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#email",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#country",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#country (616x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#country",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#cs",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#cs (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#cs",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#eng",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#eng (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#eng",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#eco",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#eco (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#eco",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#phy",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#phy (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#phy",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#psy",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#psy (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#psy",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#spa",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#spa (13x13px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#spa",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#captcha_answer",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#captcha_answer (603x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#captcha_answer",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-input#submit",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: input#submit (58x21px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "input#submit",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (88x16px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          },
+          {
+            "id": "specialized-target-size-a",
+            "ruleId": "target-size-minimum",
+            "description": "Touch target too small: a (159x16px, minimum 24x24px)",
+            "help": "Interactive elements should be at least 24x24 CSS pixels",
+            "successCriteria": [
+              "2.5.8"
+            ],
+            "level": "AA",
+            "impact": "moderate",
+            "selector": "a",
+            "xpath": "",
+            "html": "",
+            "element": "",
+            "pageUrl": "https://projects.accesscomputing.uw.edu/au/after.html",
+            "pageTitle": "",
+            "screenshot": "",
+            "severity": "moderate",
+            "foundAt": "0001-01-01T00:00:00Z"
+          }
+        ],
+        "language": "",
+        "doctype": "",
+        "hasSkipNav": false,
+        "landmarks": 0
+      }
+    ],
+    "stats": {
+      "totalPages": 1,
+      "totalFindings": 53,
+      "critical": 0,
+      "serious": 1,
+      "moderate": 35,
+      "minor": 0,
+      "levelA": 0,
+      "levelAA": 0,
+      "levelAAA": 0,
+      "byCategory": null,
+      "llmEvaluations": 0,
+      "manualReviews": 0
+    },
+    "conformance": {
+      "targetLevel": "AA",
+      "version": "2.2",
+      "overallStatus": "Non-Conformant",
+      "levelA": {
+        "status": "Does Not Support",
+        "totalIssues": 16,
+        "blockingIssues": 0
+      },
+      "levelAA": {
+        "status": "Does Not Support",
+        "totalIssues": 37,
+        "blockingIssues": 0
+      },
+      "levelAAA": {
+        "status": "Supports",
+        "totalIssues": 0,
+        "blockingIssues": 0
+      },
+      "criteria": null
+    }
+  },
+  "comparison": {
+    "beforeTotalIssues": 66,
+    "afterTotalIssues": 53,
+    "issuesFixed": 13,
+    "issuesRemaining": 53,
+    "newIssues": 0,
+    "criticalFixed": 0,
+    "seriousFixed": 0,
+    "moderateFixed": 4,
+    "minorFixed": 0,
+    "beforeConformance": "Non-Conformant",
+    "afterConformance": "Non-Conformant",
+    "criteriaComparison": [
+      {
+        "id": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.2.1",
+        "name": "Audio-only and Video-only",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.2.2",
+        "name": "Captions",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.2.3",
+        "name": "Audio Description or Media Alternative",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.3.2",
+        "name": "Meaningful Sequence",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.3.3",
+        "name": "Sensory Characteristics",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.4.1",
+        "name": "Use of Color",
+        "level": "A",
+        "beforeStatus": "Does Not Support",
+        "afterStatus": "Does Not Support",
+        "beforeIssues": 15,
+        "afterIssues": 15,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.4.2",
+        "name": "Audio Control",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.4.3",
+        "name": "Contrast (Minimum)",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.4.4",
+        "name": "Resize Text",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "1.4.5",
+        "name": "Images of Text",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.1.1",
+        "name": "Keyboard",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.1.2",
+        "name": "No Keyboard Trap",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.2.1",
+        "name": "Timing Adjustable",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.2.2",
+        "name": "Pause, Stop, Hide",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.3.1",
+        "name": "Three Flashes or Below Threshold",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.4.1",
+        "name": "Bypass Blocks",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.4.2",
+        "name": "Page Titled",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.4.3",
+        "name": "Focus Order",
+        "level": "A",
+        "beforeStatus": "Partially Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 3,
+        "afterIssues": 0,
+        "status": "fixed"
+      },
+      {
+        "id": "2.4.4",
+        "name": "Link Purpose (In Context)",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.4.5",
+        "name": "Multiple Ways",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "2.4.6",
+        "name": "Headings and Labels",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Partially Supports",
+        "beforeIssues": 0,
+        "afterIssues": 1,
+        "status": "regressed"
+      },
+      {
+        "id": "2.4.7",
+        "name": "Focus Visible",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.1.1",
+        "name": "Language of Page",
+        "level": "A",
+        "beforeStatus": "Partially Supports",
+        "afterStatus": "Partially Supports",
+        "beforeIssues": 1,
+        "afterIssues": 1,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.1.2",
+        "name": "Language of Parts",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.2.1",
+        "name": "On Focus",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.2.2",
+        "name": "On Input",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.2.3",
+        "name": "Consistent Navigation",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.2.4",
+        "name": "Consistent Identification",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.3.1",
+        "name": "Error Identification",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.3.2",
+        "name": "Labels or Instructions",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.3.3",
+        "name": "Error Suggestion",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "3.3.4",
+        "name": "Error Prevention (Legal, Financial, Data)",
+        "level": "AA",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "4.1.1",
+        "name": "Parsing",
+        "level": "A",
+        "beforeStatus": "Supports",
+        "afterStatus": "Supports",
+        "beforeIssues": 0,
+        "afterIssues": 0,
+        "status": "unchanged"
+      },
+      {
+        "id": "4.1.2",
+        "name": "Name, Role, Value",
+        "level": "A",
+        "beforeStatus": "Does Not Support",
+        "afterStatus": "Supports",
+        "beforeIssues": 10,
+        "afterIssues": 0,
+        "status": "fixed"
+      }
+    ],
+    "improvementScore": 19.696969696969695
+  }
+}
