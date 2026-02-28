@@ -2,6 +2,7 @@
 package report
 
 import (
+	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -19,6 +20,7 @@ const (
 	FormatJSON     Format = "json"
 	FormatHTML     Format = "html"
 	FormatMarkdown Format = "markdown"
+	FormatCSV      Format = "csv"
 	FormatVPAT     Format = "vpat"
 	FormatWCAG     Format = "wcag"
 )
@@ -42,6 +44,8 @@ func (w *Writer) Write(out io.Writer, result *audit.AuditResult) error {
 		return w.writeHTML(out, result)
 	case FormatMarkdown:
 		return w.writeMarkdown(out, result)
+	case FormatCSV:
+		return w.writeCSV(out, result)
 	case FormatVPAT:
 		return w.writeVPAT(out, result)
 	case FormatWCAG:
@@ -55,6 +59,49 @@ func (w *Writer) writeJSON(out io.Writer, result *audit.AuditResult) error {
 	encoder := json.NewEncoder(out)
 	encoder.SetIndent("", "  ")
 	return encoder.Encode(result)
+}
+
+func (w *Writer) writeCSV(out io.Writer, result *audit.AuditResult) error {
+	csvWriter := csv.NewWriter(out)
+	defer csvWriter.Flush()
+
+	// Header row
+	header := []string{
+		"Page URL",
+		"Rule ID",
+		"Description",
+		"Level",
+		"Impact",
+		"Success Criteria",
+		"Selector",
+		"HTML",
+		"Help",
+	}
+	if err := csvWriter.Write(header); err != nil {
+		return err
+	}
+
+	// Data rows - one per finding
+	for _, page := range result.Pages {
+		for _, finding := range page.Findings {
+			row := []string{
+				page.URL,
+				finding.RuleID,
+				finding.Description,
+				string(finding.Level),
+				string(finding.Impact),
+				strings.Join(finding.SuccessCriteria, "; "),
+				finding.Selector,
+				truncate(finding.HTML, 200),
+				finding.Help,
+			}
+			if err := csvWriter.Write(row); err != nil {
+				return err
+			}
+		}
+	}
+
+	return csvWriter.Error()
 }
 
 func (w *Writer) writeMarkdown(out io.Writer, result *audit.AuditResult) error {
