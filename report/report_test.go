@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/agentplexus/agent-a11y/audit"
+	"github.com/plexusone/agent-a11y/audit"
 )
 
 func createTestAuditResult() *audit.AuditResult {

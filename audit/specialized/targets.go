@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // TargetSizeTestResult contains results of target size testing.

@@ -8,7 +8,7 @@ import (
 	"image"
 	"image/png"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // FocusVisibilityResult contains results of focus visibility testing.

@@ -16,12 +16,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	a11y "github.com/agentplexus/agent-a11y"
-	"github.com/agentplexus/agent-a11y/api"
-	"github.com/agentplexus/agent-a11y/audit"
-	"github.com/agentplexus/agent-a11y/config"
-	"github.com/agentplexus/agent-a11y/mcp"
-	"github.com/agentplexus/agent-a11y/report"
+	a11y "github.com/plexusone/agent-a11y"
+	"github.com/plexusone/agent-a11y/api"
+	"github.com/plexusone/agent-a11y/audit"
+	"github.com/plexusone/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/mcp"
+	"github.com/plexusone/agent-a11y/report"
 )
 
 var (

@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/agentplexus/agent-a11y/audit"
-	"github.com/agentplexus/agent-a11y/config"
-	"github.com/agentplexus/agent-a11y/report"
-	"github.com/agentplexus/agent-a11y/types"
+	"github.com/plexusone/agent-a11y/audit"
+	"github.com/plexusone/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/report"
+	"github.com/plexusone/agent-a11y/types"
 )
 
 // Auditor performs WCAG accessibility audits.

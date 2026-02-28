@@ -1,6 +1,6 @@
 package remediation
 
-import "github.com/agentplexus/agent-a11y/types"
+import "github.com/plexusone/agent-a11y/types"
 
 // BuildForFinding creates a Remediation struct for a finding based on its
 // success criteria. This attaches standardized reference codes similar to

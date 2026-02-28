@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/agentplexus/agent-a11y/types"
+	"github.com/plexusone/agent-a11y/types"
 )
 
 // TaskPriority maps to Jira/GitHub priority levels.

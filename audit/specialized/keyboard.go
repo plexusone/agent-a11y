@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // KeyboardTestResult contains results of keyboard accessibility testing.

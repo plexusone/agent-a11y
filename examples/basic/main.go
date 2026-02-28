@@ -7,7 +7,7 @@ import (
 	"log"
 	"time"
 
-	a11y "github.com/agentplexus/agent-a11y"
+	a11y "github.com/plexusone/agent-a11y"
 )
 
 func main() {

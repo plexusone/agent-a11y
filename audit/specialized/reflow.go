@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // ReflowTestResult contains results of reflow testing.

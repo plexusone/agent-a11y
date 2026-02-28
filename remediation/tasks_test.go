@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/agentplexus/agent-a11y/types"
+	"github.com/plexusone/agent-a11y/types"
 )
 
 func TestTaskBuilder_BuildTasks(t *testing.T) {

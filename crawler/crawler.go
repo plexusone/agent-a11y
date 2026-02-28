@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // Crawler crawls websites discovering pages for accessibility auditing.

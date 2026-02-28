@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // AudioControlResult contains results of audio control testing (WCAG 1.4.2).

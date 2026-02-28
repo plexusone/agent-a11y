@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // CharacterShortcutResult contains results of character key shortcut testing (WCAG 2.1.4).

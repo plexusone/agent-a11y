@@ -9,16 +9,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/agentplexus/omnillm"
-	vibium "github.com/agentplexus/vibium-go"
+	"github.com/plexusone/omnillm"
+	vibium "github.com/plexusone/vibium-go"
 
-	"github.com/agentplexus/agent-a11y/audit/specialized"
-	"github.com/agentplexus/agent-a11y/auth"
-	"github.com/agentplexus/agent-a11y/config"
-	"github.com/agentplexus/agent-a11y/crawler"
-	"github.com/agentplexus/agent-a11y/journey"
-	"github.com/agentplexus/agent-a11y/llm"
-	"github.com/agentplexus/agent-a11y/wcag"
+	"github.com/plexusone/agent-a11y/audit/specialized"
+	"github.com/plexusone/agent-a11y/auth"
+	"github.com/plexusone/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/crawler"
+	"github.com/plexusone/agent-a11y/journey"
+	"github.com/plexusone/agent-a11y/llm"
+	"github.com/plexusone/agent-a11y/wcag"
 )
 
 // Engine is the main accessibility audit engine.

@@ -4,7 +4,7 @@ package audit
 import (
 	"time"
 
-	"github.com/agentplexus/agent-a11y/types"
+	"github.com/plexusone/agent-a11y/types"
 )
 
 // Re-export common types from the types package for convenience.

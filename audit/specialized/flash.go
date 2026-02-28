@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // FlashTestResult contains results of flashing content testing (WCAG 2.3.1).

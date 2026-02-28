@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/agentplexus/agent-a11y/audit"
-	"github.com/agentplexus/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/audit"
+	"github.com/plexusone/agent-a11y/config"
 )
 
 // Server is the REST API server.

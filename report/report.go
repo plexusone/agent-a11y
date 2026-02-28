@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/agentplexus/agent-a11y/audit"
+	"github.com/plexusone/agent-a11y/audit"
 )
 
 // Format represents an output format.

@@ -11,7 +11,7 @@
 //
 // Reference technique constants:
 //
-//	import "github.com/agentplexus/agent-a11y/remediation"
+//	import "github.com/plexusone/agent-a11y/remediation"
 //
 //	technique := remediation.TechniqueH37 // "H37"
 //	url := remediation.TechniqueURL(technique) // W3C URL

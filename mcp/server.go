@@ -15,7 +15,7 @@ import (
 	"log/slog"
 	"time"
 
-	a11y "github.com/agentplexus/agent-a11y"
+	a11y "github.com/plexusone/agent-a11y"
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
 

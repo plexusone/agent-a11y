@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/agentplexus/omnillm"
+	"github.com/plexusone/omnillm"
 )
 
 // Compiler converts prompt-based journey steps to deterministic steps.

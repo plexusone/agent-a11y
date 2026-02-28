@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/agentplexus/agent-a11y/types"
-	vibium "github.com/agentplexus/vibium-go"
+	"github.com/plexusone/agent-a11y/types"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 func TestNewRegistry(t *testing.T) {

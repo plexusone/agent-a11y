@@ -7,8 +7,8 @@ import (
 	"log/slog"
 	"strings"
 
-	vibium "github.com/agentplexus/vibium-go"
-	"github.com/agentplexus/agent-a11y/types"
+	vibium "github.com/plexusone/vibium-go"
+	"github.com/plexusone/agent-a11y/types"
 )
 
 // Rule represents a WCAG accessibility test rule.

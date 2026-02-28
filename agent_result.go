@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	mas "github.com/agentplexus/multi-agent-spec/sdk/go"
+	mas "github.com/plexusone/multi-agent-spec/sdk/go"
 )
 
 // AgentResult converts the audit result to a multi-agent-spec AgentResult.
@@ -16,7 +16,7 @@ func (r *Result) AgentResult() *mas.AgentResult {
 	blocks := r.toContentBlocks()
 
 	result := &mas.AgentResult{
-		Schema:        "https://raw.githubusercontent.com/agentplexus/multi-agent-spec/main/schema/report/agent-result.schema.json",
+		Schema:        "https://raw.githubusercontent.com/plexusone/multi-agent-spec/main/schema/report/agent-result.schema.json",
 		AgentID:       "a11y",
 		StepID:        "accessibility-audit",
 		Tasks:         tasks,

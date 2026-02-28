@@ -11,8 +11,8 @@ import (
 	"log"
 	"time"
 
-	a11y "github.com/agentplexus/agent-a11y"
-	mas "github.com/agentplexus/multi-agent-spec/sdk/go"
+	a11y "github.com/plexusone/agent-a11y"
+	mas "github.com/plexusone/multi-agent-spec/sdk/go"
 )
 
 func main() {

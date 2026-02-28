@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // Executor runs journey definitions using vibium for browser automation.

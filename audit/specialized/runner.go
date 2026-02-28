@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // Runner executes specialized accessibility tests.

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/agentplexus/omnillm"
+	"github.com/plexusone/omnillm"
 )
 
 // Judge evaluates accessibility findings using LLM reasoning.

@@ -8,7 +8,7 @@ import (
 	"log/slog"
 	"time"
 
-	vibium "github.com/agentplexus/vibium-go"
+	vibium "github.com/plexusone/vibium-go"
 )
 
 // AuthType represents the authentication method.
