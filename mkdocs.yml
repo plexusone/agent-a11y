@@ -1,0 +1,64 @@
+site_name: agent-a11y
+site_description: Go accessibility auditing toolkit for WCAG compliance testing
+site_url: https://plexusone.github.io/agent-a11y/
+repo_url: https://github.com/plexusone/agent-a11y
+repo_name: plexusone/agent-a11y
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+  - Guide:
+      - Audit Types: guide/audit-types.md
+      - Configuration: guide/configuration.md
+      - LLM Integration: guide/llm-integration.md
+      - Report Formats: guide/report-formats.md
+  - Reference:
+      - CLI: reference/cli.md
+      - HTTP API: reference/api.md
+      - Go Library: reference/library.md
+      - MCP Server: reference/mcp.md
+  - Architecture:
+      - Overview: architecture/overview.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/plexusone/agent-a11y
