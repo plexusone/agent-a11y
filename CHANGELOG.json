@@ -1,0 +1,59 @@
+{
+  "irVersion": "1.0",
+  "project": "agent-a11y",
+  "repository": "https://github.com/plexusone/agent-a11y",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "maintainers": ["plexusone"],
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-02-28",
+      "highlights": [
+        { "description": "Go accessibility auditing toolkit for WCAG 2.0, 2.1, and 2.2 compliance testing" },
+        { "description": "axe-core integration with LLM-as-a-Judge evaluation to reduce false positives" },
+        { "description": "Multiple audit modes: single page, site crawling, and user journey testing" },
+        { "description": "Report formats: JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV" }
+      ],
+      "added": [
+        { "description": "Core `Auditor` type with `AuditPage()`, `AuditSite()`, and `AuditJourney()` methods", "commit": "9c090af" },
+        { "description": "WCAG rules and success criteria mapping for WCAG 2.0, 2.1, and 2.2 at levels A, AA, AAA", "commit": "e0854bf" },
+        { "description": "axe-core integration for industry-standard accessibility rules", "commit": "24d4cb8" },
+        { "description": "LLM-as-a-Judge evaluation with support for Anthropic, OpenAI, Google, xAI, and Ollama", "commit": "e79c787" },
+        { "description": "Website crawler with SPA detection, depth limiting, and robots.txt respect", "commit": "391b33a" },
+        { "description": "Journey-based testing with YAML step definitions for authenticated flows", "commit": "ce7f944" },
+        { "description": "Specialized browser-based tests: keyboard, focus, reflow, target size, text spacing, hover, flash", "commit": "df6f0e5" },
+        { "description": "Report generation: JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV formats", "commit": "8cb9999" },
+        { "description": "Remediation task generation with priority assignment and fix suggestions", "commit": "a28949e" },
+        { "description": "MCP server for AI assistant integration (Claude, etc.)", "commit": "d1b4e4c" },
+        { "description": "HTTP API server with `/audit` and `/health` endpoints", "commit": "ad7e9de" },
+        { "description": "CLI tool with `audit`, `serve`, `mcp serve`, `compare`, and `demo` commands", "commit": "6781b2e" },
+        { "description": "Configuration via YAML file, environment variables, and CLI flags", "commit": "d48213d" },
+        { "description": "Authentication helpers for auditing protected pages", "commit": "8302bb6" },
+        { "description": "Multi-agent-spec integration for use in multi-agent workflows", "commit": "e87453e" }
+      ],
+      "documentation": [
+        { "description": "README with quick start, features, and usage examples", "commit": "6a1b1a5" },
+        { "description": "MkDocs documentation site with Material theme", "commit": "6a1b1a5" },
+        { "description": "Getting Started guides: installation and quickstart", "commit": "6a1b1a5" },
+        { "description": "User Guide: audit types, configuration, LLM integration, report formats", "commit": "6a1b1a5" },
+        { "description": "Reference: CLI, HTTP API, Go library, MCP server", "commit": "6a1b1a5" },
+        { "description": "Architecture overview with component diagram", "commit": "6a1b1a5" },
+        { "description": "Example code for basic and multi-agent usage", "commit": "95f186b" }
+      ],
+      "fixed": [
+        { "description": "Resolve golangci-lint warnings", "commit": "b56c9d9" }
+      ],
+      "infrastructure": [
+        { "description": "Project structure with Go modules", "commit": "e29ff50" },
+        { "description": "Migrate to plexusone GitHub organization", "commit": "bfd83a5" }
+      ],
+      "dependencies": [
+        { "description": "vibium-go v0.2.1 for browser automation", "commit": "bfd83a5" },
+        { "description": "omnillm v0.13.0 for multi-provider LLM support", "commit": "bfd83a5" },
+        { "description": "multi-agent-spec v0.8.0 for multi-agent workflow integration", "commit": "bfd83a5" },
+        { "description": "MCP SDK v1.4.0 for Model Context Protocol server", "commit": "d1b4e4c" }
+      ]
+    }
+  ]
+}

@@ -57,6 +57,8 @@ nav:
       - MCP Server: reference/mcp.md
   - Architecture:
       - Overview: architecture/overview.md
+  - Releases:
+      - v0.1.0: releases/v0.1.0.md
 
 extra:
   social:
