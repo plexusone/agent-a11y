@@ -14,6 +14,38 @@ import (
 // Parser parses journey definitions from various formats.
 type Parser struct{}
 
+const defaultJourneyDir = "./journeys"
+
+// getSafeJourneyPath resolves a user-supplied journey path against a safe base
+// directory and ensures that the resulting path cannot escape that directory.
+func getSafeJourneyPath(relPath string) (string, error) {
+	baseDir := os.Getenv("A11Y_JOURNEY_DIR")
+	if baseDir == "" {
+		baseDir = defaultJourneyDir
+	}
+
+	baseAbs, err := filepath.Abs(baseDir)
+	if err != nil {
+		return "", fmt.Errorf("failed to resolve journey base directory: %w", err)
+	}
+
+	targetAbs, err := filepath.Abs(filepath.Join(baseAbs, relPath))
+	if err != nil {
+		return "", fmt.Errorf("failed to resolve journey file path: %w", err)
+	}
+
+	// Ensure the target path is within the base journey directory
+	baseWithSep := baseAbs
+	if !strings.HasSuffix(baseWithSep, string(os.PathSeparator)) {
+		baseWithSep += string(os.PathSeparator)
+	}
+	if targetAbs != baseAbs && !strings.HasPrefix(targetAbs, baseWithSep) {
+		return "", fmt.Errorf("invalid journey path")
+	}
+
+	return targetAbs, nil
+}
+
 // NewParser creates a new journey parser.
 func NewParser() *Parser {
 	return &Parser{}
@@ -22,13 +54,18 @@ func NewParser() *Parser {
 // ParseFile parses a journey definition from a file.
 // Supports .yaml, .yml, and .json extensions.
 func (p *Parser) ParseFile(path string) (*Definition, error) {
-	f, err := os.Open(path)
+	safePath, err := getSafeJourneyPath(path)
+	if err != nil {
+		return nil, fmt.Errorf("failed to resolve journey file: %w", err)
+	}
+
+	f, err := os.Open(safePath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to open journey file: %w", err)
 	}
 	defer func() { _ = f.Close() }()
 
-	ext := strings.ToLower(filepath.Ext(path))
+	ext := strings.ToLower(filepath.Ext(safePath))
 	switch ext {
 	case ".yaml", ".yml":
 		return p.ParseYAML(f)
