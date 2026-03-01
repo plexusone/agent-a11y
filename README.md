@@ -9,14 +9,14 @@ Go accessibility auditing toolkit for WCAG 2.0, 2.1, and 2.2 compliance testing.
 
 ## Features
 
-- **WCAG Compliance Testing** - Supports WCAG 2.0, 2.1, and 2.2 at levels A, AA, and AAA
-- **Multiple Audit Modes** - Single page, site crawling, and user journey testing
-- **axe-core Integration** - Industry-standard accessibility testing via axe-core
-- **LLM-as-a-Judge** - Optional AI evaluation to reduce false positives
-- **Report Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV
-- **MCP Server** - Model Context Protocol integration for AI assistants
-- **HTTP API** - REST API for programmatic access
-- **Multi-Agent Spec** - Integration with multi-agent workflows
+- ✅ **WCAG Compliance Testing** - Supports WCAG 2.0, 2.1, and 2.2 at levels A, AA, and AAA
+- 🔍 **Multiple Audit Modes** - Single page, site crawling, and user journey testing
+- 🪓 **axe-core Integration** - Industry-standard accessibility testing via axe-core
+- 🤖 **LLM-as-a-Judge** - Optional AI evaluation to reduce false positives
+- 📊 **Report Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV
+- 🔌 **MCP Server** - Model Context Protocol integration for AI assistants
+- 🌐 **HTTP API** - REST API for programmatic access
+- 🤝 **Multi-Agent Spec** - Integration with multi-agent workflows
 
 ## Installation
 
