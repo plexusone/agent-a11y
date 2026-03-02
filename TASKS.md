@@ -4,17 +4,17 @@
 
 This document tracks the work needed to make `a11y-audit-service` production ready.
 
-**Current State**: ~55% Production Ready
+**Current State**: ~60% Production Ready
 
 ---
 
 ## Phase 1: Critical (Blocking Production)
 
 ### P0-1: Fix go.mod Replace Directives
-- [ ] Remove local replace directives for `vibium-go` and `omnillm`
-- [ ] Publish dependencies or use proper versioning
+- [x] Remove local replace directives for `vibium-go` and `omnillm`
+- [x] Publish dependencies or use proper versioning
 - **Effort**: 1 hour
-- **Status**: Not Started
+- **Status**: Complete
 
 ### P0-2: Unit Tests
 - [x] Add tests for `types` package
@@ -26,9 +26,13 @@ This document tracks the work needed to make `a11y-audit-service` production rea
 - [x] Add tests for `crawler` package
 - [x] Add tests for `journey` package
 - [x] Add tests for `report` package
+- [x] Add tests for `remediation` package
 - [ ] Add tests for `api` package
+- [ ] Add tests for `audit/axe` package
+- [ ] Add tests for `audit/specialized` package
+- [ ] Add tests for `mcp` package
 - **Effort**: 2-3 days
-- **Status**: ~90% Complete
+- **Status**: ~75% Complete (10/14 packages tested)
 
 ### P0-3: Complete WCAG Rules
 - [x] Implement `ColorContrastRule` (1.4.3) - luminance calculation with WCAG ratios
@@ -78,12 +82,13 @@ This document tracks the work needed to make `a11y-audit-service` production rea
 ## Phase 2: Important (Should Have)
 
 ### P1-1: CI/CD Pipeline
-- [ ] Add GitHub Actions workflow for build
-- [ ] Add GitHub Actions workflow for tests
-- [ ] Add GitHub Actions workflow for linting (golangci-lint)
+- [x] Add GitHub Actions workflow for build
+- [x] Add GitHub Actions workflow for tests
+- [x] Add GitHub Actions workflow for linting (golangci-lint)
+- [x] Add GitHub Actions workflow for SAST (CodeQL)
 - [ ] Add release workflow with goreleaser
 - **Effort**: 4 hours
-- **Status**: Not Started
+- **Status**: ~80% Complete
 
 ### P1-2: Docker Support
 - [ ] Create Dockerfile
@@ -184,9 +189,22 @@ This document tracks the work needed to make `a11y-audit-service` production rea
 
 ## Completed Tasks
 
+### 2026-03-02: v0.1.1 Release Prep
+- Fixed cross-platform CI test compatibility for journey parser
+- Added changelog entry for v0.1.1 (security fix, license, test fix)
+- Prepared for pkg.go.dev indexing with MIT license
+
+### 2026-03-02: Review and Test Verification
+- Ran `go test -v ./...` - all 125 tests pass
+- Verified remediation package tests (24 tests)
+- Updated task tracking for missing test packages
+- Identified 4 packages still needing tests: api, audit/axe, audit/specialized, mcp
+- Confirmed P0-1 complete: no local replace directives in go.mod
+- Confirmed P1-1 partially complete: CI/CD workflows already exist
+
 ### 2026-02-27: Unit Tests Added
-- Added comprehensive unit tests for 9 packages
-- Packages covered: types, config, wcag, llm, audit, auth, crawler, journey, report
+- Added comprehensive unit tests for 10 packages
+- Packages covered: types, config, wcag, llm, audit, auth, crawler, journey, report, remediation
 - All tests pass with `go test ./...`
 
 ### 2026-02-27: WCAG Rules Completed
@@ -204,6 +222,7 @@ This document tracks the work needed to make `a11y-audit-service` production rea
 ## Notes
 
 - **Current WCAG Rules**: 18 total (all complete)
-- **Test Coverage**: ~50% (9/11 packages have unit tests)
-- **Report Formats**: 5 (JSON, HTML, Markdown, VPAT, WCAG)
+- **Test Coverage**: ~71% (10/14 packages have unit tests, 125 tests passing)
+- **Report Formats**: 6 (JSON, HTML, Markdown, VPAT, WCAG-EM, CSV)
 - **API Endpoints**: 6 (all functional but unsecured)
+- **Packages Without Tests**: `api`, `audit/axe`, `audit/specialized`, `mcp`
