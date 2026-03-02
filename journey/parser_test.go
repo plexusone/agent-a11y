@@ -114,6 +114,9 @@ func TestParseFile(t *testing.T) {
 	parser := NewParser()
 	tmpDir := t.TempDir()
 
+	// Set the journey directory to the temp directory for this test
+	t.Setenv("A11Y_JOURNEY_DIR", tmpDir)
+
 	// Test YAML file
 	yamlPath := filepath.Join(tmpDir, "journey.yaml")
 	yamlContent := `
@@ -127,7 +130,8 @@ steps:
 		t.Fatalf("Failed to write YAML file: %v", err)
 	}
 
-	def, err := parser.ParseFile(yamlPath)
+	// Use relative path since getSafeJourneyPath joins with base directory
+	def, err := parser.ParseFile("journey.yaml")
 	if err != nil {
 		t.Fatalf("ParseFile(YAML) failed: %v", err)
 	}
@@ -142,7 +146,8 @@ steps:
 		t.Fatalf("Failed to write JSON file: %v", err)
 	}
 
-	def, err = parser.ParseFile(jsonPath)
+	// Use relative path since getSafeJourneyPath joins with base directory
+	def, err = parser.ParseFile("journey.json")
 	if err != nil {
 		t.Fatalf("ParseFile(JSON) failed: %v", err)
 	}
@@ -155,12 +160,16 @@ func TestParseFileUnsupportedFormat(t *testing.T) {
 	parser := NewParser()
 	tmpDir := t.TempDir()
 
+	// Set the journey directory to the temp directory for this test
+	t.Setenv("A11Y_JOURNEY_DIR", tmpDir)
+
 	txtPath := filepath.Join(tmpDir, "journey.txt")
 	if err := os.WriteFile(txtPath, []byte("name: test"), 0644); err != nil {
 		t.Fatalf("Failed to write file: %v", err)
 	}
 
-	_, err := parser.ParseFile(txtPath)
+	// Use relative path since getSafeJourneyPath joins with base directory
+	_, err := parser.ParseFile("journey.txt")
 	if err == nil {
 		t.Error("Expected error for unsupported format")
 	}
