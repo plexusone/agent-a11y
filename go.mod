@@ -27,7 +27,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.12 // indirect
 	github.com/googleapis/gax-go/v2 v2.17.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
-	github.com/grokify/mogo v0.73.2 // indirect
+	github.com/grokify/mogo v0.73.3 // indirect
 	github.com/grokify/sogo v0.14.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/invopop/jsonschema v0.13.0 // indirect
