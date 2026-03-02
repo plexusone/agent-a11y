@@ -7,6 +7,19 @@
   "maintainers": ["plexusone"],
   "releases": [
     {
+      "version": "v0.1.1",
+      "date": "2026-03-02",
+      "security": [
+        { "description": "Prevent path traversal in journey file loading", "commit": "47ac9f3" }
+      ],
+      "added": [
+        { "description": "MIT license for open source compliance", "commit": "50acd4d" }
+      ],
+      "fixed": [
+        { "description": "Cross-platform CI test compatibility for journey parser", "commit": "86348cb" }
+      ]
+    },
+    {
       "version": "v0.1.0",
       "date": "2026-02-28",
       "highlights": [
