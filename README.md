@@ -230,7 +230,7 @@ MIT
  [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/plexusone/agent-a11y
  [docs-godoc-url]: https://pkg.go.dev/github.com/plexusone/agent-a11y
  [viz-svg]: https://img.shields.io/badge/visualizaton-Go-blue.svg
- [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=grokify%2Fcoreforge
+ [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=plexusone%2Fagent-a11y
  [loc-svg]: https://tokei.rs/b1/github/plexusone/agent-a11y
  [repo-url]: https://github.com/plexusone/agent-a11y
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
