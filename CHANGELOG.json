@@ -7,6 +7,21 @@
   "maintainers": ["plexusone"],
   "releases": [
     {
+      "version": "v0.2.0",
+      "date": "2026-03-30",
+      "highlights": [
+        { "description": "Migrate browser automation from vibium-go to w3pilot" }
+      ],
+      "changed": [
+        { "description": "Browser automation library migrated from vibium-go to w3pilot", "commit": "9bd44bf" },
+        { "description": "Internal type renamed from `Vibe` to `Pilot` across all modules", "commit": "9bd44bf" }
+      ],
+      "dependencies": [
+        { "description": "w3pilot v0.8.0 replaces vibium-go for browser automation", "commit": "9bd44bf" },
+        { "description": "omnillm v0.14.0 for multi-provider LLM support", "commit": "9bd44bf" }
+      ]
+    },
+    {
       "version": "v0.1.1",
       "date": "2026-03-02",
       "security": [
