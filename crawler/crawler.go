@@ -11,12 +11,12 @@ import (
 	"sync"
 	"time"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // Crawler crawls websites discovering pages for accessibility auditing.
 type Crawler struct {
-	vibe   *vibium.Vibe
+	vibe   *vibium.Pilot
 	logger *slog.Logger
 	config Config
 }
@@ -103,7 +103,7 @@ type Result struct {
 }
 
 // NewCrawler creates a new crawler.
-func NewCrawler(vibe *vibium.Vibe, logger *slog.Logger, config Config) *Crawler {
+func NewCrawler(vibe *vibium.Pilot, logger *slog.Logger, config Config) *Crawler {
 	return &Crawler{
 		vibe:   vibe,
 		logger: logger,

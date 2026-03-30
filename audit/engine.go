@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/plexusone/omnillm"
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 
 	"github.com/plexusone/agent-a11y/audit/specialized"
 	"github.com/plexusone/agent-a11y/auth"
@@ -180,8 +180,8 @@ func (e *Engine) RunAudit(ctx context.Context, cfg *config.Config) (*AuditResult
 	return result, nil
 }
 
-func (e *Engine) initBrowser(ctx context.Context, cfg *config.Config) (*vibium.Vibe, error) {
-	var vibe *vibium.Vibe
+func (e *Engine) initBrowser(ctx context.Context, cfg *config.Config) (*vibium.Pilot, error) {
+	var vibe *vibium.Pilot
 	var err error
 
 	if cfg.Browser.Headless {
@@ -196,7 +196,7 @@ func (e *Engine) initBrowser(ctx context.Context, cfg *config.Config) (*vibium.V
 	return vibe, nil
 }
 
-func (e *Engine) authenticate(ctx context.Context, vibe *vibium.Vibe, cfg *config.Config) error {
+func (e *Engine) authenticate(ctx context.Context, vibe *vibium.Pilot, cfg *config.Config) error {
 	// Convert config.AuthSelectors to auth.FormSelectors
 	var formSelectors *auth.FormSelectors
 	if cfg.Auth.Selectors != nil {
@@ -222,7 +222,7 @@ func (e *Engine) authenticate(ctx context.Context, vibe *vibium.Vibe, cfg *confi
 	return handler.Authenticate(ctx)
 }
 
-func (e *Engine) executeJourney(ctx context.Context, vibe *vibium.Vibe, cfg *config.Config) ([]string, error) {
+func (e *Engine) executeJourney(ctx context.Context, vibe *vibium.Pilot, cfg *config.Config) ([]string, error) {
 	parser := journey.NewParser()
 	def, err := parser.ParseFile(cfg.Journey.Path)
 	if err != nil {
@@ -261,7 +261,7 @@ func (e *Engine) executeJourney(ctx context.Context, vibe *vibium.Vibe, cfg *con
 	return pages, nil
 }
 
-func (e *Engine) crawlSite(ctx context.Context, vibe *vibium.Vibe, cfg *config.Config) ([]string, error) {
+func (e *Engine) crawlSite(ctx context.Context, vibe *vibium.Pilot, cfg *config.Config) ([]string, error) {
 	crawlerCfg := crawler.Config{
 		MaxDepth:        cfg.Crawl.Depth,
 		MaxPages:        cfg.Crawl.MaxPages,
@@ -289,7 +289,7 @@ func (e *Engine) crawlSite(ctx context.Context, vibe *vibium.Vibe, cfg *config.C
 	return urls, nil
 }
 
-func (e *Engine) auditPage(ctx context.Context, vibe *vibium.Vibe, rules *wcag.Rules, judge *llm.Judge, pageURL string, cfg *config.Config) (*PageResult, error) {
+func (e *Engine) auditPage(ctx context.Context, vibe *vibium.Pilot, rules *wcag.Rules, judge *llm.Judge, pageURL string, cfg *config.Config) (*PageResult, error) {
 	e.logger.Debug("auditing page", "url", pageURL)
 
 	// Navigate to page
@@ -399,7 +399,7 @@ func (e *Engine) auditPage(ctx context.Context, vibe *vibium.Vibe, rules *wcag.R
 	return pageResult, nil
 }
 
-func (e *Engine) detectSPAFramework(ctx context.Context, vibe *vibium.Vibe) (string, bool) {
+func (e *Engine) detectSPAFramework(ctx context.Context, vibe *vibium.Pilot) (string, bool) {
 	script := `
 		(function() {
 			if (window.__NEXT_DATA__) return 'nextjs';

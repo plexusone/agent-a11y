@@ -7,7 +7,7 @@ import (
 	"log/slog"
 	"strings"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 	"github.com/plexusone/agent-a11y/types"
 )
 
@@ -29,7 +29,7 @@ type Rule interface {
 	Level() types.WCAGLevel
 
 	// Run executes the rule and returns findings
-	Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error)
+	Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error)
 }
 
 // Registry holds all available rules.
@@ -178,7 +178,7 @@ func (r *ImageAltRule) Description() string { return "Images must have alt text"
 func (r *ImageAltRule) SuccessCriteria() []string { return []string{"1.1.1"} }
 func (r *ImageAltRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *ImageAltRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *ImageAltRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		Array.from(document.querySelectorAll('img:not([role="presentation"]):not([role="none"])')).map(img => ({
 			selector: getSelector(img),
@@ -252,7 +252,7 @@ func (r *ImageButtonAltRule) Description() string { return "Image buttons must h
 func (r *ImageButtonAltRule) SuccessCriteria() []string { return []string{"1.1.1"} }
 func (r *ImageButtonAltRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *ImageButtonAltRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *ImageButtonAltRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		Array.from(document.querySelectorAll('input[type="image"]')).map(img => ({
 			selector: img.id ? '#' + img.id : 'input[type="image"]',
@@ -306,7 +306,7 @@ func (r *FormLabelRule) Description() string { return "Form inputs must have lab
 func (r *FormLabelRule) SuccessCriteria() []string { return []string{"1.3.1", "4.1.2"} }
 func (r *FormLabelRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *FormLabelRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *FormLabelRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const inputs = document.querySelectorAll('input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]), select, textarea');
 		Array.from(inputs).map(input => {
@@ -368,7 +368,7 @@ func (r *HeadingStructureRule) Description() string { return "Headings should fo
 func (r *HeadingStructureRule) SuccessCriteria() []string { return []string{"1.3.1"} }
 func (r *HeadingStructureRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *HeadingStructureRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *HeadingStructureRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
 		const levels = Array.from(headings).map(h => ({
@@ -450,7 +450,7 @@ func (r *TableHeaderRule) Description() string { return "Tables must have header
 func (r *TableHeaderRule) SuccessCriteria() []string { return []string{"1.3.1"} }
 func (r *TableHeaderRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *TableHeaderRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *TableHeaderRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		Array.from(document.querySelectorAll('table')).filter(table => {
 			// Skip layout tables
@@ -506,7 +506,7 @@ func (r *LandmarkRule) Description() string { return "Page should use landmark r
 func (r *LandmarkRule) SuccessCriteria() []string { return []string{"1.3.1"} }
 func (r *LandmarkRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *LandmarkRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *LandmarkRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const landmarks = {
 			main: document.querySelector('main, [role="main"]'),
@@ -549,7 +549,7 @@ func (r *ContrastRule) Description() string { return "Text must have sufficient 
 func (r *ContrastRule) SuccessCriteria() []string { return []string{"1.4.3"} }
 func (r *ContrastRule) Level() types.WCAGLevel { return types.WCAGLevelAA }
 
-func (r *ContrastRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *ContrastRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	// Color contrast checking with luminance calculation
 	script := `
 		function getLuminance(r, g, b) {
@@ -649,7 +649,7 @@ func (r *LinkDistinguishableRule) Description() string { return "Links must be d
 func (r *LinkDistinguishableRule) SuccessCriteria() []string { return []string{"1.4.1"} }
 func (r *LinkDistinguishableRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *LinkDistinguishableRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *LinkDistinguishableRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const links = document.querySelectorAll('a');
 		const issues = [];
@@ -717,7 +717,7 @@ func (r *KeyboardAccessRule) Description() string { return "All functionality mu
 func (r *KeyboardAccessRule) SuccessCriteria() []string { return []string{"2.1.1"} }
 func (r *KeyboardAccessRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *KeyboardAccessRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *KeyboardAccessRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const issues = [];
 
@@ -829,7 +829,7 @@ func (r *FocusVisibleRule) Description() string { return "Focus indicator must b
 func (r *FocusVisibleRule) SuccessCriteria() []string { return []string{"2.4.7"} }
 func (r *FocusVisibleRule) Level() types.WCAGLevel { return types.WCAGLevelAA }
 
-func (r *FocusVisibleRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *FocusVisibleRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const issues = [];
 
@@ -932,7 +932,7 @@ func (r *SkipLinkRule) Description() string { return "Page should have a skip li
 func (r *SkipLinkRule) SuccessCriteria() []string { return []string{"2.4.1"} }
 func (r *SkipLinkRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *SkipLinkRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *SkipLinkRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const firstLink = document.querySelector('a[href^="#"]');
 		const hasSkipLink = firstLink && (
@@ -975,7 +975,7 @@ func (r *PageTitleRule) Description() string { return "Page must have a title" }
 func (r *PageTitleRule) SuccessCriteria() []string { return []string{"2.4.2"} }
 func (r *PageTitleRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *PageTitleRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *PageTitleRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	title, err := vibe.Title(ctx)
 	if err != nil {
 		return nil, err
@@ -1004,7 +1004,7 @@ func (r *LinkPurposeRule) Description() string { return "Link purpose must be cl
 func (r *LinkPurposeRule) SuccessCriteria() []string { return []string{"2.4.4"} }
 func (r *LinkPurposeRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *LinkPurposeRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *LinkPurposeRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const vagueTexts = ['click here', 'here', 'read more', 'learn more', 'more', 'link'];
 		Array.from(document.querySelectorAll('a')).filter(a => {
@@ -1054,7 +1054,7 @@ func (r *DescriptiveHeadingRule) Description() string { return "Headings should 
 func (r *DescriptiveHeadingRule) SuccessCriteria() []string { return []string{"2.4.6"} }
 func (r *DescriptiveHeadingRule) Level() types.WCAGLevel { return types.WCAGLevelAA }
 
-func (r *DescriptiveHeadingRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *DescriptiveHeadingRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const vaguePhrases = [
 			'click here', 'read more', 'learn more', 'more', 'section', 'content',
@@ -1178,7 +1178,7 @@ func (r *LanguageRule) Description() string { return "Page must have a lang attr
 func (r *LanguageRule) SuccessCriteria() []string { return []string{"3.1.1"} }
 func (r *LanguageRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *LanguageRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *LanguageRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `document.documentElement.getAttribute('lang')`
 
 	result, err := vibe.Evaluate(ctx, script)
@@ -1210,7 +1210,7 @@ func (r *DuplicateIDRule) Description() string { return "IDs must be unique" }
 func (r *DuplicateIDRule) SuccessCriteria() []string { return []string{"4.1.1"} }
 func (r *DuplicateIDRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *DuplicateIDRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *DuplicateIDRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const ids = {};
 		const duplicates = [];
@@ -1264,7 +1264,7 @@ func (r *AriaLabelRule) Description() string { return "ARIA labels must be valid
 func (r *AriaLabelRule) SuccessCriteria() []string { return []string{"4.1.2"} }
 func (r *AriaLabelRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *AriaLabelRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *AriaLabelRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const issues = [];
 
@@ -1398,7 +1398,7 @@ func (r *ButtonNameRule) Description() string { return "Buttons must have access
 func (r *ButtonNameRule) SuccessCriteria() []string { return []string{"4.1.2"} }
 func (r *ButtonNameRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *ButtonNameRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *ButtonNameRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		Array.from(document.querySelectorAll('button, [role="button"]')).filter(btn => {
 			const text = btn.textContent.trim();
@@ -1448,7 +1448,7 @@ func (r *FormInputNameRule) Description() string { return "Form inputs must have
 func (r *FormInputNameRule) SuccessCriteria() []string { return []string{"4.1.2"} }
 func (r *FormInputNameRule) Level() types.WCAGLevel { return types.WCAGLevelA }
 
-func (r *FormInputNameRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types.Finding, error) {
+func (r *FormInputNameRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
 		const inputs = document.querySelectorAll(
 			'input:not([type="hidden"]):not([type="submit"]):not([type="reset"]):not([type="button"]):not([type="image"]), ' +
@@ -1539,12 +1539,12 @@ func (r *FormInputNameRule) Run(ctx context.Context, vibe *vibium.Vibe) ([]types
 // Rules provides a simplified interface for running WCAG accessibility rules.
 type Rules struct {
 	registry *Registry
-	vibe     *vibium.Vibe
+	vibe     *vibium.Pilot
 	logger   *slog.Logger
 }
 
 // NewRules creates a new Rules instance with all built-in rules.
-func NewRules(vibe *vibium.Vibe, logger *slog.Logger) *Rules {
+func NewRules(vibe *vibium.Pilot, logger *slog.Logger) *Rules {
 	return &Rules{
 		registry: NewRegistry(logger),
 		vibe:     vibe,

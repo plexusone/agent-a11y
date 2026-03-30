@@ -5,17 +5,17 @@ import (
 	"fmt"
 	"log/slog"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // Runner executes specialized accessibility tests.
 type Runner struct {
-	vibe   *vibium.Vibe
+	vibe   *vibium.Pilot
 	logger *slog.Logger
 }
 
 // NewRunner creates a new specialized test runner.
-func NewRunner(vibe *vibium.Vibe, logger *slog.Logger) *Runner {
+func NewRunner(vibe *vibium.Pilot, logger *slog.Logger) *Runner {
 	if logger == nil {
 		logger = slog.Default()
 	}

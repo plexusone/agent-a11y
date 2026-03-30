@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // TargetSizeTestResult contains results of target size testing.
@@ -34,7 +34,7 @@ type SmallTarget struct {
 }
 
 // TestTargetSize tests that touch targets are at least 24x24 CSS pixels (WCAG 2.5.8).
-func TestTargetSize(ctx context.Context, vibe *vibium.Vibe, minimumSize int) (*TargetSizeTestResult, error) {
+func TestTargetSize(ctx context.Context, vibe *vibium.Pilot, minimumSize int) (*TargetSizeTestResult, error) {
 	if minimumSize <= 0 {
 		minimumSize = 24 // WCAG 2.5.8 minimum
 	}

@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // HoverFocusResult contains results of content on hover/focus testing (WCAG 1.4.13).
@@ -39,7 +39,7 @@ type HoverElement struct {
 }
 
 // TestContentOnHoverFocus tests hover/focus triggered content (WCAG 1.4.13).
-func TestContentOnHoverFocus(ctx context.Context, vibe *vibium.Vibe) (*HoverFocusResult, error) {
+func TestContentOnHoverFocus(ctx context.Context, vibe *vibium.Pilot) (*HoverFocusResult, error) {
 	script := `
 	const result = {
 		hasHoverContent: false,

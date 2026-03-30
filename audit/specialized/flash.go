@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // FlashTestResult contains results of flashing content testing (WCAG 2.3.1).
@@ -28,7 +28,7 @@ type FlashingElement struct {
 }
 
 // TestThreeFlashes tests for content that flashes more than 3 times per second (WCAG 2.3.1).
-func TestThreeFlashes(ctx context.Context, vibe *vibium.Vibe) (*FlashTestResult, error) {
+func TestThreeFlashes(ctx context.Context, vibe *vibium.Pilot) (*FlashTestResult, error) {
 	script := `
 	const result = {
 		hasPotentialFlashing: false,

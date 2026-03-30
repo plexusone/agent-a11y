@@ -8,7 +8,7 @@ import (
 	"log/slog"
 	"time"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // AuthType represents the authentication method.
@@ -59,13 +59,13 @@ type FormSelectors struct {
 
 // Handler handles authentication for audits.
 type Handler struct {
-	vibe   *vibium.Vibe
+	vibe   *vibium.Pilot
 	logger *slog.Logger
 	config *Config
 }
 
 // NewHandler creates a new authentication handler.
-func NewHandler(vibe *vibium.Vibe, logger *slog.Logger, config *Config) *Handler {
+func NewHandler(vibe *vibium.Pilot, logger *slog.Logger, config *Config) *Handler {
 	return &Handler{
 		vibe:   vibe,
 		logger: logger,

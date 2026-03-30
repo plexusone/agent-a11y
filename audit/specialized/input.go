@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // CharacterShortcutResult contains results of character key shortcut testing (WCAG 2.1.4).
@@ -24,7 +24,7 @@ type CharacterShortcutResult struct {
 }
 
 // TestCharacterKeyShortcuts tests for single character key shortcuts (WCAG 2.1.4).
-func TestCharacterKeyShortcuts(ctx context.Context, vibe *vibium.Vibe) (*CharacterShortcutResult, error) {
+func TestCharacterKeyShortcuts(ctx context.Context, vibe *vibium.Pilot) (*CharacterShortcutResult, error) {
 	// This test checks for common patterns that indicate keyboard shortcuts
 	script := `
 	const result = {
@@ -100,7 +100,7 @@ type PointerCancellationResult struct {
 }
 
 // TestPointerCancellation tests that pointer actions can be cancelled (WCAG 2.5.2).
-func TestPointerCancellation(ctx context.Context, vibe *vibium.Vibe) (*PointerCancellationResult, error) {
+func TestPointerCancellation(ctx context.Context, vibe *vibium.Pilot) (*PointerCancellationResult, error) {
 	script := `
 	const result = {
 		hasMousedownActions: false,
@@ -165,7 +165,7 @@ type OnInputResult struct {
 }
 
 // TestOnInput tests that input changes don't cause unexpected context changes (WCAG 3.2.2).
-func TestOnInput(ctx context.Context, vibe *vibium.Vibe) (*OnInputResult, error) {
+func TestOnInput(ctx context.Context, vibe *vibium.Pilot) (*OnInputResult, error) {
 	script := `
 	const result = {
 		hasAutoSubmit: false,
@@ -244,7 +244,7 @@ type RedundantEntryResult struct {
 }
 
 // TestRedundantEntry tests that previously entered info is auto-populated (WCAG 3.3.7).
-func TestRedundantEntry(ctx context.Context, vibe *vibium.Vibe) (*RedundantEntryResult, error) {
+func TestRedundantEntry(ctx context.Context, vibe *vibium.Pilot) (*RedundantEntryResult, error) {
 	script := `
 	const result = {
 		hasMultiStepForm: false,

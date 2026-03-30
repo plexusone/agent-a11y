@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // ReflowTestResult contains results of reflow testing.
@@ -46,7 +46,7 @@ type Viewport struct {
 }
 
 // TestReflow tests content reflow at 320px width (WCAG 1.4.10).
-func TestReflow(ctx context.Context, vibe *vibium.Vibe) (*ReflowTestResult, error) {
+func TestReflow(ctx context.Context, vibe *vibium.Pilot) (*ReflowTestResult, error) {
 	result := &ReflowTestResult{
 		NoHorizontalScroll: true,
 		TestedViewport:     Viewport{Width: 320, Height: 480},
@@ -130,7 +130,7 @@ type scrollInfo struct {
 	ClientWidth         float64 `json:"clientWidth"`
 }
 
-func getScrollInfo(ctx context.Context, vibe *vibium.Vibe) (*scrollInfo, error) {
+func getScrollInfo(ctx context.Context, vibe *vibium.Pilot) (*scrollInfo, error) {
 	script := `
 	const body = document.body;
 	const html = document.documentElement;
@@ -161,7 +161,7 @@ func getScrollInfo(ctx context.Context, vibe *vibium.Vibe) (*scrollInfo, error) 
 	return info, nil
 }
 
-func getVisibleElements(ctx context.Context, vibe *vibium.Vibe) ([]string, error) {
+func getVisibleElements(ctx context.Context, vibe *vibium.Pilot) ([]string, error) {
 	script := `
 	const visible = [];
 	const elements = document.querySelectorAll('*');
@@ -199,7 +199,7 @@ func getVisibleElements(ctx context.Context, vibe *vibium.Vibe) ([]string, error
 	return visible, nil
 }
 
-func findOverflowingElements(ctx context.Context, vibe *vibium.Vibe) ([]OverflowElement, error) {
+func findOverflowingElements(ctx context.Context, vibe *vibium.Pilot) ([]OverflowElement, error) {
 	script := `
 	const viewportWidth = window.innerWidth;
 	const overflowing = [];

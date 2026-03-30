@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/plexusone/agent-a11y/types"
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 func TestNewRegistry(t *testing.T) {
@@ -347,6 +347,6 @@ func (r *mockRule) Name() string              { return r.name }
 func (r *mockRule) Description() string       { return r.description }
 func (r *mockRule) SuccessCriteria() []string { return r.successCriteria }
 func (r *mockRule) Level() types.WCAGLevel    { return r.level }
-func (r *mockRule) Run(_ context.Context, _ *vibium.Vibe) ([]types.Finding, error) {
+func (r *mockRule) Run(_ context.Context, _ *vibium.Pilot) ([]types.Finding, error) {
 	return nil, nil
 }

@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // SpacingTestResult contains results of text spacing testing.
@@ -49,7 +49,7 @@ const (
 )
 
 // TestTextSpacing tests that content adapts to increased text spacing (WCAG 1.4.12).
-func TestTextSpacing(ctx context.Context, vibe *vibium.Vibe) (*SpacingTestResult, error) {
+func TestTextSpacing(ctx context.Context, vibe *vibium.Pilot) (*SpacingTestResult, error) {
 	result := &SpacingTestResult{
 		PassesSpacingTest: true,
 	}
@@ -142,7 +142,7 @@ type elementState struct {
 	HasOverflow bool    `json:"hasOverflow"`
 }
 
-func getTextElementsState(ctx context.Context, vibe *vibium.Vibe) (map[string]elementState, error) {
+func getTextElementsState(ctx context.Context, vibe *vibium.Pilot) (map[string]elementState, error) {
 	script := `
 	const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, span, a, label, button');
 	const states = {};
@@ -196,7 +196,7 @@ func getTextElementsState(ctx context.Context, vibe *vibium.Vibe) (map[string]el
 	return data, nil
 }
 
-func checkForOverlaps(ctx context.Context, vibe *vibium.Vibe) ([]OverlapIssue, error) {
+func checkForOverlaps(ctx context.Context, vibe *vibium.Pilot) ([]OverlapIssue, error) {
 	script := `
 	const elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li');
 	const overlaps = [];

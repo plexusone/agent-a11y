@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // AudioControlResult contains results of audio control testing (WCAG 1.4.2).
@@ -32,7 +32,7 @@ type AutoplayElement struct {
 }
 
 // TestAudioControl tests for auto-playing audio with controls (WCAG 1.4.2).
-func TestAudioControl(ctx context.Context, vibe *vibium.Vibe) (*AudioControlResult, error) {
+func TestAudioControl(ctx context.Context, vibe *vibium.Pilot) (*AudioControlResult, error) {
 	script := `
 	const result = {
 		hasAutoplayAudio: false,
@@ -120,7 +120,7 @@ type MovingElement struct {
 }
 
 // TestPauseStopHide tests for pause/stop mechanisms on moving content (WCAG 2.2.2).
-func TestPauseStopHide(ctx context.Context, vibe *vibium.Vibe) (*AnimationResult, error) {
+func TestPauseStopHide(ctx context.Context, vibe *vibium.Pilot) (*AnimationResult, error) {
 	script := `
 	const result = {
 		hasMovingContent: false,
@@ -232,7 +232,7 @@ type TimingResult struct {
 }
 
 // TestTimingAdjustable tests for adjustable time limits (WCAG 2.2.1).
-func TestTimingAdjustable(ctx context.Context, vibe *vibium.Vibe) (*TimingResult, error) {
+func TestTimingAdjustable(ctx context.Context, vibe *vibium.Pilot) (*TimingResult, error) {
 	script := `
 	const result = {
 		hasMetaRefresh: false,

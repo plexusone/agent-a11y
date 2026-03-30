@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // ResizeTextResult contains results of text resize testing (WCAG 1.4.4).
@@ -30,7 +30,7 @@ type ResizeTextResult struct {
 }
 
 // TestResizeText tests that text can be resized up to 200% without loss (WCAG 1.4.4).
-func TestResizeText(ctx context.Context, vibe *vibium.Vibe) (*ResizeTextResult, error) {
+func TestResizeText(ctx context.Context, vibe *vibium.Pilot) (*ResizeTextResult, error) {
 	// First, get baseline measurements at normal zoom
 	baselineScript := `
 	const textElements = document.querySelectorAll('p, span, div, li, td, th, h1, h2, h3, h4, h5, h6, label, a');

@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // KeyboardTestResult contains results of keyboard accessibility testing.
@@ -42,7 +42,7 @@ type FocusedElement struct {
 }
 
 // TestKeyboardAccessibility tests keyboard navigation (WCAG 2.1.1, 2.1.2).
-func TestKeyboardAccessibility(ctx context.Context, vibe *vibium.Vibe, maxTabs int) (*KeyboardTestResult, error) {
+func TestKeyboardAccessibility(ctx context.Context, vibe *vibium.Pilot, maxTabs int) (*KeyboardTestResult, error) {
 	if maxTabs <= 0 {
 		maxTabs = 100 // Default limit to prevent infinite loops
 	}
@@ -125,7 +125,7 @@ func TestKeyboardAccessibility(ctx context.Context, vibe *vibium.Vibe, maxTabs i
 }
 
 // getInteractiveElements returns selectors for all interactive elements.
-func getInteractiveElements(ctx context.Context, vibe *vibium.Vibe) ([]string, error) {
+func getInteractiveElements(ctx context.Context, vibe *vibium.Pilot) ([]string, error) {
 	script := `
 	const interactive = document.querySelectorAll(
 		'a[href], button, input:not([type="hidden"]), select, textarea, ' +
@@ -161,7 +161,7 @@ func getInteractiveElements(ctx context.Context, vibe *vibium.Vibe) ([]string, e
 }
 
 // getFocusedElement returns information about the currently focused element.
-func getFocusedElement(ctx context.Context, vibe *vibium.Vibe, index int) (*FocusedElement, error) {
+func getFocusedElement(ctx context.Context, vibe *vibium.Pilot, index int) (*FocusedElement, error) {
 	script := `
 	const el = document.activeElement;
 	if (!el || el === document.body) return null;

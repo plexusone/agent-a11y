@@ -8,7 +8,7 @@ import (
 	"image"
 	"image/png"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // FocusVisibilityResult contains results of focus visibility testing.
@@ -33,7 +33,7 @@ type FocusVisibilityIssue struct {
 
 // TestFocusVisibility tests that focus indicators are visible (WCAG 2.4.7).
 // It tabs through elements and compares screenshots to detect focus changes.
-func TestFocusVisibility(ctx context.Context, vibe *vibium.Vibe, maxElements int) (*FocusVisibilityResult, error) {
+func TestFocusVisibility(ctx context.Context, vibe *vibium.Pilot, maxElements int) (*FocusVisibilityResult, error) {
 	if maxElements <= 0 {
 		maxElements = 50
 	}
@@ -182,7 +182,7 @@ type FocusOrderResult struct {
 }
 
 // TestFocusOrder tests that focus order preserves meaning (WCAG 2.4.3).
-func TestFocusOrder(ctx context.Context, vibe *vibium.Vibe) (*FocusOrderResult, error) {
+func TestFocusOrder(ctx context.Context, vibe *vibium.Pilot) (*FocusOrderResult, error) {
 	script := `
 	const result = {
 		totalFocusable: 0,
@@ -304,7 +304,7 @@ type FocusObscuredResult struct {
 }
 
 // TestFocusNotObscured tests that focused elements aren't hidden (WCAG 2.4.11).
-func TestFocusNotObscured(ctx context.Context, vibe *vibium.Vibe) (*FocusObscuredResult, error) {
+func TestFocusNotObscured(ctx context.Context, vibe *vibium.Pilot) (*FocusObscuredResult, error) {
 	script := `
 	const result = {
 		testedElements: 0,
@@ -429,7 +429,7 @@ type OnFocusResult struct {
 }
 
 // TestOnFocus tests that focus doesn't cause context changes (WCAG 3.2.1).
-func TestOnFocus(ctx context.Context, vibe *vibium.Vibe) (*OnFocusResult, error) {
+func TestOnFocus(ctx context.Context, vibe *vibium.Pilot) (*OnFocusResult, error) {
 	script := `
 	const result = {
 		hasOnFocusHandlers: false,

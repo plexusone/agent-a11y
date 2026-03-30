@@ -8,12 +8,12 @@ import (
 	"strings"
 	"time"
 
-	vibium "github.com/plexusone/vibium-go"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // Executor runs journey definitions using vibium for browser automation.
 type Executor struct {
-	vibe     *vibium.Vibe
+	vibe     *vibium.Pilot
 	logger   *slog.Logger
 	compiler *Compiler
 	config   ExecutorConfig
@@ -33,7 +33,7 @@ type ExecutorConfig struct {
 
 // NewExecutor creates a new journey executor.
 // The compiler parameter is optional - pass nil if LLM compilation is not needed.
-func NewExecutor(vibe *vibium.Vibe, compiler *Compiler, logger *slog.Logger) *Executor {
+func NewExecutor(vibe *vibium.Pilot, compiler *Compiler, logger *slog.Logger) *Executor {
 	return &Executor{
 		vibe:     vibe,
 		logger:   logger,

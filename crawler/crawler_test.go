@@ -247,7 +247,7 @@ func TestConfigValidation(t *testing.T) {
 func TestNewCrawler(t *testing.T) {
 	cfg := DefaultConfig()
 
-	// Note: NewCrawler requires a vibium.Vibe instance, which we can't create in unit tests
+	// Note: NewCrawler requires a vibium.Pilot instance, which we can't create in unit tests
 	// This test just verifies the function signature and nil handling
 	c := NewCrawler(nil, nil, cfg)
 	if c == nil {
