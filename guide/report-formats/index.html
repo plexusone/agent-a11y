@@ -595,6 +595,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#openacr" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenACR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#csv" class="md-nav__link">
     <span class="md-ellipsis">
       CSV
@@ -609,6 +618,21 @@
       Go Library
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Go Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openacr-with-custom-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenACR with Custom Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -899,6 +923,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.3.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.3.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.2.0/" class="md-nav__link">
         
   
@@ -1017,6 +1064,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#openacr" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenACR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#csv" class="md-nav__link">
     <span class="md-ellipsis">
       CSV
@@ -1031,6 +1087,21 @@
       Go Library
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Go Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openacr-with-custom-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenACR with Custom Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1115,9 +1186,61 @@
 <li>Sample selection documentation</li>
 <li>Audit results</li>
 </ul>
+<h2 id="openacr">OpenACR<a class="headerlink" href="#openacr" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/GSA/openacr">OpenACR</a> is a machine-readable format for accessibility conformance reports developed by the GSA.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span>--format<span class="w"> </span>openacr<span class="w"> </span>-o<span class="w"> </span>report.yaml
+</code></pre></div>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Machine-readable YAML/JSON format</li>
+<li>Based on VPAT structure</li>
+<li>Supports multiple WCAG versions and catalogs</li>
+<li>Compatible with GSA accessibility reporting tools</li>
+</ul>
+<p><strong>Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example Site Accessibility Conformance Report</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">product</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.com</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nt">catalog</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.5-edition-wcag-2.2-508-en</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nt">author</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent-a11y</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nt">report_date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2025-01-15&quot;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nt">chapters</span><span class="p">:</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nt">success_criteria_level_a</span><span class="p">:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">criteria</span><span class="p">:</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">num</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.1.1&quot;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="nt">components</span><span class="p">:</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="nt">adherence</span><span class="p">:</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">              </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">supports</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">              </span><span class="nt">notes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All images have appropriate alt text.</span>
+</code></pre></div>
+<p><strong>Available Catalogs:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Catalog ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2.5-edition-wcag-2.2-508-en</code></td>
+<td>WCAG 2.2 + Section 508 (default)</td>
+</tr>
+<tr>
+<td><code>2.5-edition-wcag-2.1-508-en</code></td>
+<td>WCAG 2.1 + Section 508</td>
+</tr>
+<tr>
+<td><code>2.5-edition-wcag-2.0-508-en</code></td>
+<td>WCAG 2.0 + Section 508</td>
+</tr>
+</tbody>
+</table>
 <h2 id="csv">CSV<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h2>
 <p>Spreadsheet-compatible format for data analysis.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span>--format<span class="w"> </span>csv<span class="w"> </span>-o<span class="w"> </span>findings.csv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span>--format<span class="w"> </span>csv<span class="w"> </span>-o<span class="w"> </span>findings.csv
 </code></pre></div>
 <p><strong>Columns:</strong></p>
 <ul>
@@ -1126,22 +1249,41 @@
 <li>Success Criteria, Help URL</li>
 </ul>
 <h2 id="go-library">Go Library<a class="headerlink" href="#go-library" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">auditor</span><span class="p">.</span><span class="nx">AuditPage</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">// JSON</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nx">jsonBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">JSON</span><span class="p">()</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1">// HTML</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nx">htmlBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">HTML</span><span class="p">()</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1">// Markdown</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nx">mdBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">Markdown</span><span class="p">()</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1">// VPAT</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="nx">vpatBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">VPAT</span><span class="p">()</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c1">// WCAG-EM</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="nx">wcagBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">WCAG</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/agent-a11y/report&quot;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">auditor</span><span class="p">.</span><span class="nx">AuditPage</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">// Using report.Writer for any format</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nx">writer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">report</span><span class="p">.</span><span class="nx">NewWriter</span><span class="p">(</span><span class="nx">report</span><span class="p">.</span><span class="nx">FormatJSON</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nx">writer</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">outputFile</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">// Available formats</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="nx">report</span><span class="p">.</span><span class="nx">FormatJSON</span><span class="w">     </span><span class="c1">// JSON</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nx">report</span><span class="p">.</span><span class="nx">FormatHTML</span><span class="w">     </span><span class="c1">// HTML</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nx">report</span><span class="p">.</span><span class="nx">FormatMarkdown</span><span class="w"> </span><span class="c1">// Markdown</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="nx">report</span><span class="p">.</span><span class="nx">FormatVPAT</span><span class="w">     </span><span class="c1">// VPAT 2.4</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="nx">report</span><span class="p">.</span><span class="nx">FormatWCAG</span><span class="w">     </span><span class="c1">// WCAG-EM</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="nx">report</span><span class="p">.</span><span class="nx">FormatOpenACR</span><span class="w">  </span><span class="c1">// OpenACR</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="nx">report</span><span class="p">.</span><span class="nx">FormatCSV</span><span class="w">      </span><span class="c1">// CSV</span>
+</code></pre></div>
+<h3 id="openacr-with-custom-options">OpenACR with Custom Options<a class="headerlink" href="#openacr-with-custom-options" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/agent-a11y/report&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">// Generate OpenACR with custom metadata</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nx">openACRReport</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">report</span><span class="p">.</span><span class="nx">GenerateOpenACR</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">report</span><span class="p">.</span><span class="nx">OpenACROptions</span><span class="p">{</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nx">ProductName</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;My Application&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nx">ProductVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nx">AuthorName</span><span class="p">:</span><span class="w">     </span><span class="s">&quot;Accessibility Team&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nx">AuthorEmail</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;a11y@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nx">VendorName</span><span class="p">:</span><span class="w">     </span><span class="s">&quot;My Company&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="nx">CatalogID</span><span class="p">:</span><span class="w">      </span><span class="s">&quot;2.5-edition-wcag-2.2-508-en&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="p">})</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c1">// Write as YAML</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="nx">openACRReport</span><span class="p">.</span><span class="nx">WriteYAML</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1">// Or as JSON</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="nx">jsonBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openACRReport</span><span class="p">.</span><span class="nx">JSON</span><span class="p">()</span>
 </code></pre></div>
 
 

@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agent-a11y/reference/cli/">
+        <link rel="canonical" href="https://plexusone.github.io/agent-a11y/releases/v0.3.0/">
       
       
-        <link rel="prev" href="../../guide/report-formats/">
+        <link rel="prev" href="../../architecture/overview/">
       
       
-        <link rel="next" href="../api/">
+        <link rel="next" href="../v0.2.0/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>CLI - agent-a11y</title>
+        <title>v0.3.0 - agent-a11y</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cli-reference" class="md-skip">
+        <a href="#v030" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CLI
+              v0.3.0
             
           </span>
         </div>
@@ -527,8 +527,6 @@
       
   
   
-    
-  
   
   
     
@@ -541,11 +539,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -561,7 +561,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -572,32 +572,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    CLI
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/cli/" class="md-nav__link">
         
   
   
@@ -608,113 +586,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-audit" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y audit
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-serve" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y serve
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-mcp-serve" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y mcp serve
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-compare" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y compare
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-demo" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y demo
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y version
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#global-flags" class="md-nav__link">
-    <span class="md-ellipsis">
-      Global Flags
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit Codes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -727,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+      <a href="../../reference/api/" class="md-nav__link">
         
   
   
@@ -750,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../library/" class="md-nav__link">
+      <a href="../../reference/library/" class="md-nav__link">
         
   
   
@@ -773,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mcp/" class="md-nav__link">
+      <a href="../../reference/mcp/" class="md-nav__link">
         
   
   
@@ -875,8 +746,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -887,13 +760,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -909,7 +780,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Releases
@@ -920,10 +791,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../releases/v0.3.0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    v0.3.0
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -934,6 +827,149 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's New
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s New">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openacr-report-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenACR Report Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Go Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-catalogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Catalogs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Coverage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -946,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.2.0/" class="md-nav__link">
+      <a href="../v0.2.0/" class="md-nav__link">
         
   
   
@@ -969,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.1.0/" class="md-nav__link">
+      <a href="../v0.1.0/" class="md-nav__link">
         
   
   
@@ -1019,64 +1055,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Highlights
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Commands">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's New
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s New">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#agent-a11y-audit" class="md-nav__link">
+  <a href="#openacr-report-format" class="md-nav__link">
     <span class="md-ellipsis">
-      agent-a11y audit
+      OpenACR Report Format
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agent-a11y-serve" class="md-nav__link">
+  <a href="#api-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
-      agent-a11y serve
+      API Endpoint
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agent-a11y-mcp-serve" class="md-nav__link">
+  <a href="#go-library" class="md-nav__link">
     <span class="md-ellipsis">
-      agent-a11y mcp serve
+      Go Library
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agent-a11y-compare" class="md-nav__link">
+  <a href="#available-catalogs" class="md-nav__link">
     <span class="md-ellipsis">
-      agent-a11y compare
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-demo" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y demo
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-a11y-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      agent-a11y version
+      Available Catalogs
     </span>
   </a>
   
@@ -1088,18 +1124,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#global-flags" class="md-nav__link">
+  <a href="#bug-fixes" class="md-nav__link">
     <span class="md-ellipsis">
-      Global Flags
+      Bug Fixes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
+  <a href="#test-coverage" class="md-nav__link">
     <span class="md-ellipsis">
-      Exit Codes
+      Test Coverage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
     </span>
   </a>
   
@@ -1124,228 +1196,158 @@
   
 
 
-<h1 id="cli-reference">CLI Reference<a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h1>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<h3 id="agent-a11y-audit">agent-a11y audit<a class="headerlink" href="#agent-a11y-audit" title="Permanent link">&para;</a></h3>
-<p>Run an accessibility audit.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>&lt;url&gt;<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
-</code></pre></div>
-<p><strong>Arguments:</strong></p>
+<h1 id="v030">v0.3.0<a class="headerlink" href="#v030" title="Permanent link">&para;</a></h1>
+<p><strong>Release Date:</strong> 2026-06-06</p>
+<h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>&lt;url&gt;</code> - URL to audit (required)</li>
+<li><strong>OpenACR Support</strong> - Machine-readable accessibility conformance reports in GSA OpenACR format</li>
 </ul>
-<p><strong>Flags:</strong></p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This release adds support for <a href="https://github.com/GSA/openacr">OpenACR</a> (Open Accessibility Conformance Report), a machine-readable format for accessibility conformance reports developed by the GSA. OpenACR is based on the VPAT (Voluntary Product Accessibility Template) format and provides structured, machine-processable accessibility documentation.</p>
+<h2 id="whats-new">What's New<a class="headerlink" href="#whats-new" title="Permanent link">&para;</a></h2>
+<h3 id="openacr-report-format">OpenACR Report Format<a class="headerlink" href="#openacr-report-format" title="Permanent link">&para;</a></h3>
+<p>Generate accessibility reports in OpenACR format for automated processing and compliance documentation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># CLI usage</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span>--format<span class="w"> </span>openacr<span class="w"> </span>-o<span class="w"> </span>report.yaml
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># HTTP API</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>curl<span class="w"> </span>http://localhost:8080/api/v1/audits/<span class="o">{</span>id<span class="o">}</span>/openacr
+</code></pre></div>
+<h3 id="api-endpoint">API Endpoint<a class="headerlink" href="#api-endpoint" title="Permanent link">&para;</a></h3>
+<p>New endpoint <code>GET /api/v1/audits/{id}/openacr</code> for exporting audit results as OpenACR:</p>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Short</th>
-<th>Description</th>
+<th>Parameter</th>
 <th>Default</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--level</code></td>
-<td></td>
-<td>WCAG level (A, AA, AAA)</td>
-<td>AA</td>
+<td><code>format</code></td>
+<td><code>yaml</code></td>
+<td>Output format: <code>yaml</code> or <code>json</code></td>
 </tr>
 <tr>
-<td><code>--version</code></td>
-<td></td>
-<td>WCAG version (2.0, 2.1, 2.2)</td>
-<td>2.2</td>
+<td><code>product_name</code></td>
+<td>URL</td>
+<td>Product name override</td>
 </tr>
 <tr>
-<td><code>--format</code></td>
-<td><code>-f</code></td>
-<td>Output format</td>
-<td>json</td>
+<td><code>product_version</code></td>
+<td>-</td>
+<td>Product version</td>
 </tr>
 <tr>
-<td><code>--output</code></td>
-<td><code>-o</code></td>
-<td>Output file path</td>
-<td>stdout</td>
+<td><code>author_name</code></td>
+<td><code>agent-a11y</code></td>
+<td>Author name</td>
 </tr>
 <tr>
-<td><code>--crawl</code></td>
-<td></td>
-<td>Enable site crawling</td>
-<td>false</td>
+<td><code>author_email</code></td>
+<td>-</td>
+<td>Author email</td>
 </tr>
 <tr>
-<td><code>--depth</code></td>
-<td></td>
-<td>Crawl depth</td>
-<td>2</td>
+<td><code>vendor_name</code></td>
+<td>-</td>
+<td>Vendor company name</td>
 </tr>
 <tr>
-<td><code>--max-pages</code></td>
-<td></td>
-<td>Maximum pages</td>
-<td>50</td>
-</tr>
-<tr>
-<td><code>--delay</code></td>
-<td></td>
-<td>Request delay</td>
-<td>500ms</td>
-</tr>
-<tr>
-<td><code>--journey</code></td>
-<td></td>
-<td>Journey file path</td>
-<td></td>
-</tr>
-<tr>
-<td><code>--specialized</code></td>
-<td></td>
-<td>Run specialized tests</td>
-<td>false</td>
-</tr>
-<tr>
-<td><code>--llm-provider</code></td>
-<td></td>
-<td>LLM provider</td>
-<td></td>
-</tr>
-<tr>
-<td><code>--llm-model</code></td>
-<td></td>
-<td>LLM model</td>
-<td></td>
-</tr>
-<tr>
-<td><code>--headless</code></td>
-<td></td>
-<td>Headless browser</td>
-<td>true</td>
-</tr>
-<tr>
-<td><code>--timeout</code></td>
-<td></td>
-<td>Browser timeout</td>
-<td>30s</td>
+<td><code>catalog</code></td>
+<td>auto</td>
+<td>Catalog ID (e.g., <code>2.5-edition-wcag-2.2-508-en</code>)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Basic audit</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># WCAG 2.1 Level AAA</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span>--level<span class="w"> </span>AAA<span class="w"> </span>--version<span class="w"> </span><span class="m">2</span>.1
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Site crawl with HTML report</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span>--crawl<span class="w"> </span>-o<span class="w"> </span>report.html<span class="w"> </span>-f<span class="w"> </span>html
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># With LLM evaluation</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span>--llm-provider<span class="w"> </span>anthropic<span class="w"> </span>--llm-model<span class="w"> </span>claude-sonnet-4-20250514
+<h3 id="go-library">Go Library<a class="headerlink" href="#go-library" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/agent-a11y/report&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// Generate OpenACR with custom options</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nx">openACRReport</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">report</span><span class="p">.</span><span class="nx">GenerateOpenACR</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">report</span><span class="p">.</span><span class="nx">OpenACROptions</span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">ProductName</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;My Application&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">ProductVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nx">AuthorName</span><span class="p">:</span><span class="w">     </span><span class="s">&quot;Accessibility Team&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nx">AuthorEmail</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;a11y@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">CatalogID</span><span class="p">:</span><span class="w">      </span><span class="s">&quot;2.5-edition-wcag-2.2-508-en&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">})</span>
 </code></pre></div>
-<h3 id="agent-a11y-serve">agent-a11y serve<a class="headerlink" href="#agent-a11y-serve" title="Permanent link">&para;</a></h3>
-<p>Start the HTTP API server.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>agent-a11y<span class="w"> </span>serve<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
-</code></pre></div>
-<p><strong>Flags:</strong></p>
+<h3 id="available-catalogs">Available Catalogs<a class="headerlink" href="#available-catalogs" title="Permanent link">&para;</a></h3>
+<p>The following GSA catalogs are supported:</p>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
+<th>Catalog</th>
 <th>Description</th>
-<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--port</code></td>
-<td>Server port</td>
-<td>8080</td>
+<td><code>2.5-edition-wcag-2.2-508-en</code></td>
+<td>WCAG 2.2 + Section 508 (default for 2.2)</td>
 </tr>
 <tr>
-<td><code>--host</code></td>
-<td>Server host</td>
-<td>localhost</td>
+<td><code>2.5-edition-wcag-2.1-508-en</code></td>
+<td>WCAG 2.1 + Section 508 (default for 2.1)</td>
+</tr>
+<tr>
+<td><code>2.5-edition-wcag-2.0-508-en</code></td>
+<td>WCAG 2.0 + Section 508 (default for 2.0)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="agent-a11y-mcp-serve">agent-a11y mcp serve<a class="headerlink" href="#agent-a11y-mcp-serve" title="Permanent link">&para;</a></h3>
-<p>Start the MCP server for AI assistant integration.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>agent-a11y<span class="w"> </span>mcp<span class="w"> </span>serve
-</code></pre></div>
-<p>Communicates via stdio for MCP protocol.</p>
-<h3 id="agent-a11y-compare">agent-a11y compare<a class="headerlink" href="#agent-a11y-compare" title="Permanent link">&para;</a></h3>
-<p>Compare accessibility between two URLs.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>agent-a11y<span class="w"> </span>compare<span class="w"> </span>&lt;before-url&gt;<span class="w"> </span>&lt;after-url&gt;<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
-</code></pre></div>
-<p>Shows:</p>
+<h2 id="bug-fixes">Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Issues fixed</li>
-<li>Issues introduced</li>
-<li>Issues unchanged</li>
+<li>Fixed job ID generation to use <code>crypto/rand</code> instead of timestamp-based IDs, ensuring uniqueness on fast systems</li>
 </ul>
-<h3 id="agent-a11y-demo">agent-a11y demo<a class="headerlink" href="#agent-a11y-demo" title="Permanent link">&para;</a></h3>
-<p>Run demo audits on sample sites.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># List available demos</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>list
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Run a specific demo</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>run<span class="w"> </span>w3c-bad
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Generate a demo site</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>generate<span class="w"> </span>my-demo
-</code></pre></div>
-<h3 id="agent-a11y-version">agent-a11y version<a class="headerlink" href="#agent-a11y-version" title="Permanent link">&para;</a></h3>
-<p>Show version information.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>agent-a11y<span class="w"> </span>version
-</code></pre></div>
-<h2 id="global-flags">Global Flags<a class="headerlink" href="#global-flags" title="Permanent link">&para;</a></h2>
+<h2 id="test-coverage">Test Coverage<a class="headerlink" href="#test-coverage" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Added comprehensive API endpoint tests (18 tests) covering all handlers</li>
+<li>Added OpenACR conversion tests for catalog selection and adherence level mapping</li>
+</ul>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Description</th>
+<th>Dependency</th>
+<th>Version</th>
+<th>Change</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--config</code></td>
-<td>Config file path</td>
+<td><a href="https://github.com/plexusone/openacr-go">openacr-go</a></td>
+<td>v0.1.0</td>
+<td>New</td>
 </tr>
 <tr>
-<td><code>--verbose</code></td>
-<td>Verbose output</td>
+<td><a href="https://github.com/plexusone/omnillm">omnillm</a></td>
+<td>v0.15.4</td>
+<td>Updated</td>
 </tr>
 <tr>
-<td><code>--help</code></td>
-<td>Show help</td>
+<td><a href="https://github.com/modelcontextprotocol/go-sdk">MCP SDK</a></td>
+<td>v1.6.1</td>
+<td>Updated</td>
 </tr>
 </tbody>
 </table>
-<h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>Success (conformant)</td>
-</tr>
-<tr>
-<td>1</td>
-<td>Non-conformant (issues found)</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Error (audit failed)</td>
-</tr>
-</tbody>
-</table>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>go<span class="w"> </span>install<span class="w"> </span>github.com/plexusone/agent-a11y/cmd/agent-a11y@v0.3.0
+</code></pre></div>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../guide/report-formats/">Report Formats Guide</a> - OpenACR section with examples</li>
+<li><a href="../../reference/api/">HTTP API Reference</a> - OpenACR endpoint documentation</li>
+<li><a href="../../reference/library/">Go Library Reference</a> - OpenACR generation API</li>
+</ul>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/GSA/openacr">OpenACR Specification</a></li>
+<li><a href="https://www.itic.org/policy/accessibility/vpat">VPAT</a></li>
+<li><a href="https://github.com/plexusone/openacr-go">openacr-go Library</a></li>
+</ul>
 
 
 
