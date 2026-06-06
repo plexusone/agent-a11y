@@ -23,6 +23,7 @@ const (
 	FormatCSV      Format = "csv"
 	FormatVPAT     Format = "vpat"
 	FormatWCAG     Format = "wcag"
+	FormatOpenACR  Format = "openacr"
 )
 
 // Writer writes audit results in various formats.
@@ -50,6 +51,8 @@ func (w *Writer) Write(out io.Writer, result *audit.AuditResult) error {
 		return w.writeVPAT(out, result)
 	case FormatWCAG:
 		return w.writeWCAGReport(out, result)
+	case FormatOpenACR:
+		return w.writeOpenACR(out, result)
 	default:
 		return fmt.Errorf("unsupported format: %s", w.format)
 	}
