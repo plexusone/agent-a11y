@@ -7,6 +7,37 @@
   "maintainers": ["plexusone"],
   "releases": [
     {
+      "version": "v0.3.0",
+      "date": "2026-06-06",
+      "commit": "9ac7c47",
+      "highlights": [
+        { "description": "OpenACR (Open Accessibility Conformance Report) support for machine-readable accessibility reports" }
+      ],
+      "added": [
+        { "description": "OpenACR report format via `github.com/plexusone/openacr-go` library", "commit": "0a55d99" },
+        { "description": "`FormatOpenACR` constant and OpenACR writer in report package", "commit": "0a55d99" },
+        { "description": "`GenerateOpenACR()` function with `OpenACROptions` for custom metadata", "commit": "0a55d99" },
+        { "description": "`GET /api/v1/audits/{id}/openacr` endpoint for OpenACR export", "commit": "e3c2bc0" },
+        { "description": "OpenACR endpoint supports YAML/JSON format via query parameter", "commit": "e3c2bc0" },
+        { "description": "Custom metadata support: product_name, author_email, vendor_name, catalog", "commit": "e3c2bc0" }
+      ],
+      "fixed": [
+        { "description": "Use `crypto/rand` for job ID generation to ensure uniqueness", "commit": "e3c2bc0" }
+      ],
+      "tests": [
+        { "description": "Comprehensive API endpoint tests (18 tests) covering all handlers", "commit": "7e55d35" },
+        { "description": "OpenACR conversion tests for catalog selection and adherence mapping", "commit": "7e55d35" }
+      ],
+      "documentation": [
+        { "description": "OpenACR section in report formats guide with usage examples", "commit": "cc87323" },
+        { "description": "OpenACR API endpoint documentation with query parameters", "commit": "cc87323" },
+        { "description": "Updated CLI help text to include OpenACR format option", "commit": "cc87323" }
+      ],
+      "dependencies": [
+        { "description": "`github.com/plexusone/openacr-go` v0.1.0 for OpenACR document handling", "commit": "9ac7c47" }
+      ]
+    },
+    {
       "version": "v0.2.0",
       "date": "2026-03-30",
       "highlights": [
