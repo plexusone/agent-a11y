@@ -3,15 +3,19 @@ package api
 
 import (
 	"context"
+	"crypto/rand"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"log/slog"
 	"net/http"
+	"strings"
 	"sync"
 	"time"
 
 	"github.com/plexusone/agent-a11y/audit"
 	"github.com/plexusone/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/report"
 )
 
 // Server is the REST API server.
@@ -60,6 +64,7 @@ func (s *Server) Start(ctx context.Context) error {
 	mux.HandleFunc("GET /api/v1/audits/{id}", s.handleGetAudit)
 	mux.HandleFunc("DELETE /api/v1/audits/{id}", s.handleCancelAudit)
 	mux.HandleFunc("GET /api/v1/audits/{id}/report", s.handleGetReport)
+	mux.HandleFunc("GET /api/v1/audits/{id}/openacr", s.handleGetOpenACR)
 	mux.HandleFunc("GET /api/v1/health", s.handleHealth)
 
 	server := &http.Server{
@@ -256,6 +261,68 @@ func (s *Server) handleGetReport(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (s *Server) handleGetOpenACR(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+
+	s.jobsMu.RLock()
+	job, ok := s.jobs[id]
+	s.jobsMu.RUnlock()
+
+	if !ok {
+		s.writeError(w, http.StatusNotFound, "audit not found")
+		return
+	}
+
+	if job.Status != "completed" {
+		s.writeError(w, http.StatusBadRequest, "audit not completed")
+		return
+	}
+
+	// Determine output format from Accept header or query param
+	format := r.URL.Query().Get("format")
+	if format == "" {
+		accept := r.Header.Get("Accept")
+		if strings.Contains(accept, "application/json") {
+			format = "json"
+		} else {
+			format = "yaml" // Default to YAML for OpenACR
+		}
+	}
+
+	// Generate OpenACR report with options from query params
+	opts := report.OpenACROptions{
+		ProductName:    r.URL.Query().Get("product_name"),
+		ProductVersion: r.URL.Query().Get("product_version"),
+		AuthorName:     r.URL.Query().Get("author_name"),
+		AuthorEmail:    r.URL.Query().Get("author_email"),
+		VendorName:     r.URL.Query().Get("vendor_name"),
+		VendorEmail:    r.URL.Query().Get("vendor_email"),
+		CatalogID:      r.URL.Query().Get("catalog"),
+	}
+
+	openACRReport, err := report.GenerateOpenACR(job.Result, opts)
+	if err != nil {
+		s.writeError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	switch format {
+	case "json":
+		w.Header().Set("Content-Type", "application/json")
+		data, err := openACRReport.JSON()
+		if err != nil {
+			s.writeError(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write(data)
+	default: // yaml
+		w.Header().Set("Content-Type", "application/x-yaml")
+		w.WriteHeader(http.StatusOK)
+		_ = openACRReport.WriteYAML(w)
+	}
+}
+
 func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {
 	s.writeJSON(w, http.StatusOK, map[string]string{
 		"status": "healthy",
@@ -274,5 +341,10 @@ func (s *Server) writeError(w http.ResponseWriter, status int, message string) {
 }
 
 func generateJobID() string {
-	return fmt.Sprintf("audit-%d", time.Now().UnixNano())
+	b := make([]byte, 8)
+	if _, err := rand.Read(b); err != nil {
+		// Fallback to timestamp if crypto/rand fails
+		return fmt.Sprintf("audit-%d", time.Now().UnixNano())
+	}
+	return fmt.Sprintf("audit-%s", hex.EncodeToString(b))
 }
