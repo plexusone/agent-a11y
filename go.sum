@@ -106,6 +106,8 @@ github.com/plexusone/omnillm v0.15.4 h1:Oun0iGqKIcISeTiaPePIezDdmID7wdblc8ZQgH/y
 github.com/plexusone/omnillm v0.15.4/go.mod h1:GPLckAxQkX/zCuNKw8vNlM649WGeFYXatuvNdzH0M/E=
 github.com/plexusone/omnillm-core v0.16.0 h1:ClEEAaAl/jgn0nV65azRAulEkLoMtCZqnWQBJCBH5eU=
 github.com/plexusone/omnillm-core v0.16.0/go.mod h1:0KzNniPwHXVtfRgfyD3fAlaj8RDktQwRrxEFQrXbLtE=
+github.com/plexusone/openacr-go v0.1.0 h1:M2vPkiJDNZPNvqTgGWUqHmaULt81vbjQaCah/doUSlw=
+github.com/plexusone/openacr-go v0.1.0/go.mod h1:TC8KvXpGLq/7LIMxnlZ71T1QRH3h1mzO8DUbjgu9yM0=
 github.com/plexusone/w3pilot v0.8.0 h1:HoUsWPDzVinKNWW7NEMx9GhP1r8CT3AY3G5olw2UZbg=
 github.com/plexusone/w3pilot v0.8.0/go.mod h1:SVjmGBuj1ixyLImRE8+df+bNQzbuBhLHGtwffzyZdYs=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

@@ -6,6 +6,7 @@ require (
 	github.com/modelcontextprotocol/go-sdk v1.6.1
 	github.com/plexusone/multi-agent-spec/sdk/go v0.8.0
 	github.com/plexusone/omnillm v0.15.4
+	github.com/plexusone/openacr-go v0.1.0
 	github.com/plexusone/w3pilot v0.8.0
 	github.com/spf13/cobra v1.10.2
 	gopkg.in/yaml.v3 v3.0.1
