@@ -223,6 +223,7 @@ This document tracks the work needed to make `a11y-audit-service` production rea
 
 - **Current WCAG Rules**: 18 total (all complete)
 - **Test Coverage**: ~71% (10/14 packages have unit tests, 125 tests passing)
-- **Report Formats**: 6 (JSON, HTML, Markdown, VPAT, WCAG-EM, CSV)
-- **API Endpoints**: 6 (all functional but unsecured)
+- **Report Formats**: 7 (JSON, HTML, Markdown, VPAT, WCAG-EM, OpenACR, CSV)
+- **API Endpoints**: 7 (all functional but unsecured)
 - **Packages Without Tests**: `api`, `audit/axe`, `audit/specialized`, `mcp`
+- **OpenACR Integration**: Added via `github.com/plexusone/openacr-go` library

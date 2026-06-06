@@ -63,7 +63,7 @@ Features:
   - LLM-as-a-Judge evaluation for nuanced accessibility assessment
   - Journey-based testing for user flow auditing
   - Site crawling for comprehensive audits
-  - Multiple report formats (JSON, HTML, Markdown, VPAT)`,
+  - Multiple report formats (JSON, HTML, Markdown, VPAT, OpenACR)`,
 	}
 
 	// Global flags
@@ -117,7 +117,7 @@ Examples:
 	}
 
 	cmd.Flags().StringVarP(&outputFile, "output", "o", "", "Output file path")
-	cmd.Flags().StringVarP(&format, "format", "f", "json", "Output format (json, html, markdown, vpat, wcag)")
+	cmd.Flags().StringVarP(&format, "format", "f", "json", "Output format (json, html, markdown, vpat, wcag, openacr)")
 
 	return cmd
 }

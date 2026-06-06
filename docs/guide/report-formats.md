@@ -85,6 +85,50 @@ agent-a11y audit https://example.com --format wcag -o wcag-em.json
 - Sample selection documentation
 - Audit results
 
+## OpenACR
+
+[OpenACR](https://github.com/GSA/openacr) is a machine-readable format for accessibility conformance reports developed by the GSA.
+
+```bash
+agent-a11y audit https://example.com --format openacr -o report.yaml
+```
+
+**Features:**
+
+- Machine-readable YAML/JSON format
+- Based on VPAT structure
+- Supports multiple WCAG versions and catalogs
+- Compatible with GSA accessibility reporting tools
+
+**Structure:**
+
+```yaml
+title: Example Site Accessibility Conformance Report
+product:
+  name: https://example.com
+catalog: 2.5-edition-wcag-2.2-508-en
+author:
+  name: agent-a11y
+report_date: "2025-01-15"
+chapters:
+  success_criteria_level_a:
+    criteria:
+      - num: "1.1.1"
+        components:
+          - name: web
+            adherence:
+              level: supports
+              notes: All images have appropriate alt text.
+```
+
+**Available Catalogs:**
+
+| Catalog ID | Description |
+|------------|-------------|
+| `2.5-edition-wcag-2.2-508-en` | WCAG 2.2 + Section 508 (default) |
+| `2.5-edition-wcag-2.1-508-en` | WCAG 2.1 + Section 508 |
+| `2.5-edition-wcag-2.0-508-en` | WCAG 2.0 + Section 508 |
+
 ## CSV
 
 Spreadsheet-compatible format for data analysis.
@@ -102,20 +146,42 @@ agent-a11y audit https://example.com --format csv -o findings.csv
 ## Go Library
 
 ```go
+import "github.com/plexusone/agent-a11y/report"
+
 result, _ := auditor.AuditPage(ctx, url)
 
-// JSON
-jsonBytes, _ := result.JSON()
+// Using report.Writer for any format
+writer := report.NewWriter(report.FormatJSON)
+writer.Write(outputFile, result)
 
-// HTML
-htmlBytes, _ := result.HTML()
+// Available formats
+report.FormatJSON     // JSON
+report.FormatHTML     // HTML
+report.FormatMarkdown // Markdown
+report.FormatVPAT     // VPAT 2.4
+report.FormatWCAG     // WCAG-EM
+report.FormatOpenACR  // OpenACR
+report.FormatCSV      // CSV
+```
 
-// Markdown
-mdBytes, _ := result.Markdown()
+### OpenACR with Custom Options
 
-// VPAT
-vpatBytes, _ := result.VPAT()
+```go
+import "github.com/plexusone/agent-a11y/report"
 
-// WCAG-EM
-wcagBytes, _ := result.WCAG()
+// Generate OpenACR with custom metadata
+openACRReport, err := report.GenerateOpenACR(result, report.OpenACROptions{
+    ProductName:    "My Application",
+    ProductVersion: "1.0.0",
+    AuthorName:     "Accessibility Team",
+    AuthorEmail:    "a11y@example.com",
+    VendorName:     "My Company",
+    CatalogID:      "2.5-edition-wcag-2.2-508-en",
+})
+
+// Write as YAML
+openACRReport.WriteYAML(file)
+
+// Or as JSON
+jsonBytes, _ := openACRReport.JSON()
 ```

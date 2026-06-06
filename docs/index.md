@@ -10,7 +10,7 @@ agent-a11y provides comprehensive accessibility testing capabilities:
 - **Multiple Audit Modes** - Single page, site crawling, and user journey testing
 - **axe-core Integration** - Industry-standard accessibility rules
 - **LLM-as-a-Judge** - AI evaluation to reduce false positives
-- **Multiple Output Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV
+- **Multiple Output Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, OpenACR, CSV
 - **Flexible Integration** - CLI, HTTP API, MCP server, Go library
 
 ## Quick Example
@@ -60,6 +60,7 @@ agent-a11y provides comprehensive accessibility testing capabilities:
 - **HTML** - Interactive reports for stakeholders
 - **VPAT 2.4** - Voluntary Product Accessibility Template
 - **WCAG-EM** - W3C evaluation methodology format
+- **OpenACR** - GSA machine-readable accessibility reports
 - **CSV** - Spreadsheet export
 
 ## Getting Started

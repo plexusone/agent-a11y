@@ -101,6 +101,7 @@ jsonBytes, _ := result.JSON()
 htmlBytes, _ := result.HTML()
 mdBytes, _ := result.Markdown()
 vpatBytes, _ := result.VPAT()
+openACRBytes, _ := result.OpenACR()
 ```
 
 ## Multi-Agent Integration

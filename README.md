@@ -33,7 +33,7 @@ Go accessibility auditing toolkit for WCAG 2.0, 2.1, and 2.2 compliance testing.
 - 🔍 **Multiple Audit Modes** - Single page, site crawling, and user journey testing
 - 🪓 **axe-core Integration** - Industry-standard accessibility testing via axe-core
 - 🤖 **LLM-as-a-Judge** - Optional AI evaluation to reduce false positives
-- 📊 **Report Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV
+- 📊 **Report Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, OpenACR, CSV
 - 🔌 **MCP Server** - Model Context Protocol integration for AI assistants
 - 🌐 **HTTP API** - REST API for programmatic access
 - 🤝 **Multi-Agent Spec** - Integration with multi-agent workflows
@@ -126,6 +126,7 @@ func main() {
 | Markdown | `--format markdown` | Markdown report |
 | VPAT | `--format vpat` | VPAT 2.4 accessibility conformance report |
 | WCAG-EM | `--format wcag` | WCAG-EM evaluation report |
+| OpenACR | `--format openacr` | [OpenACR](https://github.com/GSA/openacr) machine-readable accessibility report |
 | CSV | `--format csv` | CSV export of findings |
 
 ## Configuration
@@ -195,8 +196,30 @@ agent-a11y serve --port 8080
 
 Endpoints:
 
-- `POST /audit` - Run an accessibility audit
-- `GET /health` - Health check
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/audits` | Create a new audit job |
+| GET | `/api/v1/audits` | List all audit jobs |
+| GET | `/api/v1/audits/{id}` | Get audit job status and results |
+| DELETE | `/api/v1/audits/{id}` | Cancel an audit job |
+| GET | `/api/v1/audits/{id}/report` | Get audit report (JSON or HTML) |
+| GET | `/api/v1/audits/{id}/openacr` | Get OpenACR report (YAML or JSON) |
+| GET | `/api/v1/health` | Health check |
+
+### OpenACR API
+
+Get an OpenACR report for a completed audit:
+
+```bash
+# Get as YAML (default)
+curl http://localhost:8080/api/v1/audits/{id}/openacr
+
+# Get as JSON
+curl http://localhost:8080/api/v1/audits/{id}/openacr?format=json
+
+# With custom metadata
+curl "http://localhost:8080/api/v1/audits/{id}/openacr?product_name=MyApp&product_version=1.0.0&author_email=a11y@example.com"
+```
 
 ## Multi-Agent Integration
 

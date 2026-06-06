@@ -6,7 +6,128 @@
 agent-a11y serve --port 8080
 ```
 
-## Endpoints
+## Endpoints Overview
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/audits` | Create a new audit job |
+| GET | `/api/v1/audits` | List all audit jobs |
+| GET | `/api/v1/audits/{id}` | Get audit job status and results |
+| DELETE | `/api/v1/audits/{id}` | Cancel an audit job |
+| GET | `/api/v1/audits/{id}/report` | Get audit report |
+| GET | `/api/v1/audits/{id}/openacr` | Get OpenACR report |
+| GET | `/api/v1/health` | Health check |
+
+## Endpoint Details
+
+### POST /api/v1/audits
+
+Create a new audit job.
+
+**Request:**
+
+```json
+{
+  "url": "https://example.com",
+  "config": {
+    "level": "AA",
+    "version": "2.2"
+  }
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": "audit-1234567890",
+  "status": "pending"
+}
+```
+
+### GET /api/v1/audits/{id}
+
+Get audit job status and results.
+
+**Response:**
+
+```json
+{
+  "id": "audit-1234567890",
+  "status": "completed",
+  "result": {
+    "targetUrl": "https://example.com",
+    "wcagVersion": "2.2",
+    "wcagLevel": "AA",
+    "stats": {
+      "totalPages": 1,
+      "totalFindings": 5
+    }
+  }
+}
+```
+
+### GET /api/v1/audits/{id}/report
+
+Get audit report in specified format.
+
+**Query Parameters:**
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `format` | `json` | Output format: `json`, `html` |
+
+### GET /api/v1/audits/{id}/openacr
+
+Get OpenACR accessibility conformance report.
+
+**Query Parameters:**
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `format` | `yaml` | Output format: `yaml`, `json` |
+| `product_name` | URL | Product name override |
+| `product_version` | - | Product version |
+| `author_name` | `agent-a11y` | Author name |
+| `author_email` | - | Author email |
+| `vendor_name` | - | Vendor company name |
+| `vendor_email` | - | Vendor email |
+| `catalog` | auto | Catalog ID (e.g., `2.5-edition-wcag-2.2-508-en`) |
+
+**Example:**
+
+```bash
+# Get OpenACR as YAML (default)
+curl http://localhost:8080/api/v1/audits/{id}/openacr
+
+# Get as JSON with custom metadata
+curl "http://localhost:8080/api/v1/audits/{id}/openacr?format=json&product_name=MyApp&author_email=a11y@example.com"
+```
+
+**Response (YAML):**
+
+```yaml
+title: https://example.com Accessibility Conformance Report
+product:
+  name: https://example.com
+catalog: 2.5-edition-wcag-2.2-508-en
+author:
+  name: agent-a11y
+report_date: "2025-01-15"
+chapters:
+  success_criteria_level_a:
+    notes: No issues found at this level.
+    criteria:
+      - num: "1.1.1"
+        components:
+          - name: web
+            adherence:
+              level: supports
+```
+
+---
+
+## Legacy Endpoints
 
 ### POST /audit
 

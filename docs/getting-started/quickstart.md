@@ -51,6 +51,12 @@ agent-a11y audit https://example.com -o report.json --format json
 agent-a11y audit https://example.com -o vpat.html --format vpat
 ```
 
+### OpenACR Report
+
+```bash
+agent-a11y audit https://example.com -o report.yaml --format openacr
+```
+
 ## Site Crawling
 
 Audit an entire website:
