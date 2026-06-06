@@ -27,12 +27,12 @@ This document tracks the work needed to make `a11y-audit-service` production rea
 - [x] Add tests for `journey` package
 - [x] Add tests for `report` package
 - [x] Add tests for `remediation` package
-- [ ] Add tests for `api` package
+- [x] Add tests for `api` package
 - [ ] Add tests for `audit/axe` package
 - [ ] Add tests for `audit/specialized` package
 - [ ] Add tests for `mcp` package
 - **Effort**: 2-3 days
-- **Status**: ~75% Complete (10/14 packages tested)
+- **Status**: ~79% Complete (11/14 packages tested)
 
 ### P0-3: Complete WCAG Rules
 - [x] Implement `ColorContrastRule` (1.4.3) - luminance calculation with WCAG ratios
@@ -222,8 +222,8 @@ This document tracks the work needed to make `a11y-audit-service` production rea
 ## Notes
 
 - **Current WCAG Rules**: 18 total (all complete)
-- **Test Coverage**: ~71% (10/14 packages have unit tests, 125 tests passing)
+- **Test Coverage**: ~79% (11/14 packages have unit tests, 155 tests passing)
 - **Report Formats**: 7 (JSON, HTML, Markdown, VPAT, WCAG-EM, OpenACR, CSV)
-- **API Endpoints**: 7 (all functional but unsecured)
-- **Packages Without Tests**: `api`, `audit/axe`, `audit/specialized`, `mcp`
+- **API Endpoints**: 8 (7 functional + 1 OpenACR, all unsecured)
+- **Packages Without Tests**: `audit/axe`, `audit/specialized`, `mcp`
 - **OpenACR Integration**: Added via `github.com/plexusone/openacr-go` library
