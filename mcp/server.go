@@ -11,6 +11,7 @@ package mcp
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"log/slog"
 	"time"
@@ -24,17 +25,19 @@ const Version = "0.1.0"
 
 // Server implements an MCP server for accessibility auditing.
 type Server struct {
-	auditor   *a11y.Auditor
-	mcpServer *mcp.Server
-	logger    *slog.Logger
+	auditor      *a11y.Auditor
+	mcpServer    *mcp.Server
+	designSystem string // Path to design system for token suggestions
+	logger       *slog.Logger
 }
 
 // ServerConfig contains configuration for the MCP server.
 type ServerConfig struct {
-	Headless bool
-	Level    a11y.Level
-	Version  a11y.Version
-	Logger   *slog.Logger
+	Headless     bool
+	Level        a11y.Level
+	Version      a11y.Version
+	DesignSystem string // Path to design system spec for token suggestions
+	Logger       *slog.Logger
 }
 
 // NewServer creates a new MCP server.
@@ -66,9 +69,10 @@ func NewServer(cfg ServerConfig) (*Server, error) {
 	}, nil)
 
 	s := &Server{
-		auditor:   auditor,
-		mcpServer: mcpServer,
-		logger:    cfg.Logger,
+		auditor:      auditor,
+		mcpServer:    mcpServer,
+		designSystem: cfg.DesignSystem,
+		logger:       cfg.Logger,
 	}
 
 	// Register tools
@@ -96,19 +100,19 @@ func (s *Server) registerTools() {
 	// audit_page - Audit a single web page
 	mcp.AddTool(s.mcpServer, &mcp.Tool{
 		Name:        "audit_page",
-		Description: "Audit a single web page for WCAG accessibility issues. Returns findings with severity, affected elements, and remediation guidance.",
+		Description: "Audit a single web page for WCAG accessibility issues. Returns agent-optimized JSON with findings, fix patterns, and remediation guidance that coding agents can use to implement fixes.",
 	}, s.auditPage)
 
 	// audit_site - Audit an entire website
 	mcp.AddTool(s.mcpServer, &mcp.Tool{
 		Name:        "audit_site",
-		Description: "Audit an entire website by crawling pages. Returns aggregate findings across all pages.",
+		Description: "Audit an entire website by crawling pages. Returns agent-optimized JSON with aggregate findings and fix patterns across all pages.",
 	}, s.auditSite)
 
 	// check_criterion - Check a specific WCAG criterion
 	mcp.AddTool(s.mcpServer, &mcp.Tool{
 		Name:        "check_criterion",
-		Description: "Check a specific WCAG success criterion on a page. Returns detailed findings for that criterion only.",
+		Description: "Check a specific WCAG success criterion on a page. Returns agent-optimized JSON with detailed findings and fix patterns for that criterion only.",
 	}, s.checkCriterion)
 
 	// generate_vpat - Generate a VPAT report
@@ -156,22 +160,15 @@ func (s *Server) auditPage(ctx context.Context, req *mcp.CallToolRequest, args a
 		return errorResult(err), nil, nil
 	}
 
-	// Format response
-	text := result.Summary() + "\n\n"
-	if len(result.Findings) > 0 {
-		text += "Findings:\n"
-		for i, f := range result.Findings {
-			if i >= 10 {
-				text += fmt.Sprintf("... and %d more findings\n", len(result.Findings)-10)
-				break
-			}
-			text += fmt.Sprintf("- [%s] %s: %s (%s)\n", f.Impact, f.RuleID, f.Description, f.Selector)
-		}
+	// Return agent-optimized JSON output
+	agentJSON, err := result.AgentOptimizedJSON(s.designSystem)
+	if err != nil {
+		return errorResult(err), nil, nil
 	}
 
 	return &mcp.CallToolResult{
 		Content: []mcp.Content{
-			&mcp.TextContent{Text: text},
+			&mcp.TextContent{Text: string(agentJSON)},
 		},
 	}, nil, nil
 }
@@ -198,12 +195,15 @@ func (s *Server) auditSite(ctx context.Context, req *mcp.CallToolRequest, args a
 		return errorResult(err), nil, nil
 	}
 
-	text := result.Summary() + "\n\n"
-	text += fmt.Sprintf("Pages audited: %d\n", result.Stats.TotalPages)
+	// Return agent-optimized JSON output
+	agentJSON, err := result.AgentOptimizedJSON(s.designSystem)
+	if err != nil {
+		return errorResult(err), nil, nil
+	}
 
 	return &mcp.CallToolResult{
 		Content: []mcp.Content{
-			&mcp.TextContent{Text: text},
+			&mcp.TextContent{Text: string(agentJSON)},
 		},
 	}, nil, nil
 }
@@ -219,23 +219,40 @@ func (s *Server) checkCriterion(ctx context.Context, req *mcp.CallToolRequest, a
 		return errorResult(err), nil, nil
 	}
 
-	// Filter by criterion
-	findings := result.FindingsByCriterion(args.Criterion)
+	// Get agent result and filter by criterion
+	agentResult, err := result.AgentOptimized(s.designSystem)
+	if err != nil {
+		return errorResult(err), nil, nil
+	}
 
-	text := fmt.Sprintf("WCAG %s check for %s:\n\n", args.Criterion, args.URL)
-	if len(findings) == 0 {
-		text += "No issues found for this criterion."
-	} else {
-		text += fmt.Sprintf("Found %d issues:\n", len(findings))
-		for _, f := range findings {
-			text += fmt.Sprintf("- [%s] %s\n  Element: %s\n  Help: %s\n\n",
-				f.Impact, f.Description, f.Selector, f.Help)
+	// Filter findings by criterion
+	var filteredFindings []any
+	for _, f := range agentResult.Findings {
+		for _, sc := range f.Finding.SuccessCriteria {
+			if sc == args.Criterion {
+				filteredFindings = append(filteredFindings, f)
+				break
+			}
 		}
+	}
+
+	// Create filtered response
+	response := map[string]any{
+		"criterion": args.Criterion,
+		"url":       args.URL,
+		"status":    agentResult.Status,
+		"count":     len(filteredFindings),
+		"findings":  filteredFindings,
+	}
+
+	jsonBytes, err := jsonMarshalIndent(response)
+	if err != nil {
+		return errorResult(err), nil, nil
 	}
 
 	return &mcp.CallToolResult{
 		Content: []mcp.Content{
-			&mcp.TextContent{Text: text},
+			&mcp.TextContent{Text: string(jsonBytes)},
 		},
 	}, nil, nil
 }
@@ -275,4 +292,9 @@ func errorResult(err error) *mcp.CallToolResult {
 	}
 	result.SetError(err)
 	return result
+}
+
+// jsonMarshalIndent is a helper for JSON marshaling with indentation.
+func jsonMarshalIndent(v any) ([]byte, error) {
+	return json.MarshalIndent(v, "", "  ")
 }
