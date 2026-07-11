@@ -21,7 +21,9 @@ import (
 	"github.com/plexusone/agent-a11y/audit"
 	"github.com/plexusone/agent-a11y/config"
 	"github.com/plexusone/agent-a11y/mcp"
+	"github.com/plexusone/agent-a11y/remediation"
 	"github.com/plexusone/agent-a11y/report"
+	"github.com/plexusone/agent-a11y/types"
 )
 
 var (
@@ -33,12 +35,14 @@ var (
 
 var (
 	// Global flags
-	verbose    bool
-	configFile string
-	headless   bool
-	timeout    string
-	outputFile string
-	format     string
+	verbose      bool
+	configFile   string
+	headless     bool
+	timeout      string
+	outputFile   string
+	format       string
+	humanOutput  bool   // Output human-readable format instead of agent JSON
+	designSystem string // Path to design system spec for token suggestions
 
 	// LLM flags
 	llmProvider string
@@ -118,6 +122,8 @@ Examples:
 
 	cmd.Flags().StringVarP(&outputFile, "output", "o", "", "Output file path")
 	cmd.Flags().StringVarP(&format, "format", "f", "json", "Output format (json, html, markdown, vpat, wcag, openacr)")
+	cmd.Flags().BoolVar(&humanOutput, "human", false, "Output human-readable format (default: agent-optimized JSON)")
+	cmd.Flags().StringVar(&designSystem, "design-system", "", "Path to design system spec for token suggestions")
 
 	return cmd
 }
@@ -971,14 +977,14 @@ func runAudit(cmd *cobra.Command, args []string) error {
 
 	// Run the audit
 	ctx := context.Background()
+	startTime := time.Now()
 	result, err := engine.RunAudit(ctx, cfg)
 	if err != nil {
 		return fmt.Errorf("audit failed: %w", err)
 	}
+	duration := time.Since(startTime)
 
-	// Write output
-	writer := report.NewWriter(report.Format(format))
-
+	// Prepare output file
 	var out *os.File
 	if outputFile != "" {
 		out, err = os.Create(outputFile)
@@ -994,8 +1000,25 @@ func runAudit(cmd *cobra.Command, args []string) error {
 		out = os.Stdout
 	}
 
-	if err := writer.Write(out, result); err != nil {
-		return fmt.Errorf("failed to write report: %w", err)
+	// Output format: agent JSON (default) or human-readable
+	if humanOutput {
+		// Human-readable output using existing report writer
+		writer := report.NewWriter(report.Format(format))
+		if err := writer.Write(out, result); err != nil {
+			return fmt.Errorf("failed to write report: %w", err)
+		}
+	} else {
+		// Agent-optimized JSON output (default)
+		agentResult, err := transformToAgentFormat(result, cfg, duration, logger)
+		if err != nil {
+			return fmt.Errorf("failed to transform to agent format: %w", err)
+		}
+
+		encoder := json.NewEncoder(out)
+		encoder.SetIndent("", "  ")
+		if err := encoder.Encode(agentResult); err != nil {
+			return fmt.Errorf("failed to write agent output: %w", err)
+		}
 	}
 
 	if outputFile != "" {
@@ -1003,6 +1026,31 @@ func runAudit(cmd *cobra.Command, args []string) error {
 	}
 
 	return nil
+}
+
+// transformToAgentFormat converts audit results to agent-optimized format.
+func transformToAgentFormat(result *audit.AuditResult, cfg *config.Config, duration time.Duration, logger *slog.Logger) (*types.AgentResult, error) {
+	// Create transformer with optional design system
+	transformer, err := remediation.NewTransformer(designSystem)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create transformer: %w", err)
+	}
+
+	if designSystem != "" {
+		logger.Debug("loaded design system", "path", designSystem)
+	}
+
+	// Collect all findings from all pages
+	var allFindings []types.Finding
+	for _, page := range result.Pages {
+		allFindings = append(allFindings, page.Findings...)
+	}
+
+	// Transform to agent format
+	level := string(result.WCAGLevel)
+	agentResult := transformer.TransformResult(result.TargetURL, level, duration, allFindings)
+
+	return agentResult, nil
 }
 
 func setupLogger() *slog.Logger {
