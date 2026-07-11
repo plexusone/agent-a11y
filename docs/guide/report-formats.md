@@ -15,6 +15,9 @@ agent-a11y audit https://example.com -o report.json
 
 # With design system integration
 agent-a11y audit https://example.com --design-system /path/to/design-system/
+
+# With source mapping (maps findings to source files)
+agent-a11y audit https://localhost:3000 --source-map ./dist/
 ```
 
 **Structure:**
@@ -48,7 +51,13 @@ agent-a11y audit https://example.com --design-system /path/to/design-system/
         "selector": "img.hero-image",
         "xpath": "/html/body/main/section/img",
         "tagName": "img",
-        "componentId": "HeroImage"
+        "componentId": "HeroImage",
+        "source": {
+          "file": "src/components/Hero.tsx",
+          "line": 42,
+          "component": "Hero",
+          "framework": "react"
+        }
       },
       "remediation": {
         "summary": "Add descriptive alt text to the image",
@@ -74,9 +83,19 @@ agent-a11y audit https://example.com --design-system /path/to/design-system/
 |-------|-------------|
 | `status` | Overall status: `GO` (no critical/serious), `WARN` (serious issues), `NO-GO` (critical issues) |
 | `summary.fixable` | Number of issues with available fix patterns |
+| `element.source` | Source code location (when `--source-map` is used) |
 | `fixPatterns` | Actionable fix instructions with type, action, target, and example |
 | `fixConfidence` | Confidence score (0-1) that the fix will resolve the issue |
 | `tokenSuggestions` | Design system token recommendations (when `--design-system` is used) |
+
+**Source Location Fields:**
+
+| Field | Description |
+|-------|-------------|
+| `source.file` | Path to source file (e.g., `src/components/Hero.tsx`) |
+| `source.line` | Line number in source file |
+| `source.component` | Component name (if detected) |
+| `source.framework` | Detected framework (`react`, `vue`, `svelte`, `angular`, `vanilla`) |
 
 **Fix Pattern Types:**
 

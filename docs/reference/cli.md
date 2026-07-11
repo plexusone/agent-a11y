@@ -22,6 +22,9 @@ agent-a11y audit <url> [flags]
 | `--version` | | WCAG version (2.0, 2.1, 2.2) | 2.2 |
 | `--format` | `-f` | Output format | json |
 | `--output` | `-o` | Output file path | stdout |
+| `--human` | | Output human-readable format | false |
+| `--design-system` | | Path to design system spec | |
+| `--source-map` | | Path to source map directory | |
 | `--crawl` | | Enable site crawling | false |
 | `--depth` | | Crawl depth | 2 |
 | `--max-pages` | | Maximum pages | 50 |
@@ -36,8 +39,17 @@ agent-a11y audit <url> [flags]
 **Examples:**
 
 ```bash
-# Basic audit
+# Basic audit (agent-optimized JSON output)
 agent-a11y audit https://example.com
+
+# Human-readable output
+agent-a11y audit https://example.com --human
+
+# With design system token suggestions
+agent-a11y audit https://example.com --design-system ./design-system/
+
+# With source mapping (maps findings to source files)
+agent-a11y audit https://localhost:3000 --source-map ./dist/
 
 # WCAG 2.1 Level AAA
 agent-a11y audit https://example.com --level AAA --version 2.1
