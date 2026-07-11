@@ -2,6 +2,104 @@
 
 agent-a11y supports multiple output formats for different use cases.
 
+## Agent Output (Default)
+
+The default output format is **agent-optimized JSON**, designed for consumption by coding agents and AI assistants. This format includes actionable fix patterns and design system token suggestions.
+
+```bash
+# Default: agent-optimized JSON
+agent-a11y audit https://example.com
+
+# Explicitly request agent format
+agent-a11y audit https://example.com -o report.json
+
+# With design system integration
+agent-a11y audit https://example.com --design-system /path/to/design-system/
+```
+
+**Structure:**
+
+```json
+{
+  "url": "https://example.com",
+  "timestamp": "2025-01-15T10:30:00Z",
+  "duration": "5.2s",
+  "level": "AA",
+  "status": "WARN",
+  "summary": {
+    "total": 5,
+    "critical": 0,
+    "serious": 2,
+    "moderate": 2,
+    "minor": 1,
+    "fixable": 4,
+    "needsToken": 1
+  },
+  "findings": [
+    {
+      "finding": {
+        "ruleId": "image-alt",
+        "description": "Images must have alternate text",
+        "impact": "critical",
+        "selector": "img.hero-image",
+        "html": "<img src=\"hero.jpg\" class=\"hero-image\">"
+      },
+      "element": {
+        "selector": "img.hero-image",
+        "xpath": "/html/body/main/section/img",
+        "tagName": "img",
+        "componentId": "HeroImage"
+      },
+      "remediation": {
+        "summary": "Add descriptive alt text to the image",
+        "fixPatterns": [
+          {
+            "type": "attribute",
+            "action": "add",
+            "target": "alt",
+            "value": "[descriptive text]",
+            "example": "<img src=\"hero.jpg\" alt=\"Description of image content\">"
+          }
+        ],
+        "fixConfidence": 0.85
+      }
+    }
+  ]
+}
+```
+
+**Key Fields:**
+
+| Field | Description |
+|-------|-------------|
+| `status` | Overall status: `GO` (no critical/serious), `WARN` (serious issues), `NO-GO` (critical issues) |
+| `summary.fixable` | Number of issues with available fix patterns |
+| `fixPatterns` | Actionable fix instructions with type, action, target, and example |
+| `fixConfidence` | Confidence score (0-1) that the fix will resolve the issue |
+| `tokenSuggestions` | Design system token recommendations (when `--design-system` is used) |
+
+**Fix Pattern Types:**
+
+| Type | Description |
+|------|-------------|
+| `attribute` | Add/modify HTML attribute |
+| `aria` | ARIA attribute change |
+| `style` | CSS style change |
+| `structure` | DOM structure change |
+| `content` | Text content change |
+| `semantic` | Semantic HTML change |
+| `focus` | Focus management |
+| `order` | DOM/reading order |
+
+### Human-Readable Output
+
+Use `--human` flag to get human-readable output instead of agent JSON:
+
+```bash
+agent-a11y audit https://example.com --human
+agent-a11y audit https://example.com --human --format html -o report.html
+```
+
 ## JSON
 
 Machine-readable format for CI/CD integration and programmatic processing.

@@ -54,8 +54,14 @@ go install github.com/plexusone/agent-a11y/cmd/agent-a11y@latest
 ### CLI Usage
 
 ```bash
-# Audit a single page
+# Audit a single page (outputs agent-optimized JSON by default)
 agent-a11y audit https://example.com
+
+# Human-readable output
+agent-a11y audit https://example.com --human
+
+# With design system integration for token suggestions
+agent-a11y audit https://example.com --design-system /path/to/design-system/
 
 # Audit with site crawling
 agent-a11y audit https://example.com --crawl --depth 2
@@ -63,12 +69,14 @@ agent-a11y audit https://example.com --crawl --depth 2
 # Specify WCAG level and version
 agent-a11y audit https://example.com --level AA --version 2.2
 
-# Output to file with format
-agent-a11y audit https://example.com -o report.html --format html
+# Output to file with format (human-readable formats)
+agent-a11y audit https://example.com --human -o report.html --format html
 
 # Enable LLM evaluation (reduces false positives)
 agent-a11y audit https://example.com --llm-provider anthropic --llm-model claude-sonnet-4-20250514
 ```
+
+**Agent-Optimized Output:** The default output is structured JSON with actionable fix patterns for coding agents. Use `--human` for human-readable reports.
 
 ### Go Library
 

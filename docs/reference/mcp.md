@@ -1,6 +1,6 @@
 # MCP Server Reference
 
-agent-a11y provides a Model Context Protocol (MCP) server for integration with AI assistants.
+agent-a11y provides a Model Context Protocol (MCP) server for integration with AI assistants like Claude Code.
 
 ## Starting the Server
 
@@ -25,19 +25,27 @@ Add to your Claude Desktop configuration (`~/.config/claude/config.json`):
 }
 ```
 
+## Agent-Optimized Output
+
+All audit tools return **agent-optimized JSON** with actionable fix patterns that coding agents can use to implement fixes directly. The output includes:
+
+- **Fix patterns**: Specific instructions with type, action, target, and example code
+- **Token suggestions**: Design system token recommendations (when `--design-system` is configured)
+- **Fix confidence**: Confidence score (0-1) that the suggested fix will resolve the issue
+- **Status**: Overall GO/WARN/NO-GO status for workflow automation
+
 ## Available Tools
 
 ### audit_page
 
-Audit a single page for accessibility issues.
+Audit a single page for accessibility issues. Returns agent-optimized JSON with fix patterns.
 
 **Input:**
 
 ```json
 {
   "url": "https://example.com",
-  "level": "AA",
-  "version": "2.2"
+  "level": "AA"
 }
 ```
 
@@ -45,10 +53,34 @@ Audit a single page for accessibility issues.
 
 ```json
 {
-  "score": 85,
-  "conformant": false,
-  "summary": "WCAG 2.2 Level AA: Non-Conformant (Score: 85/100)",
-  "findings": [...]
+  "url": "https://example.com",
+  "status": "WARN",
+  "summary": {
+    "total": 5,
+    "critical": 0,
+    "serious": 2,
+    "fixable": 4
+  },
+  "findings": [
+    {
+      "finding": {
+        "ruleId": "image-alt",
+        "impact": "critical",
+        "selector": "img.hero"
+      },
+      "remediation": {
+        "fixPatterns": [
+          {
+            "type": "attribute",
+            "action": "add",
+            "target": "alt",
+            "example": "<img src=\"...\" alt=\"Description\">"
+          }
+        ],
+        "fixConfidence": 0.85
+      }
+    }
+  ]
 }
 ```
 
