@@ -43,6 +43,7 @@ var (
 	format       string
 	humanOutput  bool   // Output human-readable format instead of agent JSON
 	designSystem string // Path to design system spec for token suggestions
+	sourceMapDir string // Path to source map directory for source code mapping
 
 	// LLM flags
 	llmProvider string
@@ -124,6 +125,7 @@ Examples:
 	cmd.Flags().StringVarP(&format, "format", "f", "json", "Output format (json, html, markdown, vpat, wcag, openacr)")
 	cmd.Flags().BoolVar(&humanOutput, "human", false, "Output human-readable format (default: agent-optimized JSON)")
 	cmd.Flags().StringVar(&designSystem, "design-system", "", "Path to design system spec for token suggestions")
+	cmd.Flags().StringVar(&sourceMapDir, "source-map", "", "Path to source map directory for mapping findings to source files")
 
 	return cmd
 }
@@ -1030,14 +1032,29 @@ func runAudit(cmd *cobra.Command, args []string) error {
 
 // transformToAgentFormat converts audit results to agent-optimized format.
 func transformToAgentFormat(result *audit.AuditResult, cfg *config.Config, duration time.Duration, logger *slog.Logger) (*types.AgentResult, error) {
-	// Create transformer with optional design system
-	transformer, err := remediation.NewTransformer(designSystem)
+	// Build transformer options
+	var opts []remediation.TransformerOption
+
+	// Add source map option if provided
+	if sourceMapDir != "" {
+		opts = append(opts, remediation.WithSourceMaps(sourceMapDir))
+		logger.Debug("loading source maps", "path", sourceMapDir)
+	}
+
+	// Create transformer with optional design system and options
+	transformer, err := remediation.NewTransformer(designSystem, opts...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create transformer: %w", err)
 	}
 
 	if designSystem != "" {
 		logger.Debug("loaded design system", "path", designSystem)
+	}
+
+	// Log source mapping info
+	if transformer.HasSourceMaps() {
+		files := transformer.SourceFiles()
+		logger.Debug("source maps loaded", "sourceFiles", len(files))
 	}
 
 	// Collect all findings from all pages
