@@ -1,9 +1,11 @@
 package remediation
 
 import (
+	"context"
 	"strings"
 	"time"
 
+	"github.com/plexusone/agent-a11y/sourcemap"
 	"github.com/plexusone/agent-a11y/types"
 )
 
@@ -11,10 +13,35 @@ import (
 type Transformer struct {
 	patterns     *PatternRegistry
 	designSystem *DesignSystemLoader
+	sourceMapper *sourcemap.Mapper
+}
+
+// TransformerOption configures the Transformer.
+type TransformerOption func(*Transformer)
+
+// WithSourceMaps configures source map loading from a directory.
+func WithSourceMaps(dir string) TransformerOption {
+	return func(t *Transformer) {
+		mapper, err := sourcemap.NewMapper(dir)
+		if err != nil {
+			// Non-fatal: continue without source maps
+			return
+		}
+		t.sourceMapper = mapper
+	}
+}
+
+// WithFramework sets the detected framework for better source mapping.
+func WithFramework(fw types.Framework) TransformerOption {
+	return func(t *Transformer) {
+		if t.sourceMapper != nil {
+			t.sourceMapper.SetFramework(fw)
+		}
+	}
 }
 
 // NewTransformer creates a new transformer.
-func NewTransformer(designSystemPath string) (*Transformer, error) {
+func NewTransformer(designSystemPath string, opts ...TransformerOption) (*Transformer, error) {
 	t := &Transformer{
 		patterns: NewPatternRegistry(),
 	}
@@ -28,6 +55,11 @@ func NewTransformer(designSystemPath string) (*Transformer, error) {
 		} else {
 			t.designSystem = ds
 		}
+	}
+
+	// Apply options
+	for _, opt := range opts {
+		opt(t)
 	}
 
 	return t, nil
@@ -87,6 +119,14 @@ func (t *Transformer) transformFinding(f types.Finding) types.AgentFinding {
 		if compID != "" {
 			element.ComponentID = compID
 			element.ComponentVariant = variant
+		}
+	}
+
+	// Try to map to source location
+	if t.sourceMapper != nil {
+		loc, err := t.sourceMapper.MapElement(context.Background(), f.Selector, f.HTML)
+		if err == nil && loc != nil {
+			element.Source = loc
 		}
 	}
 
@@ -242,6 +282,34 @@ func (t *Transformer) calculateFixConfidence(ar types.AgentRemediation) float64 
 	}
 
 	return confidence
+}
+
+// DetectedFramework returns the framework detected from source maps.
+func (t *Transformer) DetectedFramework() types.Framework {
+	if t.sourceMapper != nil {
+		return t.sourceMapper.Framework()
+	}
+	return types.FrameworkUnknown
+}
+
+// SetFramework sets the framework for source mapping.
+func (t *Transformer) SetFramework(fw types.Framework) {
+	if t.sourceMapper != nil {
+		t.sourceMapper.SetFramework(fw)
+	}
+}
+
+// SourceFiles returns the list of source files from loaded source maps.
+func (t *Transformer) SourceFiles() []string {
+	if t.sourceMapper != nil {
+		return t.sourceMapper.SourceFiles()
+	}
+	return nil
+}
+
+// HasSourceMaps returns true if source maps are loaded.
+func (t *Transformer) HasSourceMaps() bool {
+	return t.sourceMapper != nil
 }
 
 // Helper functions
