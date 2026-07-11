@@ -5,9 +5,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"time"
 
 	"github.com/plexusone/agent-a11y/audit"
 	"github.com/plexusone/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/remediation"
 	"github.com/plexusone/agent-a11y/report"
 	"github.com/plexusone/agent-a11y/types"
 )
@@ -406,4 +408,35 @@ func (r *Result) findingsByImpact(impact string) []Finding {
 		}
 	}
 	return filtered
+}
+
+// AgentOptimizedJSON returns the result as agent-optimized JSON with fix patterns.
+// If designSystemPath is provided, it will include token suggestions.
+func (r *Result) AgentOptimizedJSON(designSystemPath string) ([]byte, error) {
+	agentResult, err := r.AgentOptimized(designSystemPath)
+	if err != nil {
+		return nil, err
+	}
+	return json.MarshalIndent(agentResult, "", "  ")
+}
+
+// AgentOptimized returns the result as an agent-optimized struct with fix patterns.
+// If designSystemPath is provided, it will include token suggestions.
+func (r *Result) AgentOptimized(designSystemPath string) (*types.AgentResult, error) {
+	transformer, err := remediation.NewTransformer(designSystemPath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create transformer: %w", err)
+	}
+
+	// Collect all findings from raw result
+	var allFindings []types.Finding
+	for _, page := range r.raw.Pages {
+		allFindings = append(allFindings, page.Findings...)
+	}
+
+	// Calculate duration from raw result
+	duration := time.Duration(r.raw.Duration) * time.Millisecond
+
+	// Transform to agent format
+	return transformer.TransformResult(r.URL, r.Level, duration, allFindings), nil
 }
