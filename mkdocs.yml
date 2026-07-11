@@ -62,6 +62,7 @@ nav:
       - MCP Server: reference/mcp.md
   - Architecture:
       - Overview: architecture/overview.md
+      - ASDM Integration: architecture/asdm-integration.md
   - Releases:
       - v0.3.0: releases/v0.3.0.md
       - v0.2.0: releases/v0.2.0.md
