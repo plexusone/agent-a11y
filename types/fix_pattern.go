@@ -115,6 +115,9 @@ type ElementContext struct {
 
 	// Component variant (if detected)
 	ComponentVariant string `json:"componentVariant,omitempty"`
+
+	// Source code location (if source maps available)
+	Source *SourceLocation `json:"source,omitempty"`
 }
 
 // BoundingBox represents element position and size.
@@ -124,6 +127,43 @@ type BoundingBox struct {
 	Width  float64 `json:"width"`
 	Height float64 `json:"height"`
 }
+
+// SourceLocation maps a DOM element to its source code location.
+// Enables coding agents to locate and fix issues in source files.
+type SourceLocation struct {
+	// Source file path relative to project root
+	File string `json:"file"` // e.g., "src/components/Hero.tsx"
+
+	// Line number in source file (1-indexed)
+	Line int `json:"line"`
+
+	// Column number in source file (1-indexed)
+	Column int `json:"column,omitempty"`
+
+	// Component name (if framework detected)
+	Component string `json:"component,omitempty"` // e.g., "Hero"
+
+	// Detected framework
+	Framework Framework `json:"framework,omitempty"`
+
+	// Source map file used for mapping (for debugging)
+	SourceMapFile string `json:"sourceMapFile,omitempty"`
+
+	// Confidence that mapping is accurate (0-1)
+	Confidence float64 `json:"confidence,omitempty"`
+}
+
+// Framework identifies the frontend framework in use.
+type Framework string
+
+const (
+	FrameworkReact   Framework = "react"
+	FrameworkVue     Framework = "vue"
+	FrameworkSvelte  Framework = "svelte"
+	FrameworkAngular Framework = "angular"
+	FrameworkVanilla Framework = "vanilla"
+	FrameworkUnknown Framework = "unknown"
+)
 
 // AgentFinding is the agent-optimized finding format.
 // This is the default output format for coding agents.
