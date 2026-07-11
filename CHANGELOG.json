@@ -7,6 +7,35 @@
   "maintainers": ["plexusone"],
   "releases": [
     {
+      "version": "v0.4.0",
+      "date": "2026-07-11",
+      "highlights": [
+        { "description": "Agent-optimized output format is now the default for CLI and MCP tools" },
+        { "description": "Design system integration for token-aware remediation suggestions" }
+      ],
+      "added": [
+        { "description": "Agent-optimized JSON output as default format (use `--human` for human-readable output)" },
+        { "description": "`--design-system` CLI flag to specify design system spec for token suggestions" },
+        { "description": "`types/fix_pattern.go`: Agent output types (`AgentFinding`, `AgentResult`, `AgentRemediation`, `AgentSummary`)" },
+        { "description": "`types/fix_pattern.go`: Fix pattern types (`FixPattern`, `FixAction`, `FixType`)" },
+        { "description": "`types/fix_pattern.go`: Design system integration types (`TokenSuggestion`, `ElementContext`, `DesignSystemInfo`)" },
+        { "description": "`remediation/patterns.go`: Fix pattern registry mapping WCAG techniques and axe rules to actionable fixes" },
+        { "description": "`remediation/designsystem.go`: Design system loader with color token suggestions for contrast fixes" },
+        { "description": "`remediation/transform.go`: Transformer to convert standard findings to agent-optimized format" },
+        { "description": "`AgentOptimized()` and `AgentOptimizedJSON()` methods on `Result` type" },
+        { "description": "MCP tools now return agent-optimized JSON with fix patterns" }
+      ],
+      "changed": [
+        { "description": "Default CLI output format changed from human-readable to agent-optimized JSON" },
+        { "description": "MCP `audit_page` and `audit_site` tools return structured agent JSON instead of text" }
+      ],
+      "documentation": [
+        { "description": "Agent Output section in report formats guide with JSON structure documentation" },
+        { "description": "MCP reference updated with agent-optimized output examples" },
+        { "description": "README updated with `--human` and `--design-system` flag examples" }
+      ]
+    },
+    {
       "version": "v0.3.0",
       "date": "2026-06-06",
       "commit": "9ac7c47",
