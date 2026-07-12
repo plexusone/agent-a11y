@@ -63,6 +63,9 @@ agent-a11y audit https://example.com --human
 # With design system integration for token suggestions
 agent-a11y audit https://example.com --design-system /path/to/design-system/
 
+# With source mapping (maps findings to source files)
+agent-a11y audit https://localhost:3000 --source-map ./dist/
+
 # Audit with site crawling
 agent-a11y audit https://example.com --crawl --depth 2
 
@@ -77,6 +80,21 @@ agent-a11y audit https://example.com --llm-provider anthropic --llm-model claude
 ```
 
 **Agent-Optimized Output:** The default output is structured JSON with actionable fix patterns for coding agents. Use `--human` for human-readable reports.
+
+### Validation Loop
+
+Validate that accessibility issues have been fixed:
+
+```bash
+# Create baseline from first audit
+agent-a11y validate https://example.com --save-baseline -o baseline.json
+
+# After coding agent applies fixes, validate
+agent-a11y validate https://example.com --baseline baseline.json
+
+# CI mode: fail if regressions introduced
+agent-a11y validate https://example.com --baseline baseline.json --fail-on-regression
+```
 
 ### Go Library
 

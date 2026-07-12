@@ -88,17 +88,108 @@ Communicates via stdio for MCP protocol.
 
 ### agent-a11y compare
 
-Compare accessibility between two URLs.
+Compare accessibility between two URLs (VPAT comparison).
 
 ```bash
 agent-a11y compare <before-url> <after-url> [flags]
 ```
+
+**Flags:**
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `--name` | Comparison name | URL-based |
+| `--from-files` | Compare from existing JSON files | false |
+| `--format` | Output format (json, html, markdown, vpat) | markdown |
+| `--output` | Output file path | stdout |
 
 Shows:
 
 - Issues fixed
 - Issues introduced
 - Issues unchanged
+
+### agent-a11y validate
+
+Validate accessibility fixes against a baseline. Enables the autonomous fix loop.
+
+```bash
+agent-a11y validate <url> [flags]
+```
+
+**Flags:**
+
+| Flag | Short | Description | Default |
+|------|-------|-------------|---------|
+| `--baseline` | `-b` | Baseline audit file to compare against | |
+| `--expect-fixed` | | Rule IDs expected to be fixed (comma-separated) | |
+| `--fail-on-regression` | | Exit with code 1 if regressions detected | false |
+| `--save-baseline` | | Save this audit as baseline (no comparison) | false |
+| `--include-results` | | Include full before/after results in delta | false |
+| `--output` | `-o` | Output file path | stdout |
+
+**Examples:**
+
+```bash
+# Create baseline from first audit
+agent-a11y validate https://example.com --save-baseline -o baseline.json
+
+# Validate after fixes
+agent-a11y validate https://example.com --baseline baseline.json
+
+# Check specific rules were fixed
+agent-a11y validate https://example.com --baseline baseline.json \
+  --expect-fixed color-contrast,image-alt
+
+# CI mode: fail on any regressions
+agent-a11y validate https://example.com --baseline baseline.json \
+  --fail-on-regression
+```
+
+**Output:**
+
+The validate command outputs a `ValidationDelta` JSON with:
+
+- `fixed`: Issues that were resolved
+- `remaining`: Issues still present
+- `regressions`: New issues introduced
+- `status`: FIXED, IMPROVED, NO_CHANGE, REGRESSED, or MIXED
+- `improvement`: Percentage change
+
+### agent-a11y config
+
+Manage project-specific fix configuration.
+
+```bash
+agent-a11y config <subcommand>
+```
+
+**Subcommands:**
+
+#### config show
+
+Show resolved configuration for the current project.
+
+```bash
+agent-a11y config show
+```
+
+Displays:
+
+- Detected language and framework
+- Component library (MUI, Chakra, shadcn, etc.)
+- Matched project configuration
+- Config file location
+
+#### config init
+
+Create a default configuration file.
+
+```bash
+agent-a11y config init
+```
+
+Creates `~/.plexusone/a11y/fixes.yaml` with example configuration.
 
 ### agent-a11y demo
 
