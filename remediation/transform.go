@@ -5,6 +5,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/plexusone/agent-a11y/config"
 	"github.com/plexusone/agent-a11y/sourcemap"
 	"github.com/plexusone/agent-a11y/types"
 )
@@ -14,6 +15,8 @@ type Transformer struct {
 	patterns     *PatternRegistry
 	designSystem *DesignSystemLoader
 	sourceMapper *sourcemap.Mapper
+	fixResolver  *config.FixResolver
+	projectCtx   *config.ProjectContext
 }
 
 // TransformerOption configures the Transformer.
@@ -36,6 +39,16 @@ func WithFramework(fw types.Framework) TransformerOption {
 	return func(t *Transformer) {
 		if t.sourceMapper != nil {
 			t.sourceMapper.SetFramework(fw)
+		}
+	}
+}
+
+// WithProjectConfig configures project-specific fix patterns.
+func WithProjectConfig(fixesConfig *config.FixesConfig, projectCtx *config.ProjectContext) TransformerOption {
+	return func(t *Transformer) {
+		t.projectCtx = projectCtx
+		if fixesConfig != nil && projectCtx != nil {
+			t.fixResolver = config.NewFixResolver(fixesConfig, projectCtx)
 		}
 	}
 }
@@ -130,8 +143,8 @@ func (t *Transformer) transformFinding(f types.Finding) types.AgentFinding {
 		}
 	}
 
-	// Build agent remediation
-	remediation := t.buildAgentRemediation(f)
+	// Build agent remediation with element context for project pattern matching
+	remediation := t.buildAgentRemediation(f, &element)
 
 	return types.AgentFinding{
 		Finding:     f,
@@ -140,7 +153,7 @@ func (t *Transformer) transformFinding(f types.Finding) types.AgentFinding {
 	}
 }
 
-func (t *Transformer) buildAgentRemediation(f types.Finding) types.AgentRemediation {
+func (t *Transformer) buildAgentRemediation(f types.Finding, element *types.ElementContext) types.AgentRemediation {
 	ar := types.AgentRemediation{
 		FixConfidence: 0.8, // Default confidence
 	}
@@ -166,6 +179,20 @@ func (t *Transformer) buildAgentRemediation(f types.Finding) types.AgentRemediat
 					ar.FixPatterns = append(ar.FixPatterns, tp)
 				}
 			}
+		}
+	}
+
+	// Add project-specific fix patterns
+	if t.fixResolver != nil {
+		resolvedFixes := t.fixResolver.ResolveFixes(f.RuleID, element)
+		for _, rf := range resolvedFixes {
+			ar.ProjectPatterns = append(ar.ProjectPatterns, types.ProjectPattern{
+				Source:    rf.Source,
+				Component: rf.Component,
+				Import:    rf.Import,
+				Pattern:   rf.Pattern,
+				Priority:  rf.Priority,
+			})
 		}
 	}
 
@@ -266,6 +293,18 @@ func (t *Transformer) calculateFixConfidence(ar types.AgentRemediation) float64 
 		confidence += 0.1
 	}
 
+	// Project-specific patterns are highest confidence
+	if len(ar.ProjectPatterns) > 0 {
+		confidence += 0.15
+		// Project patterns from project config are even better
+		for _, pp := range ar.ProjectPatterns {
+			if pp.Source == "project" {
+				confidence += 0.05
+				break
+			}
+		}
+	}
+
 	// Token suggestions help
 	if len(ar.TokenSuggestions) > 0 {
 		confidence += 0.1
@@ -310,6 +349,16 @@ func (t *Transformer) SourceFiles() []string {
 // HasSourceMaps returns true if source maps are loaded.
 func (t *Transformer) HasSourceMaps() bool {
 	return t.sourceMapper != nil
+}
+
+// HasProjectConfig returns true if project config is loaded.
+func (t *Transformer) HasProjectConfig() bool {
+	return t.projectCtx != nil
+}
+
+// ProjectContext returns the loaded project context.
+func (t *Transformer) ProjectContext() *config.ProjectContext {
+	return t.projectCtx
 }
 
 // Helper functions

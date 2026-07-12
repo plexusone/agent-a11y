@@ -77,6 +77,9 @@ type AgentRemediation struct {
 	// Actionable fix patterns (ordered by priority)
 	FixPatterns []FixPattern `json:"fixPatterns"`
 
+	// Project-specific fix patterns (from ~/.plexusone/a11y/fixes.yaml)
+	ProjectPatterns []ProjectPattern `json:"projectPatterns,omitempty"`
+
 	// Design system token suggestions (if design system loaded)
 	TokenSuggestions []TokenSuggestion `json:"tokenSuggestions,omitempty"`
 
@@ -85,6 +88,24 @@ type AgentRemediation struct {
 
 	// Confidence that this fix will resolve the issue (0-1)
 	FixConfidence float64 `json:"fixConfidence"`
+}
+
+// ProjectPattern is a fix pattern from project configuration.
+type ProjectPattern struct {
+	// Source indicates where this pattern came from
+	Source string `json:"source"` // "project", "library", "language"
+
+	// Component name (for component-specific fixes)
+	Component string `json:"component,omitempty"`
+
+	// Import statement to add (if needed)
+	Import string `json:"import,omitempty"`
+
+	// The fix pattern/example
+	Pattern string `json:"pattern"`
+
+	// Priority for ordering (higher = more preferred)
+	Priority int `json:"priority,omitempty"`
 }
 
 // ElementContext provides detailed context about the affected element.

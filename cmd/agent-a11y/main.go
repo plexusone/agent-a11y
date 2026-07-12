@@ -88,6 +88,7 @@ Features:
 	rootCmd.AddCommand(demoCmd())
 	rootCmd.AddCommand(serveCmd())
 	rootCmd.AddCommand(mcpCmd())
+	rootCmd.AddCommand(configCmd())
 	rootCmd.AddCommand(versionCmd())
 
 	if err := rootCmd.Execute(); err != nil {
@@ -912,6 +913,231 @@ func versionCmd() *cobra.Command {
 	}
 }
 
+func configCmd() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "config",
+		Short: "Manage project fix configuration",
+		Long: `Manage project-specific fix configuration.
+
+Configuration is stored in ~/.plexusone/a11y/fixes.yaml and can define:
+- Language-specific fix patterns (React, Vue, Svelte, etc.)
+- Project-specific component fixes (matched by repo path)
+- Component library patterns (MUI, Chakra, shadcn, etc.)
+- Design token preferences`,
+	}
+
+	cmd.AddCommand(configShowCmd())
+	cmd.AddCommand(configInitCmd())
+
+	return cmd
+}
+
+func configShowCmd() *cobra.Command {
+	return &cobra.Command{
+		Use:   "show",
+		Short: "Show resolved configuration for current project",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			logger := setupLogger()
+
+			// Load fixes config
+			fixesConfig, err := config.LoadFixesConfig()
+			if err != nil {
+				return fmt.Errorf("failed to load fixes config: %w", err)
+			}
+
+			// Get current directory
+			cwd, err := os.Getwd()
+			if err != nil {
+				return fmt.Errorf("failed to get current directory: %w", err)
+			}
+
+			// Resolve project
+			projectCtx, err := config.ResolveProject(cwd, fixesConfig)
+			if err != nil {
+				return fmt.Errorf("failed to resolve project: %w", err)
+			}
+
+			// Display configuration
+			fmt.Printf("Project Configuration\n")
+			fmt.Printf("=====================\n\n")
+			fmt.Printf("Repository:        %s\n", projectCtx.RepoPath)
+			fmt.Printf("Language:          %s\n", valueOrDefault(projectCtx.Language, "(auto-detect)"))
+			fmt.Printf("Framework:         %s\n", valueOrDefault(projectCtx.Framework, "(none)"))
+			fmt.Printf("Component Library: %s\n", valueOrDefault(projectCtx.ComponentLibrary, "(none)"))
+			fmt.Printf("Design System:     %s\n", valueOrDefault(projectCtx.DesignSystem, "(none)"))
+
+			if projectCtx.ProjectConfig != nil {
+				fmt.Printf("\nMatched Project:   %s\n", projectCtx.ProjectConfig.Match)
+				if len(projectCtx.ProjectConfig.Components) > 0 {
+					fmt.Printf("Components:        %d configured\n", len(projectCtx.ProjectConfig.Components))
+					for name, comp := range projectCtx.ProjectConfig.Components {
+						fmt.Printf("  - %s (%d fixes)\n", name, len(comp.Fixes))
+					}
+				}
+			} else {
+				fmt.Printf("\nNo project-specific configuration matched.\n")
+			}
+
+			if projectCtx.LanguageConfig != nil {
+				fmt.Printf("\nLanguage Config:   %s\n", projectCtx.Language)
+				if len(projectCtx.LanguageConfig.Patterns) > 0 {
+					fmt.Printf("Patterns:          %d defined\n", len(projectCtx.LanguageConfig.Patterns))
+				}
+			}
+
+			// Show config file location
+			configPath, _ := config.FixesConfigPath()
+			fmt.Printf("\nConfig File:       %s\n", configPath)
+
+			logger.Debug("config shown", "repoPath", projectCtx.RepoPath)
+			return nil
+		},
+	}
+}
+
+func configInitCmd() *cobra.Command {
+	return &cobra.Command{
+		Use:   "init",
+		Short: "Initialize fix configuration",
+		Long: `Initialize fix configuration at ~/.plexusone/a11y/fixes.yaml.
+
+Creates a default configuration file with:
+- Common language patterns (React, Vue, Svelte)
+- Template for project-specific overrides
+- Component library examples`,
+		RunE: func(cmd *cobra.Command, args []string) error {
+			logger := setupLogger()
+
+			configPath, err := config.FixesConfigPath()
+			if err != nil {
+				return err
+			}
+
+			// Check if already exists
+			if _, err := os.Stat(configPath); err == nil {
+				fmt.Printf("Configuration already exists at %s\n", configPath)
+				fmt.Println("Use 'agenta11y config show' to view current configuration.")
+				return nil
+			}
+
+			// Get current directory for project template
+			cwd, _ := os.Getwd()
+			projectCtx, _ := config.DetectProject(cwd)
+
+			// Create default config
+			defaultConfig := &config.FixesConfig{
+				Version: "1.0",
+				Defaults: config.FixDefaults{
+					Extends: "builtin",
+				},
+				Languages: map[string]config.LanguageConfig{
+					"react": {
+						Patterns: map[string]config.LanguagePattern{
+							"image-alt": {
+								Component: "Image",
+								Import:    "next/image",
+								Example:   "<Image src={src} alt=\"{descriptive text}\" />",
+							},
+							"button-name": {
+								Example: "<Button aria-label=\"{action description}\">{children}</Button>",
+							},
+						},
+						Conventions: config.LanguageConventions{
+							AriaAttributes: "camelCase",
+							EventHandlers:  "onKeyDown",
+						},
+					},
+					"vue": {
+						Patterns: map[string]config.LanguagePattern{
+							"image-alt": {
+								Example: "<img :src=\"src\" :alt=\"altText\" />",
+							},
+							"button-name": {
+								Example: "<button :aria-label=\"actionDescription\">{{ label }}</button>",
+							},
+						},
+						Conventions: config.LanguageConventions{
+							AriaAttributes: "kebab-case",
+							EventHandlers:  "@keydown",
+						},
+					},
+				},
+				Projects: []config.ProjectConfig{
+					{
+						Match:      "**",
+						AutoDetect: true,
+					},
+				},
+			}
+
+			// Add current project if detected
+			if projectCtx != nil && projectCtx.Language != "" {
+				// Find a good match pattern from repo path
+				matchPattern := createMatchPattern(projectCtx.RepoPath)
+				if matchPattern != "**" {
+					// Insert project-specific config before fallback
+					defaultConfig.Projects = append([]config.ProjectConfig{
+						{
+							Match:    matchPattern,
+							Language: projectCtx.Language,
+							Framework: projectCtx.Framework,
+							Components: map[string]config.ComponentFixConfig{
+								"ExampleComponent": {
+									Selectors: []string{".example", "[data-component=example]"},
+									Fixes: []config.ComponentFix{
+										{
+											Rule:    "button-name",
+											Pattern: "<!-- Add your project-specific fix pattern here -->",
+										},
+									},
+								},
+							},
+						},
+					}, defaultConfig.Projects...)
+				}
+			}
+
+			// Save config
+			if err := config.SaveFixesConfig(defaultConfig); err != nil {
+				return fmt.Errorf("failed to save config: %w", err)
+			}
+
+			fmt.Printf("Created configuration at %s\n", configPath)
+			fmt.Println("\nNext steps:")
+			fmt.Println("1. Edit the configuration to add your project-specific fix patterns")
+			fmt.Println("2. Run 'agenta11y config show' to verify the configuration")
+			fmt.Println("3. Run 'agenta11y audit <url>' to see project patterns in output")
+
+			logger.Debug("config initialized", "path", configPath)
+			return nil
+		},
+	}
+}
+
+func valueOrDefault(value, defaultValue string) string {
+	if value == "" {
+		return defaultValue
+	}
+	return value
+}
+
+func createMatchPattern(repoPath string) string {
+	// Extract meaningful parts from repo path
+	// e.g., /Users/john/projects/plexusone/dashboard -> */plexusone/dashboard
+	parts := strings.Split(repoPath, string(filepath.Separator))
+	if len(parts) < 2 {
+		return "**"
+	}
+
+	// Take last 2-3 meaningful parts
+	start := len(parts) - 2
+	if start < 0 {
+		start = 0
+	}
+
+	return "*/" + strings.Join(parts[start:], "/")
+}
+
 func runAudit(cmd *cobra.Command, args []string) error {
 	logger := setupLogger()
 
@@ -1039,6 +1265,28 @@ func transformToAgentFormat(result *audit.AuditResult, cfg *config.Config, durat
 	if sourceMapDir != "" {
 		opts = append(opts, remediation.WithSourceMaps(sourceMapDir))
 		logger.Debug("loading source maps", "path", sourceMapDir)
+	}
+
+	// Load project configuration from ~/.plexusone/a11y/fixes.yaml
+	fixesConfig, err := config.LoadFixesConfig()
+	if err != nil {
+		logger.Warn("failed to load fixes config", "error", err)
+	}
+
+	// Detect and resolve project context
+	cwd, _ := os.Getwd()
+	projectCtx, err := config.ResolveProject(cwd, fixesConfig)
+	if err != nil {
+		logger.Debug("failed to resolve project", "error", err)
+	}
+
+	// Add project config option if available
+	if fixesConfig != nil && projectCtx != nil {
+		opts = append(opts, remediation.WithProjectConfig(fixesConfig, projectCtx))
+		logger.Debug("loaded project config",
+			"language", projectCtx.Language,
+			"framework", projectCtx.Framework,
+			"componentLibrary", projectCtx.ComponentLibrary)
 	}
 
 	// Create transformer with optional design system and options
