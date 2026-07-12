@@ -11,19 +11,33 @@
       "date": "2026-07-11",
       "highlights": [
         { "description": "Agent-optimized output format is now the default for CLI and MCP tools" },
-        { "description": "Design system integration for token-aware remediation suggestions" }
+        { "description": "Design system integration for token-aware remediation suggestions" },
+        { "description": "Source code mapping via source maps for locating issues in source files" },
+        { "description": "Validation delta for autonomous fix loop (audit → fix → validate → repeat)" }
       ],
       "added": [
         { "description": "Agent-optimized JSON output as default format (use `--human` for human-readable output)" },
         { "description": "`--design-system` CLI flag to specify design system spec for token suggestions" },
+        { "description": "`--source-map` CLI flag to specify source map directory for source code mapping" },
         { "description": "`types/fix_pattern.go`: Agent output types (`AgentFinding`, `AgentResult`, `AgentRemediation`, `AgentSummary`)" },
         { "description": "`types/fix_pattern.go`: Fix pattern types (`FixPattern`, `FixAction`, `FixType`)" },
         { "description": "`types/fix_pattern.go`: Design system integration types (`TokenSuggestion`, `ElementContext`, `DesignSystemInfo`)" },
+        { "description": "`types/fix_pattern.go`: Source location types (`SourceLocation`, `Framework`)" },
+        { "description": "`types/delta.go`: Validation delta types (`ValidationDelta`, `FixedFinding`, `DeltaStatus`)" },
+        { "description": "`sourcemap/`: Source map parsing and element-to-source mapping" },
+        { "description": "`delta/`: Before/after comparison with fingerprinting and regression detection" },
+        { "description": "`config/fixes.go`: Project-specific fix configuration from `~/.plexusone/a11y/fixes.yaml`" },
+        { "description": "`config/project.go`: Auto-detection of language, framework, and component library" },
+        { "description": "`config/resolve.go`: Multi-level fix pattern resolution (project > library > language > builtin)" },
         { "description": "`remediation/patterns.go`: Fix pattern registry mapping WCAG techniques and axe rules to actionable fixes" },
         { "description": "`remediation/designsystem.go`: Design system loader with color token suggestions for contrast fixes" },
         { "description": "`remediation/transform.go`: Transformer to convert standard findings to agent-optimized format" },
         { "description": "`AgentOptimized()` and `AgentOptimizedJSON()` methods on `Result` type" },
-        { "description": "MCP tools now return agent-optimized JSON with fix patterns" }
+        { "description": "MCP tools now return agent-optimized JSON with fix patterns" },
+        { "description": "CLI `validate` command for comparing audits against baseline" },
+        { "description": "CLI `config show` command to display resolved project configuration" },
+        { "description": "CLI `config init` command to create default fixes.yaml" },
+        { "description": "Finding fingerprint (`Fingerprint()` method) for stable issue identification across audits" }
       ],
       "changed": [
         { "description": "Default CLI output format changed from human-readable to agent-optimized JSON" },
@@ -32,7 +46,8 @@
       "documentation": [
         { "description": "Agent Output section in report formats guide with JSON structure documentation" },
         { "description": "MCP reference updated with agent-optimized output examples" },
-        { "description": "README updated with `--human` and `--design-system` flag examples" }
+        { "description": "README updated with `--human` and `--design-system` flag examples" },
+        { "description": "Roadmap updated with validation delta implementation status" }
       ]
     },
     {
