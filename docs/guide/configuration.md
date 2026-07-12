@@ -81,6 +81,72 @@ output:
 | `--llm-model` | Model name |
 | `--llm-api-key` | API key (or use environment variable) |
 
+## Project-Specific Fix Patterns
+
+Configure team fix patterns in `~/.plexusone/a11y/fixes.yaml`. This file tells agent-a11y how to generate framework-specific fix suggestions.
+
+```yaml
+version: "1.0"
+
+defaults:
+  extends: builtin
+
+# Project matching rules (first match wins)
+projects:
+  - match: "*/mycompany/dashboard-*"
+    language: react
+    framework: next
+  - match: "*/mycompany/*"
+    language: vue
+  - match: "**"
+    auto_detect: true
+
+# Language-specific fix patterns
+languages:
+  react:
+    conventions:
+      aria_attributes: camelCase  # ariaLabel vs aria-label
+    patterns:
+      image-alt:
+        component: Image
+        import: "next/image"
+        example: '<Image alt="descriptive text" src={src} />'
+      button-name:
+        component: Button
+        example: '<Button aria-label="action description">'
+
+  vue:
+    conventions:
+      aria_attributes: kebab-case
+    patterns:
+      image-alt:
+        component: img
+        example: '<img :alt="altText" :src="src" />'
+```
+
+### Fix Configuration Commands
+
+```bash
+# Show resolved configuration for current directory
+agent-a11y config show
+
+# Create default fixes.yaml
+agent-a11y config init
+
+# Show configuration for specific path
+agent-a11y config show --path /path/to/project
+```
+
+### Project Matching
+
+Projects are matched in order - first match wins:
+
+| Pattern | Matches |
+|---------|---------|
+| `*/mycompany/dashboard-*` | Any path containing `/mycompany/dashboard-web`, etc. |
+| `*/mycompany/*` | Any path containing `/mycompany/` |
+| `**` | Fallback for all projects |
+
 ## Go Library Configuration
 
 ```go
