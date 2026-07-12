@@ -4,6 +4,8 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/grokify/oscompat/testutil"
 )
 
 func TestMatchPath(t *testing.T) {
@@ -115,9 +117,7 @@ func TestFixesConfigMatchProject(t *testing.T) {
 }
 
 func TestLoadFixesConfigMissing(t *testing.T) {
-	// Temporarily set HOME to a temp dir
-	tmpDir := t.TempDir()
-	t.Setenv("HOME", tmpDir)
+	testutil.SetTempHomeDir(t)
 
 	config, err := LoadFixesConfig()
 	if err != nil {
@@ -138,9 +138,7 @@ func TestLoadFixesConfigMissing(t *testing.T) {
 }
 
 func TestSaveAndLoadFixesConfig(t *testing.T) {
-	// Create temp dir for config
-	tmpDir := t.TempDir()
-	t.Setenv("HOME", tmpDir)
+	tmpDir := testutil.SetTempHomeDir(t)
 
 	// Create test config
 	config := &FixesConfig{
