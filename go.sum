@@ -112,8 +112,8 @@ github.com/plexusone/omnillm-core v0.18.0 h1:JnONiIe08W+83hsyxyFHSouk0jkBY2o7/Sz
 github.com/plexusone/omnillm-core v0.18.0/go.mod h1:180U/oa67fly3+T3h1sL/pBMvcjIKR+bvSEkAGnalMY=
 github.com/plexusone/openacr-go v0.1.0 h1:M2vPkiJDNZPNvqTgGWUqHmaULt81vbjQaCah/doUSlw=
 github.com/plexusone/openacr-go v0.1.0/go.mod h1:TC8KvXpGLq/7LIMxnlZ71T1QRH3h1mzO8DUbjgu9yM0=
-github.com/plexusone/w3pilot v0.8.0 h1:HoUsWPDzVinKNWW7NEMx9GhP1r8CT3AY3G5olw2UZbg=
-github.com/plexusone/w3pilot v0.8.0/go.mod h1:SVjmGBuj1ixyLImRE8+df+bNQzbuBhLHGtwffzyZdYs=
+github.com/plexusone/w3pilot v0.9.0 h1:nqFZP5jQI7CDFF5F2xl/Pzlp77mEFML5tDLtNKYdIOQ=
+github.com/plexusone/w3pilot v0.9.0/go.mod h1:wdBroLheLKpd1RowKV3PPGBGrNiKX0FmD4aM5VXtpZg=
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 h1:Jamvg5psRIccs7FGNTlIRMkT8wgtp5eCXdBlqhYGL6U=
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rogpeppe/go-internal v1.14.1 h1:UQB4HGPB6osV0SQTLymcB4TgvyWu6ZyliaW0tI/otEQ=
