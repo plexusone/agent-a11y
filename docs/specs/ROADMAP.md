@@ -36,7 +36,8 @@ This document outlines planned features for achieving fully agentic accessibilit
 | Gap | Impact | Priority |
 |-----|--------|----------|
 | Source code mapping | Coding agents can't locate source files | ✅ v0.5.0 |
-| Framework adapters | Fix patterns are generic HTML, not framework-specific | High |
+| Project-specific fixes | Teams can't define custom fix patterns | ✅ v0.5.1 |
+| Framework adapters | Fix patterns are generic HTML, not framework-specific | Deprioritized |
 | Validation delta | No before/after comparison | High |
 | Fix verification | Can't verify specific issues were resolved | Medium |
 | Component context | Findings are element-level, fixes are component-level | Medium |
@@ -110,6 +111,17 @@ agent-a11y audit https://localhost:3000 --source-map ./dist/
 
 ## v0.6.0 - Framework Adapters
 
+> **Status: Deprioritized**
+>
+> Modern coding agents (Claude Code, Kiro CLI, Codex CLI) can translate generic
+> fix patterns to framework-specific code using project context. They see imports,
+> existing patterns, and framework conventions in the codebase. Pre-computed
+> framework fixes add complexity without clear value. Revisit if agent experience
+> shows this is needed.
+>
+> Focus instead on **v0.7.0 Validation Delta** which enables the autonomous
+> feedback loop (verify fixes worked, detect regressions).
+
 **Goal**: Generate framework-specific fix code instead of generic HTML.
 
 ### Adapter Interface
@@ -143,12 +155,12 @@ type FrameworkFix struct {
 
 | Task | Description | Status |
 |------|-------------|--------|
-| Adapter interface | Define `FrameworkAdapter` interface | Pending |
-| React adapter | TSX/JSX transformations | Pending |
-| Vue adapter | Vue SFC transformations | Pending |
-| Svelte adapter | Svelte transformations | Pending |
-| CLI flag `--framework` | Override framework detection | Pending |
-| Agent output field | Add `frameworkFix` to remediation | Pending |
+| Adapter interface | Define `FrameworkAdapter` interface | Deprioritized |
+| React adapter | TSX/JSX transformations | Deprioritized |
+| Vue adapter | Vue SFC transformations | Deprioritized |
+| Svelte adapter | Svelte transformations | Deprioritized |
+| CLI flag `--framework` | Override framework detection | Deprioritized |
+| Agent output field | Add `frameworkFix` to remediation | Deprioritized |
 
 ### Example Output
 
