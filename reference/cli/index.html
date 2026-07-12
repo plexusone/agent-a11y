@@ -755,6 +755,56 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#agent-a11y-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agent-a11y validate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-a11y-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agent-a11y config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="agent-a11y config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config-show" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config show
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config init
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#agent-a11y-demo" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1081,6 +1131,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.4.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    v0.4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.3.0/" class="md-nav__link">
         
   
@@ -1244,6 +1322,56 @@
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-a11y-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agent-a11y validate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-a11y-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agent-a11y config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="agent-a11y config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config-show" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config show
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config init
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1495,29 +1623,159 @@
 </code></pre></div>
 <p>Communicates via stdio for MCP protocol.</p>
 <h3 id="agent-a11y-compare">agent-a11y compare<a class="headerlink" href="#agent-a11y-compare" title="Permanent link">&para;</a></h3>
-<p>Compare accessibility between two URLs.</p>
+<p>Compare accessibility between two URLs (VPAT comparison).</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>agent-a11y<span class="w"> </span>compare<span class="w"> </span>&lt;before-url&gt;<span class="w"> </span>&lt;after-url&gt;<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
 </code></pre></div>
+<p><strong>Flags:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name</code></td>
+<td>Comparison name</td>
+<td>URL-based</td>
+</tr>
+<tr>
+<td><code>--from-files</code></td>
+<td>Compare from existing JSON files</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>--format</code></td>
+<td>Output format (json, html, markdown, vpat)</td>
+<td>markdown</td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Output file path</td>
+<td>stdout</td>
+</tr>
+</tbody>
+</table>
 <p>Shows:</p>
 <ul>
 <li>Issues fixed</li>
 <li>Issues introduced</li>
 <li>Issues unchanged</li>
 </ul>
+<h3 id="agent-a11y-validate">agent-a11y validate<a class="headerlink" href="#agent-a11y-validate" title="Permanent link">&para;</a></h3>
+<p>Validate accessibility fixes against a baseline. Enables the autonomous fix loop.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>agent-a11y<span class="w"> </span>validate<span class="w"> </span>&lt;url&gt;<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span>
+</code></pre></div>
+<p><strong>Flags:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Short</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--baseline</code></td>
+<td><code>-b</code></td>
+<td>Baseline audit file to compare against</td>
+<td></td>
+</tr>
+<tr>
+<td><code>--expect-fixed</code></td>
+<td></td>
+<td>Rule IDs expected to be fixed (comma-separated)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>--fail-on-regression</code></td>
+<td></td>
+<td>Exit with code 1 if regressions detected</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>--save-baseline</code></td>
+<td></td>
+<td>Save this audit as baseline (no comparison)</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>--include-results</code></td>
+<td></td>
+<td>Include full before/after results in delta</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td><code>-o</code></td>
+<td>Output file path</td>
+<td>stdout</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Create baseline from first audit</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>agent-a11y<span class="w"> </span>validate<span class="w"> </span>https://example.com<span class="w"> </span>--save-baseline<span class="w"> </span>-o<span class="w"> </span>baseline.json
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Validate after fixes</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>agent-a11y<span class="w"> </span>validate<span class="w"> </span>https://example.com<span class="w"> </span>--baseline<span class="w"> </span>baseline.json
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Check specific rules were fixed</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>agent-a11y<span class="w"> </span>validate<span class="w"> </span>https://example.com<span class="w"> </span>--baseline<span class="w"> </span>baseline.json<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span>--expect-fixed<span class="w"> </span>color-contrast,image-alt
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># CI mode: fail on any regressions</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>agent-a11y<span class="w"> </span>validate<span class="w"> </span>https://example.com<span class="w"> </span>--baseline<span class="w"> </span>baseline.json<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span>--fail-on-regression
+</code></pre></div>
+<p><strong>Output:</strong></p>
+<p>The validate command outputs a <code>ValidationDelta</code> JSON with:</p>
+<ul>
+<li><code>fixed</code>: Issues that were resolved</li>
+<li><code>remaining</code>: Issues still present</li>
+<li><code>regressions</code>: New issues introduced</li>
+<li><code>status</code>: FIXED, IMPROVED, NO_CHANGE, REGRESSED, or MIXED</li>
+<li><code>improvement</code>: Percentage change</li>
+</ul>
+<h3 id="agent-a11y-config">agent-a11y config<a class="headerlink" href="#agent-a11y-config" title="Permanent link">&para;</a></h3>
+<p>Manage project-specific fix configuration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>agent-a11y<span class="w"> </span>config<span class="w"> </span>&lt;subcommand&gt;
+</code></pre></div>
+<p><strong>Subcommands:</strong></p>
+<h4 id="config-show">config show<a class="headerlink" href="#config-show" title="Permanent link">&para;</a></h4>
+<p>Show resolved configuration for the current project.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>agent-a11y<span class="w"> </span>config<span class="w"> </span>show
+</code></pre></div>
+<p>Displays:</p>
+<ul>
+<li>Detected language and framework</li>
+<li>Component library (MUI, Chakra, shadcn, etc.)</li>
+<li>Matched project configuration</li>
+<li>Config file location</li>
+</ul>
+<h4 id="config-init">config init<a class="headerlink" href="#config-init" title="Permanent link">&para;</a></h4>
+<p>Create a default configuration file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>agent-a11y<span class="w"> </span>config<span class="w"> </span>init
+</code></pre></div>
+<p>Creates <code>~/.plexusone/a11y/fixes.yaml</code> with example configuration.</p>
 <h3 id="agent-a11y-demo">agent-a11y demo<a class="headerlink" href="#agent-a11y-demo" title="Permanent link">&para;</a></h3>
 <p>Run demo audits on sample sites.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># List available demos</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>list
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Run a specific demo</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>run<span class="w"> </span>w3c-bad
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Generate a demo site</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>generate<span class="w"> </span>my-demo
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># List available demos</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>list
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Run a specific demo</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>run<span class="w"> </span>w3c-bad
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Generate a demo site</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>agent-a11y<span class="w"> </span>demo<span class="w"> </span>generate<span class="w"> </span>my-demo
 </code></pre></div>
 <h3 id="agent-a11y-version">agent-a11y version<a class="headerlink" href="#agent-a11y-version" title="Permanent link">&para;</a></h3>
 <p>Show version information.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>agent-a11y<span class="w"> </span>version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>agent-a11y<span class="w"> </span>version
 </code></pre></div>
 <h2 id="global-flags">Global Flags<a class="headerlink" href="#global-flags" title="Permanent link">&para;</a></h2>
 <table>

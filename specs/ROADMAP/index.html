@@ -925,6 +925,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.4.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    v0.4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.3.0/" class="md-nav__link">
         
   
@@ -1520,9 +1548,14 @@
 <td>✅ v0.5.0</td>
 </tr>
 <tr>
+<td>Project-specific fixes</td>
+<td>Teams can't define custom fix patterns</td>
+<td>✅ v0.5.1</td>
+</tr>
+<tr>
 <td>Framework adapters</td>
 <td>Fix patterns are generic HTML, not framework-specific</td>
-<td>High</td>
+<td>Deprioritized</td>
 </tr>
 <tr>
 <td>Validation delta</td>
@@ -1647,6 +1680,16 @@
 </table>
 <hr />
 <h2 id="v060-framework-adapters">v0.6.0 - Framework Adapters<a class="headerlink" href="#v060-framework-adapters" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Status: Deprioritized</strong></p>
+<p>Modern coding agents (Claude Code, Kiro CLI, Codex CLI) can translate generic
+fix patterns to framework-specific code using project context. They see imports,
+existing patterns, and framework conventions in the codebase. Pre-computed
+framework fixes add complexity without clear value. Revisit if agent experience
+shows this is needed.</p>
+<p>Focus instead on <strong>v0.7.0 Validation Delta</strong> which enables the autonomous
+feedback loop (verify fixes worked, detect regressions).</p>
+</blockquote>
 <p><strong>Goal</strong>: Generate framework-specific fix code instead of generic HTML.</p>
 <h3 id="adapter-interface">Adapter Interface<a class="headerlink" href="#adapter-interface" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// FrameworkAdapter transforms generic fix patterns to framework-specific code</span>
@@ -1708,32 +1751,32 @@
 <tr>
 <td>Adapter interface</td>
 <td>Define <code>FrameworkAdapter</code> interface</td>
-<td>Pending</td>
+<td>Deprioritized</td>
 </tr>
 <tr>
 <td>React adapter</td>
 <td>TSX/JSX transformations</td>
-<td>Pending</td>
+<td>Deprioritized</td>
 </tr>
 <tr>
 <td>Vue adapter</td>
 <td>Vue SFC transformations</td>
-<td>Pending</td>
+<td>Deprioritized</td>
 </tr>
 <tr>
 <td>Svelte adapter</td>
 <td>Svelte transformations</td>
-<td>Pending</td>
+<td>Deprioritized</td>
 </tr>
 <tr>
 <td>CLI flag <code>--framework</code></td>
 <td>Override framework detection</td>
-<td>Pending</td>
+<td>Deprioritized</td>
 </tr>
 <tr>
 <td>Agent output field</td>
 <td>Add <code>frameworkFix</code> to remediation</td>
-<td>Pending</td>
+<td>Deprioritized</td>
 </tr>
 </tbody>
 </table>
@@ -1809,22 +1852,22 @@
 <tr>
 <td>Finding fingerprint</td>
 <td>Stable ID for findings across audits</td>
-<td>Pending</td>
+<td>✅ Done</td>
 </tr>
 <tr>
 <td>Delta calculation</td>
 <td>Compare before/after findings</td>
-<td>Pending</td>
+<td>✅ Done</td>
 </tr>
 <tr>
 <td><code>compare</code> command</td>
 <td>CLI command for delta comparison</td>
-<td>Pending</td>
+<td>Existing (VPAT)</td>
 </tr>
 <tr>
 <td><code>validate</code> command</td>
 <td>Validate expected fixes</td>
-<td>Pending</td>
+<td>✅ Done</td>
 </tr>
 <tr>
 <td>MCP tool <code>compare_audits</code></td>
@@ -1834,7 +1877,7 @@
 <tr>
 <td>Regression detection</td>
 <td>Identify new issues introduced</td>
-<td>Pending</td>
+<td>✅ Done</td>
 </tr>
 </tbody>
 </table>
