@@ -20,6 +20,7 @@ import (
 	"github.com/plexusone/agent-a11y/api"
 	"github.com/plexusone/agent-a11y/audit"
 	"github.com/plexusone/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/delta"
 	"github.com/plexusone/agent-a11y/mcp"
 	"github.com/plexusone/agent-a11y/remediation"
 	"github.com/plexusone/agent-a11y/report"
@@ -89,6 +90,7 @@ Features:
 	rootCmd.AddCommand(serveCmd())
 	rootCmd.AddCommand(mcpCmd())
 	rootCmd.AddCommand(configCmd())
+	rootCmd.AddCommand(validateCmd())
 	rootCmd.AddCommand(versionCmd())
 
 	if err := rootCmd.Execute(); err != nil {
@@ -899,6 +901,208 @@ func runComparisonFromFiles(beforeFile, afterFile, name string) error {
 
 func containsIgnoreCase(s, substr string) bool {
 	return strings.Contains(strings.ToLower(s), strings.ToLower(substr))
+}
+
+func validateCmd() *cobra.Command {
+	var (
+		baselineFile     string
+		expectFixed      []string
+		failOnRegression bool
+		saveBaseline     bool
+		includeResults   bool
+	)
+
+	cmd := &cobra.Command{
+		Use:   "validate <url>",
+		Short: "Validate accessibility fixes against a baseline",
+		Long: `Validate that accessibility issues have been fixed by comparing
+against a baseline audit. This enables the autonomous fix loop:
+
+  audit → fix → validate → repeat until GO
+
+The validate command:
+  1. Runs a new audit on the URL
+  2. Compares findings against the baseline
+  3. Reports fixed issues, remaining issues, and regressions
+  4. Returns exit code 1 if regressions detected (for CI/CD)
+
+Examples:
+  # Create baseline from first audit
+  agent-a11y validate https://example.com --save-baseline -o baseline.json
+
+  # Validate after fixes
+  agent-a11y validate https://example.com --baseline baseline.json
+
+  # Check specific rules were fixed
+  agent-a11y validate https://example.com --baseline baseline.json \
+    --expect-fixed color-contrast,image-alt
+
+  # CI mode: fail on any regressions
+  agent-a11y validate https://example.com --baseline baseline.json \
+    --fail-on-regression`,
+		Args: cobra.ExactArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			url := args[0]
+			return runValidate(url, baselineFile, expectFixed, failOnRegression, saveBaseline, includeResults)
+		},
+	}
+
+	cmd.Flags().StringVarP(&baselineFile, "baseline", "b", "", "Baseline audit file to compare against")
+	cmd.Flags().StringSliceVar(&expectFixed, "expect-fixed", nil, "Rule IDs expected to be fixed (comma-separated)")
+	cmd.Flags().BoolVar(&failOnRegression, "fail-on-regression", false, "Exit with code 1 if regressions detected")
+	cmd.Flags().BoolVar(&saveBaseline, "save-baseline", false, "Save this audit as baseline (no comparison)")
+	cmd.Flags().BoolVar(&includeResults, "include-results", false, "Include full before/after results in delta output")
+	cmd.Flags().StringVarP(&outputFile, "output", "o", "", "Output file path")
+
+	return cmd
+}
+
+func runValidate(url, baselineFile string, expectFixed []string, failOnRegression, saveBaseline, includeResults bool) error {
+	logger := setupLogger()
+
+	// Create audit config
+	cfg := config.DefaultConfig()
+	cfg.URL = url
+	cfg.Browser.Headless = headless
+	if timeout != "" {
+		if d, err := time.ParseDuration(timeout); err == nil {
+			cfg.Browser.Timeout = config.Duration(d)
+		}
+	}
+
+	// Create audit engine
+	engineCfg := audit.EngineConfig{
+		LLMProvider: getLLMProvider(),
+		LLMAPIKey:   getLLMAPIKey(),
+		LLMModel:    getLLMModel(),
+		Logger:      logger,
+	}
+
+	engine, err := audit.NewEngine(engineCfg)
+	if err != nil {
+		return fmt.Errorf("failed to create audit engine: %w", err)
+	}
+	defer func() {
+		if err := engine.Close(); err != nil {
+			logger.Warn("failed to close engine", "error", err)
+		}
+	}()
+
+	ctx := context.Background()
+
+	// Run audit
+	logger.Info("running audit", "url", url)
+	startTime := time.Now()
+	result, err := engine.RunAudit(ctx, cfg)
+	if err != nil {
+		return fmt.Errorf("failed to run audit: %w", err)
+	}
+	duration := time.Since(startTime)
+
+	// Transform to agent format
+	agentResult, err := transformToAgentFormat(result, cfg, duration, logger)
+	if err != nil {
+		return fmt.Errorf("failed to transform result: %w", err)
+	}
+
+	// If save-baseline, just save and exit
+	if saveBaseline {
+		if outputFile == "" {
+			outputFile = "baseline.json"
+		}
+		if err := delta.SaveAgentResult(agentResult, outputFile); err != nil {
+			return fmt.Errorf("failed to save baseline: %w", err)
+		}
+		fmt.Printf("Baseline saved to %s (%d findings)\n", outputFile, len(agentResult.Findings))
+		return nil
+	}
+
+	// If no baseline, just output current results
+	if baselineFile == "" {
+		return outputValidationResult(agentResult, nil)
+	}
+
+	// Load baseline
+	baseline, err := delta.LoadAgentResult(baselineFile)
+	if err != nil {
+		return fmt.Errorf("failed to load baseline: %w", err)
+	}
+
+	// Calculate delta
+	calc := delta.NewCalculator()
+	calc.IncludeResults = includeResults
+	validationDelta := calc.Compare(baseline, agentResult)
+
+	// Output delta
+	if err := outputValidationResult(agentResult, validationDelta); err != nil {
+		return err
+	}
+
+	// Check expected fixes
+	if len(expectFixed) > 0 {
+		fixedRules := make(map[string]bool)
+		for _, f := range validationDelta.Fixed {
+			fixedRules[f.Finding.Finding.RuleID] = true
+		}
+
+		var unfixed []string
+		for _, rule := range expectFixed {
+			if !fixedRules[rule] {
+				unfixed = append(unfixed, rule)
+			}
+		}
+
+		if len(unfixed) > 0 {
+			fmt.Printf("\nExpected rules NOT fixed: %s\n", strings.Join(unfixed, ", "))
+		}
+	}
+
+	// Exit with error if regressions and fail-on-regression set
+	if failOnRegression && validationDelta.HasRegressions() {
+		return fmt.Errorf("validation failed: %d regressions detected", len(validationDelta.Regressions))
+	}
+
+	return nil
+}
+
+func outputValidationResult(result *types.AgentResult, validationDelta *types.ValidationDelta) error {
+	var output any
+	if validationDelta != nil {
+		output = validationDelta
+	} else {
+		output = result
+	}
+
+	data, err := json.MarshalIndent(output, "", "  ")
+	if err != nil {
+		return fmt.Errorf("failed to marshal output: %w", err)
+	}
+
+	if outputFile != "" {
+		if err := os.WriteFile(outputFile, data, 0644); err != nil {
+			return fmt.Errorf("failed to write output: %w", err)
+		}
+		fmt.Printf("Output written to %s\n", outputFile)
+	} else {
+		fmt.Println(string(data))
+	}
+
+	// Print summary if delta
+	if validationDelta != nil {
+		summary := validationDelta.Summary()
+		fmt.Printf("\n%s %s\n", summary.StatusEmoji, summary.StatusText)
+		fmt.Printf("  Before: %d issues\n", summary.TotalBefore)
+		fmt.Printf("  After:  %d issues\n", validationDelta.AfterTotal)
+		fmt.Printf("  Fixed:  %d\n", summary.FixedCount)
+		if summary.NewCount > 0 {
+			fmt.Printf("  New:    %d (regressions)\n", summary.NewCount)
+		}
+		if summary.Improvement != 0 {
+			fmt.Printf("  Change: %.1f%%\n", summary.Improvement)
+		}
+	}
+
+	return nil
 }
 
 func versionCmd() *cobra.Command {

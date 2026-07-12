@@ -237,12 +237,12 @@ agent-a11y audit https://example.com --fail-on-regression --baseline ./baseline.
 
 | Task | Description | Status |
 |------|-------------|--------|
-| Finding fingerprint | Stable ID for findings across audits | Pending |
-| Delta calculation | Compare before/after findings | Pending |
-| `compare` command | CLI command for delta comparison | Pending |
-| `validate` command | Validate expected fixes | Pending |
+| Finding fingerprint | Stable ID for findings across audits | ✅ Done |
+| Delta calculation | Compare before/after findings | ✅ Done |
+| `compare` command | CLI command for delta comparison | Existing (VPAT) |
+| `validate` command | Validate expected fixes | ✅ Done |
 | MCP tool `compare_audits` | Compare two audit results | Pending |
-| Regression detection | Identify new issues introduced | Pending |
+| Regression detection | Identify new issues introduced | ✅ Done |
 
 ### Finding Fingerprint
 

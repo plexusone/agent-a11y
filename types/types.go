@@ -2,7 +2,13 @@
 // This package exists to break import cycles between packages.
 package types
 
-import "time"
+import (
+	"crypto/sha256"
+	"fmt"
+	"regexp"
+	"strings"
+	"time"
+)
 
 // Severity represents the severity of an accessibility issue.
 type Severity string
@@ -137,4 +143,39 @@ type LLMEvaluation struct {
 	EvalTime  time.Time `json:"evalTime"`
 	TokensIn  int       `json:"tokensIn"`
 	TokensOut int       `json:"tokensOut"`
+}
+
+// Fingerprint generates a stable ID for a finding across audits.
+// This allows matching the same issue in before/after comparisons
+// even if minor details change (like line numbers in HTML).
+func (f *Finding) Fingerprint() string {
+	// Combine stable attributes that identify the same issue
+	data := fmt.Sprintf("%s:%s:%s:%s",
+		f.RuleID,
+		f.Selector,
+		normalizeHTML(f.HTML),
+		f.PageURL,
+	)
+	hash := sha256.Sum256([]byte(data))
+	return fmt.Sprintf("%x", hash[:8]) // 16 hex chars
+}
+
+// normalizeHTML removes volatile attributes from HTML for stable comparison.
+func normalizeHTML(html string) string {
+	// Remove data-* attributes that may change between renders (both quote styles)
+	dataAttrDouble := regexp.MustCompile(`\s+data-[a-zA-Z0-9-]+="[^"]*"`)
+	html = dataAttrDouble.ReplaceAllString(html, "")
+	dataAttrSingle := regexp.MustCompile(`\s+data-[a-zA-Z0-9-]+='[^']*'`)
+	html = dataAttrSingle.ReplaceAllString(html, "")
+
+	// Remove style attributes that may have computed values (both quote styles)
+	styleAttrDouble := regexp.MustCompile(`\s+style="[^"]*"`)
+	html = styleAttrDouble.ReplaceAllString(html, "")
+	styleAttrSingle := regexp.MustCompile(`\s+style='[^']*'`)
+	html = styleAttrSingle.ReplaceAllString(html, "")
+
+	// Normalize whitespace
+	html = strings.Join(strings.Fields(html), " ")
+
+	return html
 }
