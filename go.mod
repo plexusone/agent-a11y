@@ -4,7 +4,7 @@ go 1.26.4
 
 require (
 	github.com/grokify/oscompat v0.5.0
-	github.com/modelcontextprotocol/go-sdk v1.7.0
+	github.com/modelcontextprotocol/go-sdk v1.8.0
 	github.com/plexusone/multi-agent-spec/sdk/go v0.8.0
 	github.com/plexusone/omnillm v0.17.0
 	github.com/plexusone/openacr-go v0.1.0
