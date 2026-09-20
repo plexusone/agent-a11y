@@ -9,6 +9,7 @@ import (
 	"time"
 
 	vibium "github.com/plexusone/w3pilot"
+	"github.com/plexusone/w3pilot/pagecapture"
 )
 
 // Executor runs journey definitions using vibium for browser automation.
@@ -29,6 +30,10 @@ type ExecutorConfig struct {
 
 	// Compile prompts before execution (for hybrid/agentic modes)
 	CompilePrompts bool
+
+	// CaptureEvidence captures normalized page evidence (screenshot, HTML,
+	// structure) after each step, for proactive per-state criterion evaluation.
+	CaptureEvidence bool
 }
 
 // NewExecutor creates a new journey executor.
@@ -92,7 +97,16 @@ func (e *Executor) Execute(ctx context.Context, def *Definition) (*ExecutionStat
 		state.CurrentStepID = step.ID
 
 		result, err := e.executeStep(ctx, step, state)
-		state.StepResults = append(state.StepResults, result)
+		// Capture normalized evidence for this journey state so proactive
+		// evaluation can judge cross-state and interactive criteria. Best-effort.
+		if e.config.CaptureEvidence {
+			idx := len(state.StepResults)
+			ev := pagecapture.CaptureCurrent(ctx, e.vibe, state.CurrentURL, true)
+			state.StepResults = append(state.StepResults, result)
+			state.StepResults[idx].Evidence = ev
+		} else {
+			state.StepResults = append(state.StepResults, result)
+		}
 
 		if err != nil {
 			if step.ContinueOnError {

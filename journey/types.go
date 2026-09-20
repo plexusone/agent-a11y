@@ -3,6 +3,8 @@ package journey
 
 import (
 	"time"
+
+	"github.com/plexusone/w3pilot/pagecapture"
 )
 
 // Mode represents the journey execution mode.
@@ -70,9 +72,9 @@ type Step struct {
 	File string         `yaml:"file,omitempty" json:"file,omitempty"`
 
 	// Wait conditions
-	WaitFor      string        `yaml:"waitFor,omitempty" json:"waitFor,omitempty"` // Selector to wait for
-	WaitState    string        `yaml:"waitState,omitempty" json:"waitState,omitempty"` // visible, hidden, attached
-	WaitTimeout  time.Duration `yaml:"waitTimeout,omitempty" json:"waitTimeout,omitempty"`
+	WaitFor     string        `yaml:"waitFor,omitempty" json:"waitFor,omitempty"`     // Selector to wait for
+	WaitState   string        `yaml:"waitState,omitempty" json:"waitState,omitempty"` // visible, hidden, attached
+	WaitTimeout time.Duration `yaml:"waitTimeout,omitempty" json:"waitTimeout,omitempty"`
 
 	// Audit trigger
 	Audit     bool   `yaml:"audit,omitempty" json:"audit,omitempty"`
@@ -150,8 +152,8 @@ type RetryConfig struct {
 
 // ErrorHandler specifies error handling behavior.
 type ErrorHandler struct {
-	Screenshot  bool   `yaml:"screenshot" json:"screenshot"`
-	ContinueOn  string `yaml:"continueOn,omitempty" json:"continueOn,omitempty"` // error types to continue on
+	Screenshot    bool   `yaml:"screenshot" json:"screenshot"`
+	ContinueOn    string `yaml:"continueOn,omitempty" json:"continueOn,omitempty"` // error types to continue on
 	RecoverySteps []Step `yaml:"recoverySteps,omitempty" json:"recoverySteps,omitempty"`
 }
 
@@ -215,6 +217,11 @@ type StepExecutionResult struct {
 	PageURL    string `json:"pageUrl"`
 	PageTitle  string `json:"pageTitle"`
 	Screenshot string `json:"screenshot,omitempty"`
+
+	// Evidence is the normalized page capture for this journey state, enabling
+	// proactive evaluation of criteria that require cross-state or interactive
+	// context (consistent navigation, on-input behavior, form errors, ...).
+	Evidence *pagecapture.PageEvidence `json:"evidence,omitempty"`
 
 	// If audit was triggered
 	AuditResult any `json:"auditResult,omitempty"` // Typed as any to avoid circular import
