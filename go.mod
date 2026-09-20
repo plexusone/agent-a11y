@@ -8,7 +8,7 @@ require (
 	github.com/plexusone/multi-agent-spec/sdk/go v0.8.0
 	github.com/plexusone/omnillm v0.17.0
 	github.com/plexusone/openacr-go v0.1.0
-	github.com/plexusone/w3pilot v0.9.0
+	github.com/plexusone/w3pilot v0.10.0
 	github.com/spf13/cobra v1.10.2
 	gopkg.in/yaml.v3 v3.0.1
 )
@@ -17,7 +17,7 @@ require (
 	cloud.google.com/go v0.123.0 // indirect
 	cloud.google.com/go/auth v0.23.3 // indirect
 	cloud.google.com/go/compute/metadata v0.9.1 // indirect
-	github.com/OpenRouterTeam/go-sdk v0.8.6 // indirect
+	github.com/OpenRouterTeam/go-sdk v0.8.8 // indirect
 	github.com/anthropics/anthropic-sdk-go v1.74.0 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.47.0 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.20 // indirect
