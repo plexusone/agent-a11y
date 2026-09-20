@@ -11,6 +11,7 @@ import (
 
 	"github.com/plexusone/omnillm"
 	vibium "github.com/plexusone/w3pilot"
+	"github.com/plexusone/w3pilot/pagecapture"
 
 	"github.com/plexusone/agent-a11y/audit/specialized"
 	"github.com/plexusone/agent-a11y/auth"
@@ -343,6 +344,11 @@ func (e *Engine) auditPage(ctx context.Context, vibe *vibium.Pilot, rules *wcag.
 	// Get page language
 	lang, _ := vibe.Evaluate(ctx, "document.documentElement.lang || ''")
 	langStr, _ := lang.(string)
+
+	// Capture normalized page evidence (screenshot, HTML, structure) from the
+	// already-loaded page for proactive criterion evaluation. The page is
+	// settled here, so capture from the current DOM without re-navigating.
+	pageResult.Evidence = pagecapture.CaptureCurrent(ctx, vibe, currentURL, true)
 
 	// Run LLM evaluation if judge is available
 	if judge != nil && len(findings) > 0 {

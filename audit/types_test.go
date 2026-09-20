@@ -80,13 +80,13 @@ func TestWCAGVersionConstants(t *testing.T) {
 func TestPageResultJSONSerialization(t *testing.T) {
 	now := time.Now().Truncate(time.Second)
 	pr := PageResult{
-		URL:       "https://example.com",
-		Title:     "Test Page",
-		StartTime: now,
-		EndTime:   now.Add(time.Minute),
-		Duration:  60000,
-		LoadTime:  5000,
-		IsSPA:     true,
+		URL:          "https://example.com",
+		Title:        "Test Page",
+		StartTime:    now,
+		EndTime:      now.Add(time.Minute),
+		Duration:     60000,
+		LoadTime:     5000,
+		IsSPA:        true,
 		SPAFramework: "react",
 		Findings: []Finding{
 			{
@@ -94,10 +94,10 @@ func TestPageResultJSONSerialization(t *testing.T) {
 				RuleID: "image-alt",
 			},
 		},
-		Language:  "en",
-		DocType:   "html",
+		Language:   "en",
+		DocType:    "html",
 		HasSkipNav: true,
-		Landmarks: 5,
+		Landmarks:  5,
 	}
 
 	data, err := json.Marshal(pr)

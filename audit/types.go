@@ -4,6 +4,8 @@ package audit
 import (
 	"time"
 
+	"github.com/plexusone/w3pilot/pagecapture"
+
 	"github.com/plexusone/agent-a11y/types"
 )
 
@@ -62,6 +64,10 @@ type PageResult struct {
 
 	// Findings organized by category
 	Findings []Finding `json:"findings"`
+
+	// Evidence is the normalized page capture (screenshot, HTML, structure)
+	// used for proactive criterion evaluation. Populated when capture succeeds.
+	Evidence *pagecapture.PageEvidence `json:"evidence,omitempty"`
 
 	// Screenshots
 	FullPageScreenshot string `json:"fullPageScreenshot,omitempty"`
@@ -186,7 +192,7 @@ type LevelConformance struct {
 
 // CriterionResult represents the result for a specific success criterion.
 type CriterionResult struct {
-	ID         string `json:"id"`     // e.g., "1.1.1"
+	ID         string `json:"id"` // e.g., "1.1.1"
 	Name       string `json:"name"`
 	Level      string `json:"level"`
 	Status     string `json:"status"` // supports, partially_supports, does_not_support, not_applicable
