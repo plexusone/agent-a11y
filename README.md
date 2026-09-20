@@ -32,8 +32,11 @@ Go accessibility auditing toolkit for WCAG 2.0, 2.1, and 2.2 compliance testing.
 - ✅ **WCAG Compliance Testing** - Supports WCAG 2.0, 2.1, and 2.2 at levels A, AA, and AAA
 - 🔍 **Multiple Audit Modes** - Single page, site crawling, and user journey testing
 - 🪓 **axe-core Integration** - Industry-standard accessibility testing via axe-core
-- 🤖 **LLM-as-a-Judge** - Optional AI evaluation to reduce false positives
-- 📊 **Report Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, OpenACR, CSV
+- 🤖 **LLM-as-a-Judge** - Optional AI evaluation to reduce false positives on findings
+- 🎯 **Proactive Criterion Evaluation** - Judge criteria automation can't resolve (captions, use of color, consistent navigation) in two interchangeable modes — local (agent, no API key) or API — sharing one prompt and verdict schema. See [Proactive Criterion Evaluation](docs/criterion-evaluation.md)
+- ⚖️ **Honest Conformance** - Criteria that were not assessed are reported as "Not Evaluated" (never assumed "Supports"), with the evaluation method recorded per criterion
+- 🖼️ **Page Evidence Capture** - Screenshot, rendered HTML, and structure captured during audit (via `w3pilot/pagecapture`) to ground evaluation
+- 📊 **Report Formats** - JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, OpenACR, CSV (also available as `Result` methods: `VPAT()`, `OpenACR()`, `Conformance()`)
 - 🔌 **MCP Server** - Model Context Protocol integration for AI assistants
 - 🌐 **HTTP API** - REST API for programmatic access
 - 🤝 **Multi-Agent Spec** - Integration with multi-agent workflows

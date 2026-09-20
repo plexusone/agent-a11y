@@ -54,6 +54,7 @@ nav:
       - Audit Types: guide/audit-types.md
       - Configuration: guide/configuration.md
       - LLM Integration: guide/llm-integration.md
+      - Proactive Criterion Evaluation: criterion-evaluation.md
       - Report Formats: guide/report-formats.md
   - Reference:
       - CLI: reference/cli.md
