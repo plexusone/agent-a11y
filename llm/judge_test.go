@@ -328,8 +328,8 @@ func TestParseEvaluation(t *testing.T) {
 			},
 		},
 		{
-			name: "JSON with markdown code block",
-			content: "```json\n{\"confirmed\": true, \"confidence\": 0.8, \"severity\": \"moderate\", \"reasoning\": \"test\", \"remediation\": \"fix it\", \"needsManualReview\": false}\n```",
+			name:      "JSON with markdown code block",
+			content:   "```json\n{\"confirmed\": true, \"confidence\": 0.8, \"severity\": \"moderate\", \"reasoning\": \"test\", \"remediation\": \"fix it\", \"needsManualReview\": false}\n```",
 			findingID: "f2",
 			wantErr:   false,
 			check: func(e *Evaluation) error {
@@ -340,8 +340,8 @@ func TestParseEvaluation(t *testing.T) {
 			},
 		},
 		{
-			name: "JSON with plain code block",
-			content: "```\n{\"confirmed\": false, \"confidence\": 0.6, \"severity\": \"minor\", \"reasoning\": \"not an issue\", \"remediation\": \"none\", \"needsManualReview\": true}\n```",
+			name:      "JSON with plain code block",
+			content:   "```\n{\"confirmed\": false, \"confidence\": 0.6, \"severity\": \"minor\", \"reasoning\": \"not an issue\", \"remediation\": \"none\", \"needsManualReview\": true}\n```",
 			findingID: "f3",
 			wantErr:   false,
 			check: func(e *Evaluation) error {
