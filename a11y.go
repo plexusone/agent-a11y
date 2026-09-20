@@ -3,12 +3,14 @@ package a11y
 import (
 	"bytes"
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"time"
 
 	"github.com/plexusone/agent-a11y/audit"
 	"github.com/plexusone/agent-a11y/config"
+	"github.com/plexusone/agent-a11y/llm"
 	"github.com/plexusone/agent-a11y/remediation"
 	"github.com/plexusone/agent-a11y/report"
 	"github.com/plexusone/agent-a11y/types"
@@ -334,6 +336,103 @@ func (r *Result) WCAG() ([]byte, error) {
 		return nil, err
 	}
 	return buf.Bytes(), nil
+}
+
+// OpenACR returns the result as an OpenACR (Open Accessibility Conformance
+// Report) document. Only criteria actually evaluated are reported; unevaluated
+// criteria are marked "Not Evaluated" rather than assumed conformant.
+func (r *Result) OpenACR() ([]byte, error) {
+	w := report.NewWriter(report.FormatOpenACR)
+	var buf bytes.Buffer
+	if err := w.Write(&buf, r.raw); err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}
+
+// CriterionResult is the structured, honest per-criterion conformance verdict.
+type CriterionResult struct {
+	ID          string
+	Name        string
+	Level       string
+	Conformance string
+	Method      string
+	Evaluated   bool
+	Remarks     string
+	IssueCount  int
+}
+
+// Conformance returns the per-criterion verdicts for this result. Consumers
+// (e.g. the canonical AssessmentRecord) project VPAT/OpenACR/other formats from
+// these rather than re-deriving them. Unevaluated criteria are honestly marked.
+func (r *Result) Conformance() []CriterionResult {
+	crs := report.EvaluateConformance(r.raw)
+	out := make([]CriterionResult, len(crs))
+	for i, c := range crs {
+		out[i] = CriterionResult(c)
+	}
+	return out
+}
+
+// pageContext builds the evidence context for proactive criterion evaluation
+// from the captured page evidence (screenshot, HTML, language) when available.
+func (r *Result) pageContext() llm.PageContext {
+	pc := llm.PageContext{URL: r.raw.TargetURL}
+	if len(r.raw.Pages) == 0 {
+		return pc
+	}
+	p := r.raw.Pages[0]
+	pc.Title = p.Title
+	pc.IsSPA = p.IsSPA
+	pc.Framework = p.SPAFramework
+	if p.Evidence != nil {
+		pc.Language = p.Evidence.Language
+		pc.HTMLSnippet = p.Evidence.HTML
+		if len(p.Evidence.ScreenshotPNG) > 0 {
+			pc.Screenshot = base64.StdEncoding.EncodeToString(p.Evidence.ScreenshotPNG)
+		}
+	}
+	return pc
+}
+
+// CriterionQueries returns proactive-evaluation queries for the criteria that
+// automation left "Not Evaluated" and that are designed for judgment.
+func (r *Result) CriterionQueries() []llm.CriterionQuery {
+	return report.CriterionQueriesForUnevaluated(r.raw)
+}
+
+// EvaluationBundle exports the local-mode worklist: the shared prompt, the page
+// evidence, and per-criterion prompts for an external agent to judge (no API
+// key). Feed the agent's verdicts back via ConformanceWithVerdicts.
+func (r *Result) EvaluationBundle() llm.EvaluationBundle {
+	return llm.BuildBundle(r.CriterionQueries(), r.pageContext())
+}
+
+// EvaluateCriteria runs proactive evaluation through the given evaluator (the
+// API backend or any CriterionEvaluator) and returns its verdicts.
+func (r *Result) EvaluateCriteria(ctx context.Context, evaluator llm.CriterionEvaluator) ([]llm.CriterionVerdict, error) {
+	return evaluator.EvaluateCriteria(ctx, r.CriterionQueries(), r.pageContext())
+}
+
+// ConformanceWithVerdicts returns per-criterion verdicts with proactive
+// verdicts (from either mode) applied over the automated baseline.
+func (r *Result) ConformanceWithVerdicts(verdicts []llm.CriterionVerdict) []CriterionResult {
+	crs := report.ApplyVerdicts(report.EvaluateConformance(r.raw), verdicts)
+	out := make([]CriterionResult, len(crs))
+	for i, c := range crs {
+		out[i] = CriterionResult(c)
+	}
+	return out
+}
+
+// EvaluationMethods lists the human-readable evaluation methods applied.
+func (r *Result) EvaluationMethods() []string {
+	return report.EvaluationMethods(r.raw)
+}
+
+// ConformanceDisclaimer is the honesty disclaimer describing evaluation scope.
+func (r *Result) ConformanceDisclaimer() string {
+	return report.ConformanceDisclaimer
 }
 
 // Conformant returns true if the audit passed at the target level.
