@@ -40,15 +40,18 @@ type Finding struct {
 
 // Results contains all specialized test results.
 type Results struct {
-	Keyboard      *KeyboardTestResult      `json:"keyboard,omitempty"`
-	FocusVisible  *FocusVisibilityResult   `json:"focusVisible,omitempty"`
-	FocusOrder    *FocusOrderResult        `json:"focusOrder,omitempty"`
-	FocusObscured *FocusObscuredResult     `json:"focusObscured,omitempty"`
-	OnFocus       *OnFocusResult           `json:"onFocus,omitempty"`
-	Reflow        *ReflowTestResult        `json:"reflow,omitempty"`
-	TargetSize    *TargetSizeTestResult    `json:"targetSize,omitempty"`
-	TextSpacing   *SpacingTestResult       `json:"textSpacing,omitempty"`
-	Findings      []Finding                `json:"findings"`
+	Keyboard      *KeyboardTestResult    `json:"keyboard,omitempty"`
+	FocusVisible  *FocusVisibilityResult `json:"focusVisible,omitempty"`
+	FocusOrder    *FocusOrderResult      `json:"focusOrder,omitempty"`
+	FocusObscured *FocusObscuredResult   `json:"focusObscured,omitempty"`
+	OnFocus       *OnFocusResult         `json:"onFocus,omitempty"`
+	Reflow        *ReflowTestResult      `json:"reflow,omitempty"`
+	TargetSize    *TargetSizeTestResult  `json:"targetSize,omitempty"`
+	TextSpacing   *SpacingTestResult     `json:"textSpacing,omitempty"`
+	Resize        *ResizeTextResult      `json:"resize,omitempty"`
+	Hover         *HoverFocusResult      `json:"hover,omitempty"`
+	Flash         *FlashTestResult       `json:"flash,omitempty"`
+	Findings      []Finding              `json:"findings"`
 }
 
 // RunAll executes all specialized tests and returns findings.
@@ -135,6 +138,38 @@ func (r *Runner) RunAll(ctx context.Context) (*Results, error) {
 	} else {
 		results.TextSpacing = spacingResult
 		results.Findings = append(results.Findings, r.textSpacingFindings(spacingResult)...)
+	}
+
+	// Run resize text test (1.4.4)
+	r.logger.Debug("running resize text test")
+	resizeResult, err := TestResizeText(ctx, r.vibe)
+	if err != nil {
+		r.logger.Warn("resize text test failed", "error", err)
+	} else {
+		results.Resize = resizeResult
+		results.Findings = append(results.Findings, r.resizeFindings(resizeResult)...)
+	}
+
+	// Run content-on-hover/focus test (1.4.13)
+	r.logger.Debug("running content on hover/focus test")
+	hoverResult, err := TestContentOnHoverFocus(ctx, r.vibe)
+	if err != nil {
+		r.logger.Warn("content on hover/focus test failed", "error", err)
+	} else {
+		results.Hover = hoverResult
+		results.Findings = append(results.Findings, r.hoverFindings(hoverResult)...)
+	}
+
+	// Run flashing content test (2.3.1). Static detection can only flag
+	// *potential* flashing, so 2.3.1 remains manually classified; a positive
+	// detection is still surfaced as a finding for review.
+	r.logger.Debug("running flashing content test")
+	flashResult, err := TestThreeFlashes(ctx, r.vibe)
+	if err != nil {
+		r.logger.Warn("flashing content test failed", "error", err)
+	} else {
+		results.Flash = flashResult
+		results.Findings = append(results.Findings, r.flashFindings(flashResult)...)
 	}
 
 	r.logger.Info("specialized tests complete", "findings", len(results.Findings))
@@ -363,5 +398,114 @@ func (r *Runner) textSpacingFindings(result *SpacingTestResult) []Finding {
 		})
 	}
 
+	return findings
+}
+
+// resizeFindings converts resize-text results to findings (WCAG 1.4.4).
+func (r *Runner) resizeFindings(result *ResizeTextResult) []Finding {
+	var findings []Finding
+	if result == nil || result.PassesTest {
+		return findings
+	}
+
+	for _, el := range result.ClippedElements {
+		findings = append(findings, Finding{
+			ID:              fmt.Sprintf("specialized-resize-clip-%s", el),
+			RuleID:          "resize-text-clipped",
+			Description:     fmt.Sprintf("Text clipped when resized to 200%%: %s", el),
+			Help:            "Ensure text can be resized up to 200% without clipping or loss of content",
+			SuccessCriteria: []string{"1.4.4"},
+			Level:           "AA",
+			Impact:          "serious",
+			Selector:        el,
+		})
+	}
+	for _, el := range result.OverlappingElements {
+		findings = append(findings, Finding{
+			ID:              fmt.Sprintf("specialized-resize-overlap-%s", el),
+			RuleID:          "resize-text-overlap",
+			Description:     fmt.Sprintf("Text overlaps when resized to 200%%: %s", el),
+			Help:            "Ensure text does not overlap when resized to 200%",
+			SuccessCriteria: []string{"1.4.4"},
+			Level:           "AA",
+			Impact:          "moderate",
+			Selector:        el,
+		})
+	}
+	// Failing result with no element-level detail: emit one general finding.
+	if len(findings) == 0 {
+		findings = append(findings, Finding{
+			ID:              "specialized-resize-text",
+			RuleID:          "resize-text",
+			Description:     "Content is affected when text is resized to 200%",
+			Help:            "Ensure text can be resized up to 200% without loss of content or function",
+			SuccessCriteria: []string{"1.4.4"},
+			Level:           "AA",
+			Impact:          "serious",
+		})
+	}
+	return findings
+}
+
+// hoverFindings converts content-on-hover/focus results to findings (WCAG 1.4.13).
+func (r *Runner) hoverFindings(result *HoverFocusResult) []Finding {
+	var findings []Finding
+	if result == nil || result.PassesTest {
+		return findings
+	}
+	if !result.HasHoverContent && !result.HasFocusContent {
+		return findings
+	}
+
+	for _, el := range result.HoverElements {
+		findings = append(findings, Finding{
+			ID:              fmt.Sprintf("specialized-hover-%s", el.Selector),
+			RuleID:          "content-on-hover",
+			Description:     fmt.Sprintf("Hover/focus content (%s) may not be dismissible, hoverable, and persistent: %s", el.ContentType, el.Selector),
+			Help:            "Content shown on hover or focus must be dismissible, hoverable, and persistent",
+			SuccessCriteria: []string{"1.4.13"},
+			Level:           "AA",
+			Impact:          "moderate",
+			Selector:        el.Selector,
+		})
+	}
+	if len(findings) == 0 {
+		findings = append(findings, Finding{
+			ID:              "specialized-content-on-hover",
+			RuleID:          "content-on-hover",
+			Description:     "Content shown on hover/focus may not meet dismissible, hoverable, and persistent requirements",
+			Help:            "Content shown on hover or focus must be dismissible, hoverable, and persistent",
+			SuccessCriteria: []string{"1.4.13"},
+			Level:           "AA",
+			Impact:          "moderate",
+		})
+	}
+	return findings
+}
+
+// flashFindings converts flashing-content results to findings (WCAG 2.3.1).
+// Detection is heuristic (it flags potential flashing), so findings are framed
+// as needing review and capped at "serious" impact rather than "critical".
+func (r *Runner) flashFindings(result *FlashTestResult) []Finding {
+	var findings []Finding
+	if result == nil || !result.HasPotentialFlashing {
+		return findings
+	}
+	for _, el := range result.FlashingElements {
+		impact := "moderate"
+		if el.RiskLevel == "high" {
+			impact = "serious"
+		}
+		findings = append(findings, Finding{
+			ID:              fmt.Sprintf("specialized-flash-%s", el.Selector),
+			RuleID:          "three-flashes",
+			Description:     fmt.Sprintf("Potential flashing content (%s, %s risk) — review that it does not flash more than three times per second: %s", el.Type, el.RiskLevel, el.Selector),
+			Help:            "Content must not flash more than three times in any one-second period",
+			SuccessCriteria: []string{"2.3.1"},
+			Level:           "A",
+			Impact:          impact,
+			Selector:        el.Selector,
+		})
+	}
 	return findings
 }

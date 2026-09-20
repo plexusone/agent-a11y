@@ -25,9 +25,9 @@ type AudioControlResult struct {
 
 // AutoplayElement represents an element with autoplay media.
 type AutoplayElement struct {
-	Selector string `json:"selector"`
-	TagName  string `json:"tagName"`
-	HasAudio bool   `json:"hasAudio"`
+	Selector string  `json:"selector"`
+	TagName  string  `json:"tagName"`
+	HasAudio bool    `json:"hasAudio"`
 	Duration float64 `json:"duration"`
 }
 

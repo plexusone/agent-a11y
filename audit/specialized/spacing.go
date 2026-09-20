@@ -34,7 +34,7 @@ type OverlapIssue struct {
 
 // ClipIssue represents an element with clipped text.
 type ClipIssue struct {
-	Selector       string `json:"selector"`
+	Selector       string  `json:"selector"`
 	OriginalHeight float64 `json:"originalHeight"`
 	NewHeight      float64 `json:"newHeight"`
 	HasOverflow    bool    `json:"hasOverflow"`
@@ -42,10 +42,10 @@ type ClipIssue struct {
 
 // WCAG 1.4.12 required spacing values
 const (
-	LineHeight    = 1.5   // 1.5 times the font size
-	ParagraphSpacing = 2.0 // 2 times the font size
-	LetterSpacing = 0.12  // 0.12 times the font size
-	WordSpacing   = 0.16  // 0.16 times the font size
+	LineHeight       = 1.5  // 1.5 times the font size
+	ParagraphSpacing = 2.0  // 2 times the font size
+	LetterSpacing    = 0.12 // 0.12 times the font size
+	WordSpacing      = 0.16 // 0.16 times the font size
 )
 
 // TestTextSpacing tests that content adapts to increased text spacing (WCAG 1.4.12).

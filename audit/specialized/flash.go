@@ -23,7 +23,7 @@ type FlashTestResult struct {
 // FlashingElement represents an element with potential flashing content.
 type FlashingElement struct {
 	Selector  string `json:"selector"`
-	Type      string `json:"type"` // "gif", "video", "css-animation", "blink"
+	Type      string `json:"type"`      // "gif", "video", "css-animation", "blink"
 	RiskLevel string `json:"riskLevel"` // "high", "medium", "low"
 }
 
