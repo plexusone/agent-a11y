@@ -11,6 +11,8 @@ import (
 	"time"
 
 	"github.com/plexusone/agent-a11y/audit"
+	"github.com/plexusone/agent-a11y/llm"
+	"github.com/plexusone/agent-a11y/wcag"
 )
 
 // Format represents an output format.
@@ -297,6 +299,19 @@ func (w *Writer) writeVPAT(out io.Writer, result *audit.AuditResult) error {
 	}
 	sb.WriteString("\n")
 
+	// Conformance summary — surfaces scope (esp. how much was not evaluated).
+	counts := map[string]int{}
+	for _, c := range report.WCAGConformance {
+		counts[c.Conformance]++
+	}
+	sb.WriteString("## Conformance Summary\n\n")
+	for _, level := range []string{"Supports", "Partially Supports", "Does Not Support", "Not Evaluated"} {
+		if n := counts[level]; n > 0 {
+			fmt.Fprintf(&sb, "- **%s:** %d criteria\n", level, n)
+		}
+	}
+	sb.WriteString("\n")
+
 	// WCAG Conformance Table
 	sb.WriteString("## WCAG 2.2 Conformance\n\n")
 	sb.WriteString("| Criterion | Level | Conformance | Remarks |\n")
@@ -307,7 +322,7 @@ func (w *Writer) writeVPAT(out io.Writer, result *audit.AuditResult) error {
 			criterion.Criterion,
 			criterion.Level,
 			criterion.Conformance,
-			truncate(criterion.Remarks, 50),
+			truncate(criterion.Remarks, 120),
 		)
 	}
 
@@ -347,55 +362,181 @@ func (w *Writer) writeWCAGReport(out io.Writer, result *audit.AuditResult) error
 	return err
 }
 
-func generateVPATReport(result *audit.AuditResult) *audit.VPATReport {
-	report := &audit.VPATReport{
-		ProductName:   "Web Application",
-		ReportDate:    result.StartTime,
-		EvaluationURL: result.TargetURL,
-		EvaluationMethods: []string{
-			"Automated accessibility testing",
-			"Manual review of key interactions",
-		},
-		LegalDisclaimer: "This report is provided as-is and represents the accessibility status at the time of evaluation. Conformance may change as the product is updated.",
-	}
+// CriterionResult is the structured, honest per-criterion verdict for an audit.
+// It is the shared source both the VPAT renderer and external consumers (e.g.
+// the canonical AssessmentRecord) project from.
+type CriterionResult struct {
+	ID          string `json:"id"`
+	Name        string `json:"name"`
+	Level       string `json:"level"`
+	Conformance string `json:"conformance"`
+	Method      string `json:"method"`
+	Evaluated   bool   `json:"evaluated"`
+	Remarks     string `json:"remarks"`
+	IssueCount  int    `json:"issueCount"`
+}
 
-	// Build criterion conformance
+// EvaluationMethods returns the human-readable evaluation methods applied,
+// reflecting whether the LLM judge ran.
+func EvaluationMethods(result *audit.AuditResult) []string {
+	methods := []string{
+		"Automated accessibility testing (axe-core)",
+		"Specialized automated testing (keyboard, focus, reflow)",
+	}
+	if result.LLMEnabled {
+		methods = append(methods, "AI-assisted evaluation (LLM-as-a-Judge)")
+	}
+	return methods
+}
+
+// ConformanceDisclaimer is the standard honesty disclaimer for a11y attestations.
+const ConformanceDisclaimer = "This report reflects an automated accessibility evaluation. Criteria " +
+	"marked \"Not Evaluated\" were not assessed because they require human " +
+	"judgment (or AI evaluation that was not enabled) and cannot be verified " +
+	"by automated testing alone; they require manual review by a qualified " +
+	"evaluator before conformance can be claimed. A \"Supports\" result reflects " +
+	"that no issues were detected by the methods listed above, not a guarantee " +
+	"of full conformance."
+
+// EvaluateConformance produces the honest per-criterion verdicts for an audit,
+// keyed off the WCAG catalog and each criterion's evaluation method.
+func EvaluateConformance(result *audit.AuditResult) []CriterionResult {
+	// Aggregate findings by success criterion.
 	criteriaStatus := make(map[string]string)
 	criteriaIssues := make(map[string]int)
-
 	for _, page := range result.Pages {
 		for _, finding := range page.Findings {
 			for _, sc := range finding.SuccessCriteria {
 				criteriaIssues[sc]++
 				if finding.Impact == audit.ImpactBlocker || finding.Impact == audit.ImpactCritical {
-					criteriaStatus[sc] = "Does Not Support"
-				} else if criteriaStatus[sc] != "Does Not Support" {
-					criteriaStatus[sc] = "Partially Supports"
+					criteriaStatus[sc] = string(wcag.ConformanceDoesNotSupport)
+				} else if criteriaStatus[sc] != string(wcag.ConformanceDoesNotSupport) {
+					criteriaStatus[sc] = string(wcag.ConformancePartiallySupports)
 				}
 			}
 		}
 	}
 
-	// Generate VPAT criteria
-	wcagCriteria := getWCAG22Criteria()
-	for _, wc := range wcagCriteria {
-		status := "Supports"
-		remarks := "No issues found"
+	// The catalog is A/AA; include AA only when the audit targeted AA or above.
+	includeAA := result.WCAGLevel == audit.WCAGLevelAA || result.WCAGLevel == audit.WCAGLevelAAA
 
-		if s, ok := criteriaStatus[wc.ID]; ok {
-			status = s
-			remarks = fmt.Sprintf("%d issue(s) found", criteriaIssues[wc.ID])
+	var out []CriterionResult
+	for _, c := range wcag.WCAG22AA {
+		if c.Level == "AA" && !includeAA {
+			continue
 		}
 
-		report.WCAGConformance = append(report.WCAGConformance, audit.VPATCriterion{
-			Criterion:   fmt.Sprintf("%s %s", wc.ID, wc.Name),
-			Level:       wc.Level,
+		var status, remarks string
+		if s, ok := criteriaStatus[c.ID]; ok {
+			status = s
+			remarks = fmt.Sprintf("%d issue(s) detected by automated testing", criteriaIssues[c.ID])
+		} else {
+			status, remarks = passStatusForMethod(c.Method)
+		}
+
+		out = append(out, CriterionResult{
+			ID:          c.ID,
+			Name:        c.Name,
+			Level:       c.Level,
 			Conformance: status,
+			Method:      string(c.Method),
+			Evaluated:   status != string(wcag.ConformanceNotEvaluated),
 			Remarks:     remarks,
+			IssueCount:  criteriaIssues[c.ID],
 		})
 	}
+	return out
+}
 
+// CriterionQueriesForUnevaluated builds proactive-evaluation queries for the
+// criteria that automation left "Not Evaluated" and whose method is designed
+// for judgment (LLM-Judge or Hybrid). These feed a CriterionEvaluator (API or
+// local bundle).
+func CriterionQueriesForUnevaluated(result *audit.AuditResult) []llm.CriterionQuery {
+	var qs []llm.CriterionQuery
+	for _, cr := range EvaluateConformance(result) {
+		if cr.Conformance != string(wcag.ConformanceNotEvaluated) {
+			continue
+		}
+		c := wcag.GetCriterion(cr.ID)
+		if c == nil || (c.Method != wcag.MethodLLMJudge && c.Method != wcag.MethodHybrid) {
+			continue
+		}
+		qs = append(qs, llm.CriterionQuery{ID: c.ID, Name: c.Name, Level: c.Level, Requirement: c.Description})
+	}
+	return qs
+}
+
+// ApplyVerdicts overlays proactive verdicts onto a base conformance evaluation.
+// A verdict only affects criteria automation left "Not Evaluated"; it never
+// overrides a finding-backed "Does Not Support"/"Partially Supports".
+func ApplyVerdicts(base []CriterionResult, verdicts []llm.CriterionVerdict) []CriterionResult {
+	byID := make(map[string]llm.CriterionVerdict, len(verdicts))
+	for _, v := range verdicts {
+		byID[v.ID] = v
+	}
+	out := make([]CriterionResult, len(base))
+	copy(out, base)
+	for i := range out {
+		if out[i].Conformance != string(wcag.ConformanceNotEvaluated) {
+			continue
+		}
+		v, ok := byID[out[i].ID]
+		if !ok {
+			continue
+		}
+		out[i].Conformance = v.Conformance
+		out[i].Evaluated = v.Conformance != llm.VerdictNotEvaluated
+		switch {
+		case v.Conformance == llm.VerdictNotEvaluated && v.EvidenceGap != "":
+			out[i].Remarks = "Not evaluated — needs: " + v.EvidenceGap
+		case v.Reasoning != "":
+			out[i].Remarks = "AI-judged: " + v.Reasoning
+		}
+	}
+	return out
+}
+
+func generateVPATReport(result *audit.AuditResult) *audit.VPATReport {
+	report := &audit.VPATReport{
+		ProductName:       "Web Application",
+		ReportDate:        result.StartTime,
+		EvaluationURL:     result.TargetURL,
+		EvaluationMethods: EvaluationMethods(result),
+		LegalDisclaimer:   ConformanceDisclaimer,
+	}
+	for _, cr := range EvaluateConformance(result) {
+		report.WCAGConformance = append(report.WCAGConformance, audit.VPATCriterion{
+			Criterion:   fmt.Sprintf("%s %s", cr.ID, cr.Name),
+			Level:       cr.Level,
+			Conformance: cr.Conformance,
+			Remarks:     cr.Remarks,
+		})
+	}
 	return report
+}
+
+// passStatusForMethod returns the honest conformance and remark for a criterion
+// that had no findings, based on how the criterion can be evaluated. We only
+// claim "Supports" for criteria the automated methods can determine. Criteria
+// requiring judgment (LLM-Judge, Hybrid, Manual) are "Not Evaluated" here and
+// stay so until a proactive verdict resolves them — enabling an LLM alone does
+// not flip them, because nothing has actually evaluated them yet.
+func passStatusForMethod(method wcag.EvaluationMethod) (status, remarks string) {
+	switch method {
+	case wcag.MethodAutomated:
+		return string(wcag.ConformanceSupports), "No issues detected by automated testing"
+	case wcag.MethodSpecialized:
+		return string(wcag.ConformanceSupports), "No issues detected by specialized automated testing"
+	case wcag.MethodLLMJudge:
+		return string(wcag.ConformanceNotEvaluated), "Requires proactive AI or manual evaluation"
+	case wcag.MethodHybrid:
+		return string(wcag.ConformanceNotEvaluated), "Automated checks passed; proactive AI or manual review required to confirm"
+	case wcag.MethodManual:
+		return string(wcag.ConformanceNotEvaluated), "Requires manual review by a qualified evaluator"
+	default:
+		return string(wcag.ConformanceNotEvaluated), "Not assessed by automated testing"
+	}
 }
 
 type wcagCriterion struct {
