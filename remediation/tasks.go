@@ -54,15 +54,15 @@ type RemediationTask struct {
 	AffectedCount    int               `json:"affectedCount"`
 
 	// Remediation guidance
-	Summary          string             `json:"summary"`
-	AcceptanceCriteria []string         `json:"acceptanceCriteria"`
-	TechniqueRefs    []types.TechniqueRef `json:"techniqueRefs"`
-	References       []types.ReferenceURL `json:"references"`
+	Summary            string               `json:"summary"`
+	AcceptanceCriteria []string             `json:"acceptanceCriteria"`
+	TechniqueRefs      []types.TechniqueRef `json:"techniqueRefs"`
+	References         []types.ReferenceURL `json:"references"`
 
 	// For LLM agents
-	SuggestedFix     string   `json:"suggestedFix,omitempty"`
-	CodeExamples     []string `json:"codeExamples,omitempty"`
-	FilesToModify    []string `json:"filesToModify,omitempty"`
+	SuggestedFix  string   `json:"suggestedFix,omitempty"`
+	CodeExamples  []string `json:"codeExamples,omitempty"`
+	FilesToModify []string `json:"filesToModify,omitempty"`
 
 	// Estimation
 	StoryPoints int    `json:"storyPoints,omitempty"`
@@ -84,12 +84,12 @@ type JiraTicket struct {
 
 // JiraFields contains Jira issue fields.
 type JiraFields struct {
-	Project     JiraProject   `json:"project"`
-	Summary     string        `json:"summary"`
-	Description string        `json:"description"`
-	IssueType   JiraIssueType `json:"issuetype"`
-	Priority    JiraPriority  `json:"priority,omitempty"`
-	Labels      []string      `json:"labels,omitempty"`
+	Project     JiraProject     `json:"project"`
+	Summary     string          `json:"summary"`
+	Description string          `json:"description"`
+	IssueType   JiraIssueType   `json:"issuetype"`
+	Priority    JiraPriority    `json:"priority,omitempty"`
+	Labels      []string        `json:"labels,omitempty"`
 	Components  []JiraComponent `json:"components,omitempty"`
 
 	// Custom fields (configurable)
@@ -123,17 +123,17 @@ type GitHubIssue struct {
 
 // LLMAgentPrompt contains structured data for an LLM agent to fix issues.
 type LLMAgentPrompt struct {
-	TaskID          string   `json:"taskId"`
-	Objective       string   `json:"objective"`
-	Context         string   `json:"context"`
-	Requirements    []string `json:"requirements"`
+	TaskID             string   `json:"taskId"`
+	Objective          string   `json:"objective"`
+	Context            string   `json:"context"`
+	Requirements       []string `json:"requirements"`
 	AcceptanceCriteria []string `json:"acceptanceCriteria"`
-	FilesToModify   []string `json:"filesToModify"`
-	CodeExamples    []string `json:"codeExamples"`
-	References      []string `json:"references"`
-	CommitMessage   string   `json:"commitMessage"`
-	PRTitle         string   `json:"prTitle"`
-	PRDescription   string   `json:"prDescription"`
+	FilesToModify      []string `json:"filesToModify"`
+	CodeExamples       []string `json:"codeExamples"`
+	References         []string `json:"references"`
+	CommitMessage      string   `json:"commitMessage"`
+	PRTitle            string   `json:"prTitle"`
+	PRDescription      string   `json:"prDescription"`
 }
 
 // TaskBuilder creates remediation tasks from audit findings.
@@ -304,16 +304,17 @@ func (t *RemediationTask) ToJiraTicket(projectKey, issueType string) JiraTicket 
 
 	return JiraTicket{
 		Fields: JiraFields{
-			Project:   JiraProject{Key: projectKey},
-			Summary:   t.Title,
+			Project:     JiraProject{Key: projectKey},
+			Summary:     t.Title,
 			Description: description,
-			IssueType: JiraIssueType{Name: issueType},
-			Priority:  JiraPriority{Name: string(t.Priority)},
-			Labels:    t.Labels,
+			IssueType:   JiraIssueType{Name: issueType},
+			Priority:    JiraPriority{Name: string(t.Priority)},
+			Labels:      t.Labels,
 		},
 	}
 }
 
+//nolint:dupl // intentionally parallel to formatGitHubBody; distinct Jira-wiki vs GitHub-markdown output
 func (t *RemediationTask) formatJiraDescription() string {
 	var sb strings.Builder
 
@@ -370,6 +371,7 @@ func (t *RemediationTask) ToGitHubIssue() GitHubIssue {
 	}
 }
 
+//nolint:dupl // intentionally parallel to formatJiraDescription; distinct GitHub-markdown vs Jira-wiki output
 func (t *RemediationTask) formatGitHubBody() string {
 	var sb strings.Builder
 
@@ -461,20 +463,20 @@ func (t *RemediationTask) ToLLMAgentPrompt() LLMAgentPrompt {
 
 func (t *RemediationTask) ruleToCommitSubject() string {
 	subjects := map[string]string{
-		"image-alt":              "add missing alt text to images",
-		"button-name":            "add accessible names to buttons",
-		"link-name":              "add accessible names to links",
-		"label":                  "add labels to form controls",
-		"color-contrast":         "improve color contrast",
-		"focus-visible":          "add visible focus indicators",
-		"keyboard-trap":          "fix keyboard trap",
-		"keyboard-unreachable":   "make elements keyboard accessible",
-		"tabindex-positive":      "remove positive tabindex values",
+		"image-alt":                "add missing alt text to images",
+		"button-name":              "add accessible names to buttons",
+		"link-name":                "add accessible names to links",
+		"label":                    "add labels to form controls",
+		"color-contrast":           "improve color contrast",
+		"focus-visible":            "add visible focus indicators",
+		"keyboard-trap":            "fix keyboard trap",
+		"keyboard-unreachable":     "make elements keyboard accessible",
+		"tabindex-positive":        "remove positive tabindex values",
 		"reflow-horizontal-scroll": "fix horizontal scroll at narrow widths",
-		"target-size-minimum":    "increase touch target size",
-		"text-spacing-loss":      "fix text spacing overflow",
-		"focus-order":            "fix focus order",
-		"focus-obscured":         "prevent focus obscuration",
+		"target-size-minimum":      "increase touch target size",
+		"text-spacing-loss":        "fix text spacing overflow",
+		"focus-order":              "fix focus order",
+		"focus-obscured":           "prevent focus obscuration",
 	}
 
 	if subject, ok := subjects[t.RuleID]; ok {
@@ -493,20 +495,20 @@ func generateTaskID(ruleID string, criteria []string, component string) string {
 
 func buildTitle(ruleID, description string, count int) string {
 	titles := map[string]string{
-		"image-alt":              "Add alt text to images",
-		"button-name":            "Add accessible names to buttons",
-		"link-name":              "Add accessible names to links",
-		"label":                  "Add labels to form controls",
-		"color-contrast":         "Fix color contrast issues",
-		"focus-visible":          "Add visible focus indicators",
-		"keyboard-trap":          "Fix keyboard trap",
-		"keyboard-unreachable":   "Make elements keyboard accessible",
-		"tabindex-positive":      "Remove positive tabindex values",
+		"image-alt":                "Add alt text to images",
+		"button-name":              "Add accessible names to buttons",
+		"link-name":                "Add accessible names to links",
+		"label":                    "Add labels to form controls",
+		"color-contrast":           "Fix color contrast issues",
+		"focus-visible":            "Add visible focus indicators",
+		"keyboard-trap":            "Fix keyboard trap",
+		"keyboard-unreachable":     "Make elements keyboard accessible",
+		"tabindex-positive":        "Remove positive tabindex values",
 		"reflow-horizontal-scroll": "Fix horizontal scrolling at 320px",
-		"target-size-minimum":    "Increase touch target size to 24x24px",
-		"text-spacing-loss":      "Fix text clipping with increased spacing",
-		"focus-order":            "Fix focus order issues",
-		"focus-obscured":         "Prevent focused elements from being obscured",
+		"target-size-minimum":      "Increase touch target size to 24x24px",
+		"text-spacing-loss":        "Fix text clipping with increased spacing",
+		"focus-order":              "Fix focus order issues",
+		"focus-obscured":           "Prevent focused elements from being obscured",
 	}
 
 	title := titles[ruleID]
@@ -525,7 +527,7 @@ func buildTitle(ruleID, description string, count int) string {
 	return title
 }
 
-func buildDescription(f types.Finding, affected []AffectedElement, summary string) string {
+func buildDescription(f types.Finding, _ []AffectedElement, summary string) string {
 	var sb strings.Builder
 
 	sb.WriteString(f.Description)
@@ -536,7 +538,7 @@ func buildDescription(f types.Finding, affected []AffectedElement, summary strin
 	return sb.String()
 }
 
-func buildAcceptanceCriteria(f types.Finding, techs []types.TechniqueRef) []string {
+func buildAcceptanceCriteria(f types.Finding, _ []types.TechniqueRef) []string {
 	criteria := []string{}
 
 	// Generic criteria based on rule
@@ -603,7 +605,7 @@ func buildLabels(f types.Finding) []string {
 	return labels
 }
 
-func mapPriority(impact types.Impact, severity types.Severity) TaskPriority {
+func mapPriority(impact types.Impact, _ types.Severity) TaskPriority {
 	switch impact {
 	case types.ImpactBlocker:
 		return PriorityBlocker
@@ -632,9 +634,9 @@ func priorityOrder(p TaskPriority) int {
 func estimateComplexity(elementCount int, ruleID string) (string, int) {
 	// Simple heuristics
 	complexRules := map[string]bool{
-		"color-contrast":         true,
+		"color-contrast":           true,
 		"reflow-horizontal-scroll": true,
-		"keyboard-trap":          true,
+		"keyboard-trap":            true,
 	}
 
 	if complexRules[ruleID] {

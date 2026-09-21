@@ -126,7 +126,7 @@ steps:
   - action: navigate
     url: https://example.com
 `
-	if err := os.WriteFile(yamlPath, []byte(yamlContent), 0644); err != nil {
+	if err := os.WriteFile(yamlPath, []byte(yamlContent), 0600); err != nil {
 		t.Fatalf("Failed to write YAML file: %v", err)
 	}
 
@@ -142,7 +142,7 @@ steps:
 	// Test JSON file
 	jsonPath := filepath.Join(tmpDir, "journey.json")
 	jsonContent := `{"name": "JSON File Journey", "mode": "deterministic", "steps": [{"action": "navigate", "url": "https://example.com"}]}`
-	if err := os.WriteFile(jsonPath, []byte(jsonContent), 0644); err != nil {
+	if err := os.WriteFile(jsonPath, []byte(jsonContent), 0600); err != nil {
 		t.Fatalf("Failed to write JSON file: %v", err)
 	}
 
@@ -164,7 +164,7 @@ func TestParseFileUnsupportedFormat(t *testing.T) {
 	t.Setenv("A11Y_JOURNEY_DIR", tmpDir)
 
 	txtPath := filepath.Join(tmpDir, "journey.txt")
-	if err := os.WriteFile(txtPath, []byte("name: test"), 0644); err != nil {
+	if err := os.WriteFile(txtPath, []byte("name: test"), 0600); err != nil {
 		t.Fatalf("Failed to write file: %v", err)
 	}
 

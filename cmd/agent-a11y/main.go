@@ -409,11 +409,11 @@ Examples:
 
 func demoGenerateCmd() *cobra.Command {
 	var (
-		outputDir   string
-		siteName    string
-		skipPDF     bool
-		formats     []string
-		defaultDir  = "examples/demo-sites"
+		outputDir  string
+		siteName   string
+		skipPDF    bool
+		formats    []string
+		defaultDir = "examples/demo-sites"
 	)
 
 	cmd := &cobra.Command{
@@ -1079,7 +1079,7 @@ func outputValidationResult(result *types.AgentResult, validationDelta *types.Va
 	}
 
 	if outputFile != "" {
-		if err := os.WriteFile(outputFile, data, 0644); err != nil {
+		if err := os.WriteFile(outputFile, data, 0600); err != nil {
 			return fmt.Errorf("failed to write output: %w", err)
 		}
 		fmt.Printf("Output written to %s\n", outputFile)
@@ -1282,8 +1282,8 @@ Creates a default configuration file with:
 					// Insert project-specific config before fallback
 					defaultConfig.Projects = append([]config.ProjectConfig{
 						{
-							Match:    matchPattern,
-							Language: projectCtx.Language,
+							Match:     matchPattern,
+							Language:  projectCtx.Language,
 							Framework: projectCtx.Framework,
 							Components: map[string]config.ComponentFixConfig{
 								"ExampleComponent": {
@@ -1461,7 +1461,7 @@ func runAudit(cmd *cobra.Command, args []string) error {
 }
 
 // transformToAgentFormat converts audit results to agent-optimized format.
-func transformToAgentFormat(result *audit.AuditResult, cfg *config.Config, duration time.Duration, logger *slog.Logger) (*types.AgentResult, error) {
+func transformToAgentFormat(result *audit.AuditResult, _ *config.Config, duration time.Duration, logger *slog.Logger) (*types.AgentResult, error) {
 	// Build transformer options
 	var opts []remediation.TransformerOption
 

@@ -22,7 +22,7 @@ type FixesConfig struct {
 
 // FixDefaults contains global default settings.
 type FixDefaults struct {
-	Extends string            `yaml:"extends" json:"extends"` // "builtin" or path to base config
+	Extends string              `yaml:"extends" json:"extends"` // "builtin" or path to base config
 	Tokens  map[string][]string `yaml:"tokens" json:"tokens"`
 }
 
@@ -47,18 +47,18 @@ type LanguageConventions struct {
 
 // ProjectConfig contains project-specific overrides.
 type ProjectConfig struct {
-	Match        string                        `yaml:"match" json:"match"`                 // Glob pattern for repo path
-	Language     string                        `yaml:"language" json:"language"`           // react, vue, svelte, go-templates
-	Framework    string                        `yaml:"framework" json:"framework"`         // next, nuxt, sveltekit
-	DesignSystem string                        `yaml:"design-system" json:"designSystem"`  // Path to design system spec
-	AutoDetect   bool                          `yaml:"auto-detect" json:"autoDetect"`      // Auto-detect language
+	Match        string                        `yaml:"match" json:"match"`                // Glob pattern for repo path
+	Language     string                        `yaml:"language" json:"language"`          // react, vue, svelte, go-templates
+	Framework    string                        `yaml:"framework" json:"framework"`        // next, nuxt, sveltekit
+	DesignSystem string                        `yaml:"design-system" json:"designSystem"` // Path to design system spec
+	AutoDetect   bool                          `yaml:"auto-detect" json:"autoDetect"`     // Auto-detect language
 	Components   map[string]ComponentFixConfig `yaml:"components" json:"components"`
 }
 
 // ComponentFixConfig contains fix patterns for a specific component.
 type ComponentFixConfig struct {
-	Selectors []string        `yaml:"selectors" json:"selectors"`
-	Fixes     []ComponentFix  `yaml:"fixes" json:"fixes"`
+	Selectors []string       `yaml:"selectors" json:"selectors"`
+	Fixes     []ComponentFix `yaml:"fixes" json:"fixes"`
 }
 
 // ComponentFix is a fix pattern for a component.
@@ -75,8 +75,8 @@ type ComponentLibrary struct {
 
 // LibraryComponent is a component from a UI library.
 type LibraryComponent struct {
-	Import string          `yaml:"import" json:"import"`
-	Fixes  []ComponentFix  `yaml:"fixes" json:"fixes"`
+	Import string         `yaml:"import" json:"import"`
+	Fixes  []ComponentFix `yaml:"fixes" json:"fixes"`
 }
 
 // PlexusOneDir returns the path to ~/.plexusone/
@@ -157,7 +157,7 @@ func SaveFixesConfig(config *FixesConfig) error {
 		return fmt.Errorf("failed to marshal config: %w", err)
 	}
 
-	if err := os.WriteFile(configPath, data, 0644); err != nil {
+	if err := os.WriteFile(configPath, data, 0600); err != nil {
 		return fmt.Errorf("failed to write config: %w", err)
 	}
 

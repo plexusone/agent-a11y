@@ -223,7 +223,7 @@ func (h *Handler) authenticateCookies(ctx context.Context) error {
 }
 
 // authenticateOAuth performs OAuth authentication.
-func (h *Handler) authenticateOAuth(ctx context.Context) error {
+func (h *Handler) authenticateOAuth(_ context.Context) error {
 	// OAuth typically requires interactive login
 	// This is a placeholder - full implementation would handle OAuth flows
 	h.logger.Warn("OAuth authentication not fully implemented")

@@ -100,7 +100,7 @@ func (m *Mapper) loadSourceMaps() error {
 			return nil
 		}
 
-		data, err := os.ReadFile(path)
+		data, err := os.ReadFile(path) //nolint:gosec // G122: sourceMapDir is a user-supplied local path, not untrusted input
 		if err != nil {
 			return fmt.Errorf("failed to read %s: %w", path, err)
 		}

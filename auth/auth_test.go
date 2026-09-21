@@ -85,7 +85,7 @@ func TestFormSelectorsJSONSerialization(t *testing.T) {
 		MFA:      "#otp",
 	}
 
-	data, err := json.Marshal(selectors)
+	data, err := json.Marshal(selectors) //nolint:gosec // G117: Password holds a CSS selector, not a secret
 	if err != nil {
 		t.Fatalf("Failed to marshal FormSelectors: %v", err)
 	}
@@ -228,9 +228,9 @@ func TestGetString(t *testing.T) {
 	}{
 		{"name", "John"},
 		{"missing", ""},
-		{"count", ""},    // Not a string
-		{"flag", ""},     // Not a string
-		{"nested", ""},   // Not a string
+		{"count", ""},  // Not a string
+		{"flag", ""},   // Not a string
+		{"nested", ""}, // Not a string
 	}
 
 	for _, tt := range tests {

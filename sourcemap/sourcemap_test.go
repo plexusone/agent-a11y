@@ -196,7 +196,7 @@ func TestMapperWithSourceMaps(t *testing.T) {
 	}`
 
 	mapFile := filepath.Join(tmpDir, "bundle.js.map")
-	if err := os.WriteFile(mapFile, []byte(sourceMap), 0644); err != nil {
+	if err := os.WriteFile(mapFile, []byte(sourceMap), 0600); err != nil {
 		t.Fatalf("failed to write test source map: %v", err)
 	}
 

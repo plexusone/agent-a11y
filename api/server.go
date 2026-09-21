@@ -20,11 +20,11 @@ import (
 
 // Server is the REST API server.
 type Server struct {
-	engine  AuditEngine
-	logger  *slog.Logger
-	jobs    map[string]*AuditJob
-	jobsMu  sync.RWMutex
-	port    int
+	engine AuditEngine
+	logger *slog.Logger
+	jobs   map[string]*AuditJob
+	jobsMu sync.RWMutex
+	port   int
 }
 
 // AuditEngine is the interface for running audits.
@@ -34,14 +34,14 @@ type AuditEngine interface {
 
 // AuditJob represents a running or completed audit job.
 type AuditJob struct {
-	ID        string              `json:"id"`
-	Status    string              `json:"status"` // pending, running, completed, failed
-	Config    *config.Config      `json:"config"`
-	Result    *audit.AuditResult  `json:"result,omitempty"`
-	Error     string              `json:"error,omitempty"`
-	StartTime time.Time           `json:"startTime"`
-	EndTime   time.Time           `json:"endTime,omitempty"`
-	Progress  int                 `json:"progress"` // 0-100
+	ID        string             `json:"id"`
+	Status    string             `json:"status"` // pending, running, completed, failed
+	Config    *config.Config     `json:"config"`
+	Result    *audit.AuditResult `json:"result,omitempty"`
+	Error     string             `json:"error,omitempty"`
+	StartTime time.Time          `json:"startTime"`
+	EndTime   time.Time          `json:"endTime,omitempty"`
+	Progress  int                `json:"progress"` // 0-100
 }
 
 // NewServer creates a new API server.
@@ -68,13 +68,14 @@ func (s *Server) Start(ctx context.Context) error {
 	mux.HandleFunc("GET /api/v1/health", s.handleHealth)
 
 	server := &http.Server{
-		Addr:    fmt.Sprintf(":%d", s.port),
-		Handler: s.withMiddleware(mux),
+		Addr:              fmt.Sprintf(":%d", s.port),
+		Handler:           s.withMiddleware(mux),
+		ReadHeaderTimeout: 10 * time.Second,
 	}
 
 	s.logger.Info("starting API server", "port", s.port)
 
-	go func() {
+	go func() { //nolint:gosec // G118: shutdown context is intentionally independent of ctx, which is already cancelled here
 		<-ctx.Done()
 		shutdownCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()

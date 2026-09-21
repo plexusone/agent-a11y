@@ -160,7 +160,7 @@ func TestDetectComponentLibrary(t *testing.T) {
 			// Create temp dir with package.json
 			tmpDir := t.TempDir()
 			pkgPath := filepath.Join(tmpDir, "package.json")
-			if err := os.WriteFile(pkgPath, []byte(tt.packageJSON), 0644); err != nil {
+			if err := os.WriteFile(pkgPath, []byte(tt.packageJSON), 0600); err != nil {
 				t.Fatalf("failed to write package.json: %v", err)
 			}
 
@@ -185,7 +185,7 @@ func TestFindProjectRoot(t *testing.T) {
 
 	// Create package.json at project root
 	pkgPath := filepath.Join(projectDir, "package.json")
-	if err := os.WriteFile(pkgPath, []byte(`{"name": "my-app"}`), 0644); err != nil {
+	if err := os.WriteFile(pkgPath, []byte(`{"name": "my-app"}`), 0600); err != nil {
 		t.Fatalf("failed to write package.json: %v", err)
 	}
 
@@ -215,7 +215,7 @@ func TestDetectProject(t *testing.T) {
 			"@chakra-ui/react": "2.0.0"
 		}
 	}`
-	if err := os.WriteFile(filepath.Join(tmpDir, "package.json"), []byte(pkgJSON), 0644); err != nil {
+	if err := os.WriteFile(filepath.Join(tmpDir, "package.json"), []byte(pkgJSON), 0600); err != nil {
 		t.Fatalf("failed to write package.json: %v", err)
 	}
 
@@ -247,7 +247,7 @@ func TestResolveProject(t *testing.T) {
 			"react": "18.0.0"
 		}
 	}`
-	if err := os.WriteFile(filepath.Join(tmpDir, "package.json"), []byte(pkgJSON), 0644); err != nil {
+	if err := os.WriteFile(filepath.Join(tmpDir, "package.json"), []byte(pkgJSON), 0600); err != nil {
 		t.Fatalf("failed to write package.json: %v", err)
 	}
 
