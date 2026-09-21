@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agent-a11y/reference/mcp/">
+        <link rel="canonical" href="https://plexusone.github.io/agent-a11y/releases/v0.5.0/">
       
       
-        <link rel="prev" href="../library/">
+        <link rel="prev" href="../../architecture/asdm-integration/">
       
       
-        <link rel="next" href="../../architecture/overview/">
+        <link rel="next" href="../v0.4.0/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>MCP Server - agent-a11y</title>
+        <title>v0.5.0 - agent-a11y</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mcp-server-reference" class="md-skip">
+        <a href="#v050" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MCP Server
+              v0.5.0
             
           </span>
         </div>
@@ -610,8 +610,6 @@
       
   
   
-    
-  
   
   
     
@@ -624,11 +622,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -649,7 +649,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -667,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
+      <a href="../../reference/cli/" class="md-nav__link">
         
   
   
@@ -695,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+      <a href="../../reference/api/" class="md-nav__link">
         
   
   
@@ -723,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../library/" class="md-nav__link">
+      <a href="../../reference/library/" class="md-nav__link">
         
   
   
@@ -748,37 +748,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MCP Server
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/mcp/" class="md-nav__link">
         
   
   
@@ -794,181 +767,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#starting-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Starting the Server
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#claude-desktop-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude Desktop Integration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agent-optimized-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent-Optimized Output
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Available Tools
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Available Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#audit_page" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        audit_page
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#audit_site" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        audit_site
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get_finding_details" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        get_finding_details
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate_report" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        generate_report
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get_remediation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        get_remediation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-conversation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example Conversation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wcag_criteria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        wcag_criteria
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#audit_results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        audit_results
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1102,8 +900,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1114,13 +914,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -1141,7 +939,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1156,10 +954,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../releases/v0.5.0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    v0.5.0
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1175,6 +1000,142 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Highlights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's New
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s New">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#honest-conformance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Honest conformance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proactive-criterion-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proactive criterion evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-specialized-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New specialized checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#richer-result-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Richer Result API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1187,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.4.0/" class="md-nav__link">
+      <a href="../v0.4.0/" class="md-nav__link">
         
   
   
@@ -1215,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.3.0/" class="md-nav__link">
+      <a href="../v0.3.0/" class="md-nav__link">
         
   
   
@@ -1243,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.2.0/" class="md-nav__link">
+      <a href="../v0.2.0/" class="md-nav__link">
         
   
   
@@ -1271,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.1.0/" class="md-nav__link">
+      <a href="../v0.1.0/" class="md-nav__link">
         
   
   
@@ -1326,10 +1287,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#starting-the-server" class="md-nav__link">
+  <a href="#highlights" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting the Server
+        Highlights
       
     </span>
   </a>
@@ -1337,10 +1298,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#claude-desktop-integration" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Desktop Integration
+        Overview
       
     </span>
   </a>
@@ -1348,33 +1309,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#agent-optimized-output" class="md-nav__link">
+  <a href="#whats-new" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent-Optimized Output
+        What's New
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Available Tools
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Available Tools">
+    <nav class="md-nav" aria-label="What&#39;s New">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#audit_page" class="md-nav__link">
+  <a href="#honest-conformance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        audit_page
+        Honest conformance
       
     </span>
   </a>
@@ -1382,10 +1332,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#audit_site" class="md-nav__link">
+  <a href="#proactive-criterion-evaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        audit_site
+        Proactive criterion evaluation
       
     </span>
   </a>
@@ -1393,10 +1343,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_finding_details" class="md-nav__link">
+  <a href="#new-specialized-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_finding_details
+        New specialized checks
       
     </span>
   </a>
@@ -1404,10 +1354,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate_report" class="md-nav__link">
+  <a href="#page-evidence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        generate_report
+        Page evidence
       
     </span>
   </a>
@@ -1415,10 +1365,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_remediation" class="md-nav__link">
+  <a href="#richer-result-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_remediation
+        Richer Result API
       
     </span>
   </a>
@@ -1431,10 +1381,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-conversation" class="md-nav__link">
+  <a href="#fixed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Conversation
+        Fixed
       
     </span>
   </a>
@@ -1442,41 +1392,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#upgrading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resources
+        Upgrading
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Resources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wcag_criteria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        wcag_criteria
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#audit_results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        audit_results
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1500,129 +1422,71 @@
   
 
 
-<h1 id="mcp-server-reference">MCP Server Reference<a class="headerlink" href="#mcp-server-reference" title="Permanent link">&para;</a></h1>
-<p>agent-a11y provides a Model Context Protocol (MCP) server for integration with AI assistants like Claude Code.</p>
-<h2 id="starting-the-server">Starting the Server<a class="headerlink" href="#starting-the-server" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>agent-a11y<span class="w"> </span>mcp<span class="w"> </span>serve
-</code></pre></div>
-<p>The server communicates via stdio using the MCP protocol.</p>
-<h2 id="claude-desktop-integration">Claude Desktop Integration<a class="headerlink" href="#claude-desktop-integration" title="Permanent link">&para;</a></h2>
-<p>Add to your Claude Desktop configuration (<code>~/.config/claude/config.json</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;a11y&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent-a11y&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;serve&quot;</span><span class="p">]</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
-</code></pre></div>
-<h2 id="agent-optimized-output">Agent-Optimized Output<a class="headerlink" href="#agent-optimized-output" title="Permanent link">&para;</a></h2>
-<p>All audit tools return <strong>agent-optimized JSON</strong> with actionable fix patterns that coding agents can use to implement fixes directly. The output includes:</p>
+<h1 id="v050">v0.5.0<a class="headerlink" href="#v050" title="Permanent link">&para;</a></h1>
+<p><strong>Release Date:</strong> 2026-09-20</p>
+<h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Fix patterns</strong>: Specific instructions with type, action, target, and example code</li>
-<li><strong>Token suggestions</strong>: Design system token recommendations (when <code>--design-system</code> is configured)</li>
-<li><strong>Fix confidence</strong>: Confidence score (0-1) that the suggested fix will resolve the issue</li>
-<li><strong>Status</strong>: Overall GO/WARN/NO-GO status for workflow automation</li>
+<li><strong>Honest Conformance</strong> - Criteria that were not assessed are reported as "Not Evaluated" (never assumed "Supports"), with the evaluation method recorded per criterion</li>
+<li><strong>Proactive Criterion Evaluation</strong> - Judge criteria automation can't resolve, in two interchangeable modes: local (agent, no API key) or API — sharing one prompt and verdict schema</li>
+<li><strong>More Specialized Checks</strong> - Resize (1.4.10), hover (1.4.13), and flashing-content (2.3.1) checks now run in the specialized runner</li>
+<li><strong>Page Evidence</strong> - Screenshot, rendered HTML, and structure captured during audits and per journey state, for reuse across consumers</li>
+<li><strong>Richer <code>Result</code> API</strong> - Conformance, OpenACR, and proactive evaluation exposed directly on <code>Result</code></li>
 </ul>
-<h2 id="available-tools">Available Tools<a class="headerlink" href="#available-tools" title="Permanent link">&para;</a></h2>
-<h3 id="audit_page">audit_page<a class="headerlink" href="#audit_page" title="Permanent link">&para;</a></h3>
-<p>Audit a single page for accessibility issues. Returns agent-optimized JSON with fix patterns.</p>
-<p><strong>Input:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AA&quot;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>v0.5.0 makes conformance reporting <strong>honest by construction</strong>. Earlier versions
+could imply support for criteria that were never actually assessed; now every
+criterion carries its evaluation method, and any criterion without a real result
+is reported as "Not Evaluated" rather than "Supports". To close that gap without
+a human in the loop, this release adds <strong>proactive criterion evaluation</strong>: a way
+to judge the criteria that automated rules cannot resolve (captions, use of
+color, consistent navigation, and the like), in either a local agent mode (no
+API key) or an API mode, both sharing a single prompt and verdict schema.</p>
+<h2 id="whats-new">What's New<a class="headerlink" href="#whats-new" title="Permanent link">&para;</a></h2>
+<h3 id="honest-conformance">Honest conformance<a class="headerlink" href="#honest-conformance" title="Permanent link">&para;</a></h3>
+<p><code>report.EvaluateConformance</code> assigns per-criterion conformance from real
+evidence. A criterion with no finding and a judgment method
+(LLM-Judge / Hybrid / Manual) is <strong>"Not Evaluated"</strong> — enabling an LLM does not
+flip it; only a real verdict does. <code>report.ApplyVerdicts</code> resolves those
+"Not Evaluated" criteria and never overrides a finding-backed result. The VPAT
+never marks an unevaluated criterion "Supports". A regression guard
+(<code>report/vpat_honesty_test.go</code>) locks this in.</p>
+<h3 id="proactive-criterion-evaluation">Proactive criterion evaluation<a class="headerlink" href="#proactive-criterion-evaluation" title="Permanent link">&para;</a></h3>
+<p><code>llm/criteval.go</code> provides two backends sharing one prompt and verdict schema:</p>
+<ul>
+<li><strong>API mode</strong> — <code>APIEvaluator</code> calls an LLM via omnillm.</li>
+<li><strong>Local mode</strong> — <code>BuildBundle</code> exports the unresolved-criteria worklist; an
+  agent judges it; <code>ParseVerdicts</code> reads the verdicts back. No API key required.</li>
+</ul>
+<p>See the <a href="../../criterion-evaluation/">Proactive Criterion Evaluation</a> guide.</p>
+<h3 id="new-specialized-checks">New specialized checks<a class="headerlink" href="#new-specialized-checks" title="Permanent link">&para;</a></h3>
+<p>The specialized runner now executes checks for:</p>
+<ul>
+<li><strong>Resize</strong> (1.4.10 Reflow / 1.4.4 Resize Text)</li>
+<li><strong>Hover</strong> (1.4.13 Content on Hover or Focus)</li>
+<li><strong>Flashing content</strong> (2.3.1 Three Flashes or Below Threshold)</li>
+</ul>
+<h3 id="page-evidence">Page evidence<a class="headerlink" href="#page-evidence" title="Permanent link">&para;</a></h3>
+<p>The audit engine captures normalized page evidence — screenshot, rendered HTML,
+and structure — via <code>pagecapture</code> and stores it on <code>PageResult.Evidence</code>; the
+journey executor captures the same per state on <code>StepExecutionResult.Evidence</code>.
+<code>Result.pageContext()</code> builds the evaluator's context from it.</p>
+<h3 id="richer-result-api">Richer <code>Result</code> API<a class="headerlink" href="#richer-result-api" title="Permanent link">&para;</a></h3>
+<p>Conformance and proactive evaluation are now first-class on <code>Result</code>:
+<code>Conformance</code>, <code>OpenACR</code>, <code>EvaluationBundle</code>, <code>EvaluateCriteria</code>, and
+<code>ConformanceWithVerdicts</code>.</p>
+<h2 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Corrected WCAG criterion evaluation-method classifications so only criteria
+  the specialized runner actually executes are <code>MethodSpecialized</code>, and
+  <code>MethodAutomated</code> requires real axe rules. Guarded by
+  <code>wcag/method_coverage_test.go</code>.</li>
+</ul>
+<h2 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/agent-a11y@v0.5.0
 </code></pre></div>
-<p><strong>Output:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;critical&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;serious&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">&quot;fixable&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">&quot;finding&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="nt">&quot;ruleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image-alt&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="nt">&quot;impact&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;critical&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;img.hero&quot;</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="nt">&quot;remediation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="nt">&quot;fixPatterns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">          </span><span class="p">{</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attribute&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">            </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">            </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alt&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">            </span><span class="nt">&quot;example&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;img src=\&quot;...\&quot; alt=\&quot;Description\&quot;&gt;&quot;</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">          </span><span class="p">}</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="p">],</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="nt">&quot;fixConfidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="audit_site">audit_site<a class="headerlink" href="#audit_site" title="Permanent link">&para;</a></h3>
-<p>Audit an entire website by crawling.</p>
-<p><strong>Input:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AA&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;maxPages&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="get_finding_details">get_finding_details<a class="headerlink" href="#get_finding_details" title="Permanent link">&para;</a></h3>
-<p>Get detailed information about a specific finding.</p>
-<p><strong>Input:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;findingId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finding-123&quot;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="generate_report">generate_report<a class="headerlink" href="#generate_report" title="Permanent link">&para;</a></h3>
-<p>Generate a formatted report from audit results.</p>
-<p><strong>Input:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;auditId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audit-456&quot;</span><span class="p">,</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;html&quot;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="get_remediation">get_remediation<a class="headerlink" href="#get_remediation" title="Permanent link">&para;</a></h3>
-<p>Get remediation suggestions for findings.</p>
-<p><strong>Input:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;findingId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finding-123&quot;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
-</code></pre></div>
-<h2 id="example-conversation">Example Conversation<a class="headerlink" href="#example-conversation" title="Permanent link">&para;</a></h2>
-<p><strong>User:</strong> Check the accessibility of example.com</p>
-<p><strong>Assistant:</strong> I'll audit example.com for accessibility issues.</p>
-<p><em>[Calls audit_page tool]</em></p>
-<p>The audit found 5 accessibility issues:</p>
-<p><strong>Score:</strong> 85/100 (Non-Conformant)</p>
-<p><strong>Critical Issues:</strong>
-- None</p>
-<p><strong>Serious Issues:</strong>
-1. Color contrast insufficient on navigation links
-2. Form inputs missing labels</p>
-<p><strong>Recommendations:</strong>
-- Increase contrast ratio on nav links to at least 4.5:1
-- Add <code>&lt;label&gt;</code> elements for all form inputs</p>
-<p>Would you like me to generate a detailed HTML report?</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<p>The MCP server exposes these resources:</p>
-<h3 id="wcag_criteria">wcag_criteria<a class="headerlink" href="#wcag_criteria" title="Permanent link">&para;</a></h3>
-<p>Access WCAG success criteria information.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>wcag://criteria/1.4.3
-</code></pre></div>
-<h3 id="audit_results">audit_results<a class="headerlink" href="#audit_results" title="Permanent link">&para;</a></h3>
-<p>Access previous audit results.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>audit://results/{audit-id}
-</code></pre></div>
+<p>No breaking changes to existing audit flows. The new conformance honesty is
+additive: existing reports gain accurate "Not Evaluated" states and per-criterion
+methods, and proactive evaluation is opt-in.</p>
 
 
 

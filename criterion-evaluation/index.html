@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agent-a11y/guide/llm-integration/">
+        <link rel="canonical" href="https://plexusone.github.io/agent-a11y/criterion-evaluation/">
       
       
-        <link rel="prev" href="../configuration/">
+        <link rel="prev" href="../guide/llm-integration/">
       
       
-        <link rel="next" href="../../criterion-evaluation/">
+        <link rel="next" href="../guide/report-formats/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>LLM Integration - agent-a11y</title>
+        <title>Proactive Criterion Evaluation - agent-a11y</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
     
       <link rel="stylesheet" href="https://plexusone.dev/css/plexusone-mkdocs.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llm-integration" class="md-skip">
+        <a href="#proactive-criterion-evaluation" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="agent-a11y" class="md-header__button md-logo" aria-label="agent-a11y" data-md-component="logo">
+    <a href=".." title="agent-a11y" class="md-header__button md-logo" aria-label="agent-a11y" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LLM Integration
+              Proactive Criterion Evaluation
             
           </span>
         </div>
@@ -238,7 +238,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="agent-a11y" class="md-nav__button md-logo" aria-label="agent-a11y" data-md-component="logo">
+    <a href=".." title="agent-a11y" class="md-nav__button md-logo" aria-label="agent-a11y" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -268,7 +268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -349,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/installation/" class="md-nav__link">
+      <a href="../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -377,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/quickstart/" class="md-nav__link">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -466,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audit-types/" class="md-nav__link">
+      <a href="../guide/audit-types/" class="md-nav__link">
         
   
   
@@ -494,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../guide/configuration/" class="md-nav__link">
         
   
   
@@ -502,6 +502,34 @@
     
   
     Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/llm-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Integration
   
 
     
@@ -538,7 +566,7 @@
   <span class="md-ellipsis">
     
   
-    LLM Integration
+    Proactive Criterion Evaluation
   
 
     
@@ -556,7 +584,7 @@
   <span class="md-ellipsis">
     
   
-    LLM Integration
+    Proactive Criterion Evaluation
   
 
     
@@ -582,10 +610,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#the-verdict-vocabulary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        The verdict vocabulary
       
     </span>
   </a>
@@ -593,10 +621,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-providers" class="md-nav__link">
+  <a href="#local-agent-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported Providers
+        Local (agent) mode
       
     </span>
   </a>
@@ -604,60 +632,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#api-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Config File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-library" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Go Library
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evaluation-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluation Output
+        API mode
       
     </span>
   </a>
@@ -665,21 +643,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ollama-local" class="md-nav__link">
+  <a href="#evidence-the-judge-needs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ollama (Local)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cost Considerations
+        Evidence the judge needs
       
     </span>
   </a>
@@ -702,35 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../criterion-evaluation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Proactive Criterion Evaluation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../report-formats/" class="md-nav__link">
+      <a href="../guide/report-formats/" class="md-nav__link">
         
   
   
@@ -819,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cli/" class="md-nav__link">
+      <a href="../reference/cli/" class="md-nav__link">
         
   
   
@@ -847,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/api/" class="md-nav__link">
+      <a href="../reference/api/" class="md-nav__link">
         
   
   
@@ -875,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/library/" class="md-nav__link">
+      <a href="../reference/library/" class="md-nav__link">
         
   
   
@@ -903,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/mcp/" class="md-nav__link">
+      <a href="../reference/mcp/" class="md-nav__link">
         
   
   
@@ -992,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/overview/" class="md-nav__link">
+      <a href="../architecture/overview/" class="md-nav__link">
         
   
   
@@ -1020,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/asdm-integration/" class="md-nav__link">
+      <a href="../architecture/asdm-integration/" class="md-nav__link">
         
   
   
@@ -1109,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.5.0/" class="md-nav__link">
+      <a href="../releases/v0.5.0/" class="md-nav__link">
         
   
   
@@ -1137,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.4.0/" class="md-nav__link">
+      <a href="../releases/v0.4.0/" class="md-nav__link">
         
   
   
@@ -1165,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.3.0/" class="md-nav__link">
+      <a href="../releases/v0.3.0/" class="md-nav__link">
         
   
   
@@ -1193,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.2.0/" class="md-nav__link">
+      <a href="../releases/v0.2.0/" class="md-nav__link">
         
   
   
@@ -1221,7 +1160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.1.0/" class="md-nav__link">
+      <a href="../releases/v0.1.0/" class="md-nav__link">
         
   
   
@@ -1276,10 +1215,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#the-verdict-vocabulary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        The verdict vocabulary
       
     </span>
   </a>
@@ -1287,10 +1226,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-providers" class="md-nav__link">
+  <a href="#local-agent-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported Providers
+        Local (agent) mode
       
     </span>
   </a>
@@ -1298,60 +1237,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#api-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Config File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-library" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Go Library
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evaluation-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluation Output
+        API mode
       
     </span>
   </a>
@@ -1359,21 +1248,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ollama-local" class="md-nav__link">
+  <a href="#evidence-the-judge-needs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ollama (Local)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cost Considerations
+        Evidence the judge needs
       
     </span>
   </a>
@@ -1400,109 +1278,98 @@
   
 
 
-<h1 id="llm-integration">LLM Integration<a class="headerlink" href="#llm-integration" title="Permanent link">&para;</a></h1>
-<p>agent-a11y uses LLM-as-a-Judge to evaluate accessibility findings and reduce false positives.</p>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<ol>
-<li>axe-core identifies potential accessibility issues</li>
-<li>For each finding, the LLM evaluates:</li>
-<li>Is this a true accessibility barrier?</li>
-<li>What is the severity?</li>
-<li>What is the recommended fix?</li>
-<li>Findings are filtered or annotated based on LLM evaluation</li>
-</ol>
-<h2 id="supported-providers">Supported Providers<a class="headerlink" href="#supported-providers" title="Permanent link">&para;</a></h2>
+<h1 id="proactive-criterion-evaluation">Proactive Criterion Evaluation<a class="headerlink" href="#proactive-criterion-evaluation" title="Permanent link">&para;</a></h1>
+<p>Automated and specialized checks can only resolve a subset of WCAG success
+criteria. The rest — captions, use of color, link purpose, consistent
+navigation, and so on — require <strong>judgment</strong>. Rather than silently marking those
+"Supports" (an overclaim) or leaving them permanently "Not Evaluated", agent-a11y
+can <strong>proactively evaluate</strong> them: ask, for each unresolved criterion, "does this
+page satisfy it?" and record an honest verdict.</p>
+<p>There are <strong>two modes</strong>, and they operate identically except for <em>who runs the
+inference</em>. Both use the <strong>same system prompt</strong> (<code>llm.CriterionSystemPrompt</code>),
+the <strong>same per-criterion prompt</strong> (<code>llm.BuildCriterionPrompt</code>), and the <strong>same
+verdict schema</strong> (<code>llm.CriterionVerdict</code>), so results are comparable.</p>
 <table>
 <thead>
 <tr>
-<th>Provider</th>
-<th>Models</th>
-<th>Environment Variable</th>
+<th></th>
+<th>Local (agent) mode</th>
+<th>API mode</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Anthropic</td>
-<td>claude-sonnet-4-20250514, claude-opus-4-20250514</td>
-<td><code>ANTHROPIC_API_KEY</code></td>
+<td>Who judges</td>
+<td>An external agent (e.g. Claude Code)</td>
+<td>An LLM via the API</td>
 </tr>
 <tr>
-<td>OpenAI</td>
-<td>gpt-4o, gpt-4-turbo</td>
-<td><code>OPENAI_API_KEY</code></td>
+<td>API key</td>
+<td>Not required</td>
+<td>Required</td>
 </tr>
 <tr>
-<td>Google</td>
-<td>gemini-2.0-flash</td>
-<td><code>GOOGLE_API_KEY</code></td>
+<td>Entry point</td>
+<td><code>Result.EvaluationBundle()</code> → verdicts JSON → <code>Result.ConformanceWithVerdicts()</code></td>
+<td><code>Result.EvaluateCriteria(ctx, apiEvaluator)</code></td>
 </tr>
 <tr>
-<td>xAI</td>
-<td>grok-2</td>
-<td><code>XAI_API_KEY</code></td>
-</tr>
-<tr>
-<td>Ollama</td>
-<td>llama3, mistral, etc.</td>
-<td>(local)</td>
+<td>Use when</td>
+<td>Validating, offline, or already inside an agent loop</td>
+<td>Unattended/CI runs</td>
 </tr>
 </tbody>
 </table>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<h3 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ANTHROPIC_API_KEY</span><span class="o">=</span><span class="s2">&quot;your-key&quot;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--llm-provider<span class="w"> </span>anthropic<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>--llm-model<span class="w"> </span>claude-sonnet-4-20250514
-</code></pre></div>
-<h3 id="config-file">Config File<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">llm</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anthropic</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude-sonnet-4-20250514</span>
-</code></pre></div>
-<h3 id="go-library">Go Library<a class="headerlink" href="#go-library" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">auditor</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">a11y</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">a11y</span><span class="p">.</span><span class="nx">WithLLM</span><span class="p">(</span><span class="s">&quot;anthropic&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;claude-sonnet-4-20250514&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">apiKey</span><span class="p">),</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="evaluation-output">Evaluation Output<a class="headerlink" href="#evaluation-output" title="Permanent link">&para;</a></h2>
-<p>With LLM enabled, each finding includes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;ruleId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;color-contrast&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Elements must have sufficient color contrast&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;llmConfirmed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;llmReasoning&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The text has a contrast ratio of 3.2:1, which fails WCAG AA requirements of 4.5:1 for normal text.&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;llmConfidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
-</code></pre></div>
-<h2 id="ollama-local">Ollama (Local)<a class="headerlink" href="#ollama-local" title="Permanent link">&para;</a></h2>
-<p>For local LLM evaluation without API keys:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Start Ollama</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ollama<span class="w"> </span>serve
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Pull a model</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>ollama<span class="w"> </span>pull<span class="w"> </span>llama3
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Use with agent-a11y</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>agent-a11y<span class="w"> </span>audit<span class="w"> </span>https://example.com<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span>--llm-provider<span class="w"> </span>ollama<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span>--llm-model<span class="w"> </span>llama3
-</code></pre></div>
-<h2 id="cost-considerations">Cost Considerations<a class="headerlink" href="#cost-considerations" title="Permanent link">&para;</a></h2>
-<p>LLM evaluation adds API costs. To manage costs:</p>
+<h2 id="the-verdict-vocabulary">The verdict vocabulary<a class="headerlink" href="#the-verdict-vocabulary" title="Permanent link">&para;</a></h2>
+<p>Every verdict is one of: <code>Supports</code>, <code>Partially Supports</code>, <code>Does Not Support</code>,
+<code>Not Applicable</code>, or <code>Not Evaluated</code>. The last two matter for honesty:</p>
 <ul>
-<li>Use smaller models for initial scans</li>
-<li>Enable LLM only for final audits</li>
-<li>Set confidence thresholds to skip obvious issues</li>
+<li><strong>Not Applicable</strong> — the page has no content of the type the criterion governs
+  (e.g. no audio/video for caption criteria). This is a legitimate, common
+  outcome and is what content-level evidence most often supports.</li>
+<li><strong>Not Evaluated</strong> — the evidence is insufficient. The verdict must then state
+  what evidence is needed (<code>evidenceGap</code>), e.g. "screenshot for color use",
+  "raw DOM for alt text", "multi-page crawl", "interaction with the form".</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">llm</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anthropic</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude-haiku-20250514</span><span class="w">  </span><span class="c1"># Cheaper model</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">confidenceThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.8</span><span class="w">      </span><span class="c1"># Skip low-confidence evaluations</span>
+<p>A verdict never overrides a finding-backed <code>Does Not Support</code>/<code>Partially
+Supports</code>; it only resolves criteria automation left <code>Not Evaluated</code>. Enabling an
+LLM does <strong>not</strong> by itself flip anything — only an actual verdict does.</p>
+<h2 id="local-agent-mode">Local (agent) mode<a class="headerlink" href="#local-agent-mode" title="Permanent link">&para;</a></h2>
+<p>No API key. The agent that is already running the tool acts as the judge.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">auditor</span><span class="p">.</span><span class="nx">AuditPage</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nx">bundle</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">EvaluationBundle</span><span class="p">()</span><span class="w">      </span><span class="c1">// shared system prompt + page evidence + per-criterion prompts</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// hand `bundle` to the agent; it returns verdicts on the same schema:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">//   [{&quot;id&quot;:&quot;1.2.1&quot;,&quot;conformance&quot;:&quot;Not Applicable&quot;,&quot;confidence&quot;:0.9,&quot;reasoning&quot;:&quot;no media&quot;,&quot;evidenceGap&quot;:&quot;&quot;}]</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">verdicts</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">llm</span><span class="p">.</span><span class="nx">ParseVerdicts</span><span class="p">(</span><span class="nx">agentOutput</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">criteria</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">ConformanceWithVerdicts</span><span class="p">(</span><span class="nx">verdicts</span><span class="p">)</span><span class="w">   </span><span class="c1">// baseline + verdicts applied</span>
 </code></pre></div>
+<p>The bundle is plain JSON, so the export/import can also cross a process boundary
+(write bundle to a file, agent writes verdicts to a file, import them).</p>
+<h2 id="api-mode">API mode<a class="headerlink" href="#api-mode" title="Permanent link">&para;</a></h2>
+<p>Needs an LLM API key (via omnillm). Same prompts and schema, run automatically.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">NewChatClient</span><span class="p">(</span><span class="cm">/* provider, key */</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">evaluator</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">llm</span><span class="p">.</span><span class="nx">NewAPIEvaluator</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;claude-...&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nx">verdicts</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">EvaluateCriteria</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">evaluator</span><span class="p">)</span><span class="w">   </span><span class="c1">// calls the model per criterion</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nx">criteria</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">ConformanceWithVerdicts</span><span class="p">(</span><span class="nx">verdicts</span><span class="p">)</span>
+</code></pre></div>
+<p>Because <code>APIEvaluator</code> implements <code>llm.CriterionEvaluator</code>, any alternative
+backend (a different provider, a cached evaluator, a test stub) can be dropped in
+without changing callers.</p>
+<h2 id="evidence-the-judge-needs">Evidence the judge needs<a class="headerlink" href="#evidence-the-judge-needs" title="Permanent link">&para;</a></h2>
+<p>Content alone (title, text, links, headings) resolves media (→ Not Applicable),
+link purpose, headings/labels, and language. To resolve the rest, provide richer
+evidence in <code>PageContext</code>:</p>
+<ul>
+<li><strong>Screenshot</strong> → use of color (1.4.1), non-text contrast (1.4.11)</li>
+<li><strong>Raw DOM</strong> → non-text content / alt quality (1.1.1)</li>
+<li><strong>Multi-page crawl</strong> → consistent navigation/identification/help (3.2.3/3.2.4/3.2.6), multiple ways (2.4.5)</li>
+<li><strong>Interaction</strong> → on-input behavior (3.2.2), form error handling (3.3.1/3.3.3), authentication (3.3.8)</li>
+</ul>
+<p>When evidence is missing, the honest verdict is <code>Not Evaluated</code> with the gap
+named — never a guessed <code>Supports</code>.</p>
 
 
 
@@ -1574,10 +1441,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
