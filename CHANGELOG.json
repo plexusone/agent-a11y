@@ -4,60 +4,237 @@
   "repository": "https://github.com/plexusone/agent-a11y",
   "versioning": "semver",
   "commitConvention": "conventional",
-  "maintainers": ["plexusone"],
+  "maintainers": [
+    "plexusone"
+  ],
   "releases": [
+    {
+      "version": "v0.5.0",
+      "date": "2026-09-20",
+      "highlights": [
+        {
+          "description": "Honest conformance: criteria that were not assessed are reported as \"Not Evaluated\" (never assumed \"Supports\"), with the evaluation method recorded per criterion"
+        },
+        {
+          "description": "Proactive criterion evaluation in two interchangeable modes — local (agent, no API key) or API — sharing one prompt and verdict schema, to judge criteria automation can't resolve"
+        },
+        {
+          "description": "New specialized checks: resize (1.4.10), hover (1.4.13), and flashing content (2.3.1)"
+        },
+        {
+          "description": "Page evidence (screenshot, rendered HTML, structure) captured during audits and per journey state"
+        },
+        {
+          "description": "Conformance, OpenACR, and proactive evaluation now exposed as `Result` methods"
+        }
+      ],
+      "added": [
+        {
+          "description": "Proactive criterion evaluation (`llm/criteval.go`): an `APIEvaluator` (omnillm) and a local bundle flow (`BuildBundle` -> agent judge -> `ParseVerdicts`) sharing one prompt and verdict schema",
+          "commit": "d4d8ea4"
+        },
+        {
+          "description": "Honest per-criterion conformance (`report.EvaluateConformance`): criteria with no finding and a judgment method are \"Not Evaluated\"; `report.ApplyVerdicts` resolves them only from real verdicts and never overrides a finding-backed result",
+          "commit": "6258047"
+        },
+        {
+          "description": "`Result` methods exposing conformance, OpenACR, and proactive evaluation: `Conformance`, `OpenACR`, `EvaluationBundle`, `EvaluateCriteria`, `ConformanceWithVerdicts`",
+          "commit": "24a38cd"
+        },
+        {
+          "description": "Specialized runner now executes resize, hover, and flashing-content checks",
+          "commit": "d5a7eca"
+        },
+        {
+          "description": "Page evidence (screenshot, rendered HTML, structure) captured during audits via `pagecapture` and stored on `PageResult.Evidence`",
+          "commit": "aade992"
+        },
+        {
+          "description": "Page evidence captured per journey state (`StepExecutionResult.Evidence`)",
+          "commit": "a06bbb6"
+        }
+      ],
+      "fixed": [
+        {
+          "description": "Corrected WCAG criterion evaluation-method classifications so only criteria the specialized runner executes are `MethodSpecialized`, and `MethodAutomated` requires real axe rules (guarded by `wcag/method_coverage_test.go`)",
+          "commit": "78362bb"
+        }
+      ],
+      "dependencies": [
+        {
+          "description": "Updated dependencies, including github.com/modelcontextprotocol/go-sdk",
+          "commit": "63162d8"
+        }
+      ],
+      "documentation": [
+        {
+          "description": "Proactive Criterion Evaluation guide (`docs/criterion-evaluation.md`) and the load-bearing honesty model documented; added repo `CLAUDE.md`",
+          "commit": "392d1c8"
+        }
+      ]
+    },
     {
       "version": "v0.4.0",
       "date": "2026-07-11",
       "highlights": [
-        { "description": "Agent-optimized output format is now the default for CLI and MCP tools" },
-        { "description": "Design system integration for token-aware remediation suggestions" },
-        { "description": "Source code mapping via source maps for locating issues in source files" },
-        { "description": "Validation delta for autonomous fix loop (audit → fix → validate → repeat)" }
+        {
+          "description": "Agent-optimized output format is now the default for CLI and MCP tools"
+        },
+        {
+          "description": "Design system integration for token-aware remediation suggestions"
+        },
+        {
+          "description": "Source code mapping via source maps for locating issues in source files"
+        },
+        {
+          "description": "Validation delta for autonomous fix loop (audit → fix → validate → repeat)"
+        }
       ],
       "added": [
-        { "description": "Agent-optimized JSON output as default format (use `--human` for human-readable output)", "commit": "9e2aa23" },
-        { "description": "`--design-system` CLI flag to specify design system spec for token suggestions", "commit": "8936faa" },
-        { "description": "`--source-map` CLI flag to specify source map directory for source code mapping", "commit": "4221768" },
-        { "description": "`types/fix_pattern.go`: Agent output types (`AgentFinding`, `AgentResult`, `AgentRemediation`, `AgentSummary`)", "commit": "75ec44f" },
-        { "description": "`types/fix_pattern.go`: Fix pattern types (`FixPattern`, `FixAction`, `FixType`)", "commit": "75ec44f" },
-        { "description": "`types/fix_pattern.go`: Design system integration types (`TokenSuggestion`, `ElementContext`, `DesignSystemInfo`)", "commit": "75ec44f" },
-        { "description": "`types/fix_pattern.go`: Source location types (`SourceLocation`, `Framework`)", "commit": "32c9154" },
-        { "description": "`types/delta.go`: Validation delta types (`ValidationDelta`, `FixedFinding`, `DeltaStatus`)", "commit": "5633dec" },
-        { "description": "`sourcemap/`: Source map parsing and element-to-source mapping", "commit": "d71ec80" },
-        { "description": "`delta/`: Before/after comparison with fingerprinting and regression detection", "commit": "5633dec" },
-        { "description": "`config/fixes.go`: Project-specific fix configuration from `~/.plexusone/a11y/fixes.yaml`", "commit": "998fd72" },
-        { "description": "`config/project.go`: Auto-detection of language, framework, and component library", "commit": "998fd72" },
-        { "description": "`config/resolve.go`: Multi-level fix pattern resolution (project > library > language > builtin)", "commit": "998fd72" },
-        { "description": "`remediation/patterns.go`: Fix pattern registry mapping WCAG techniques and axe rules to actionable fixes", "commit": "8936faa" },
-        { "description": "`remediation/designsystem.go`: Design system loader with color token suggestions for contrast fixes", "commit": "8936faa" },
-        { "description": "`remediation/transform.go`: Transformer to convert standard findings to agent-optimized format", "commit": "e850299" },
-        { "description": "`AgentOptimized()` and `AgentOptimizedJSON()` methods on `Result` type", "commit": "f72f8c5" },
-        { "description": "MCP tools now return agent-optimized JSON with fix patterns", "commit": "7940ea1" },
-        { "description": "CLI `validate` command for comparing audits against baseline", "commit": "5633dec" },
-        { "description": "CLI `config show` command to display resolved project configuration", "commit": "998fd72" },
-        { "description": "CLI `config init` command to create default fixes.yaml", "commit": "998fd72" },
-        { "description": "Finding fingerprint (`Fingerprint()` method) for stable issue identification across audits", "commit": "5633dec" }
+        {
+          "description": "Agent-optimized JSON output as default format (use `--human` for human-readable output)",
+          "commit": "9e2aa23"
+        },
+        {
+          "description": "`--design-system` CLI flag to specify design system spec for token suggestions",
+          "commit": "8936faa"
+        },
+        {
+          "description": "`--source-map` CLI flag to specify source map directory for source code mapping",
+          "commit": "4221768"
+        },
+        {
+          "description": "`types/fix_pattern.go`: Agent output types (`AgentFinding`, `AgentResult`, `AgentRemediation`, `AgentSummary`)",
+          "commit": "75ec44f"
+        },
+        {
+          "description": "`types/fix_pattern.go`: Fix pattern types (`FixPattern`, `FixAction`, `FixType`)",
+          "commit": "75ec44f"
+        },
+        {
+          "description": "`types/fix_pattern.go`: Design system integration types (`TokenSuggestion`, `ElementContext`, `DesignSystemInfo`)",
+          "commit": "75ec44f"
+        },
+        {
+          "description": "`types/fix_pattern.go`: Source location types (`SourceLocation`, `Framework`)",
+          "commit": "32c9154"
+        },
+        {
+          "description": "`types/delta.go`: Validation delta types (`ValidationDelta`, `FixedFinding`, `DeltaStatus`)",
+          "commit": "5633dec"
+        },
+        {
+          "description": "`sourcemap/`: Source map parsing and element-to-source mapping",
+          "commit": "d71ec80"
+        },
+        {
+          "description": "`delta/`: Before/after comparison with fingerprinting and regression detection",
+          "commit": "5633dec"
+        },
+        {
+          "description": "`config/fixes.go`: Project-specific fix configuration from `~/.plexusone/a11y/fixes.yaml`",
+          "commit": "998fd72"
+        },
+        {
+          "description": "`config/project.go`: Auto-detection of language, framework, and component library",
+          "commit": "998fd72"
+        },
+        {
+          "description": "`config/resolve.go`: Multi-level fix pattern resolution (project > library > language > builtin)",
+          "commit": "998fd72"
+        },
+        {
+          "description": "`remediation/patterns.go`: Fix pattern registry mapping WCAG techniques and axe rules to actionable fixes",
+          "commit": "8936faa"
+        },
+        {
+          "description": "`remediation/designsystem.go`: Design system loader with color token suggestions for contrast fixes",
+          "commit": "8936faa"
+        },
+        {
+          "description": "`remediation/transform.go`: Transformer to convert standard findings to agent-optimized format",
+          "commit": "e850299"
+        },
+        {
+          "description": "`AgentOptimized()` and `AgentOptimizedJSON()` methods on `Result` type",
+          "commit": "f72f8c5"
+        },
+        {
+          "description": "MCP tools now return agent-optimized JSON with fix patterns",
+          "commit": "7940ea1"
+        },
+        {
+          "description": "CLI `validate` command for comparing audits against baseline",
+          "commit": "5633dec"
+        },
+        {
+          "description": "CLI `config show` command to display resolved project configuration",
+          "commit": "998fd72"
+        },
+        {
+          "description": "CLI `config init` command to create default fixes.yaml",
+          "commit": "998fd72"
+        },
+        {
+          "description": "Finding fingerprint (`Fingerprint()` method) for stable issue identification across audits",
+          "commit": "5633dec"
+        }
       ],
       "changed": [
-        { "description": "Default CLI output format changed from human-readable to agent-optimized JSON", "commit": "9e2aa23" },
-        { "description": "MCP `audit_page` and `audit_site` tools return structured agent JSON instead of text", "commit": "7940ea1" }
+        {
+          "description": "Default CLI output format changed from human-readable to agent-optimized JSON",
+          "commit": "9e2aa23"
+        },
+        {
+          "description": "MCP `audit_page` and `audit_site` tools return structured agent JSON instead of text",
+          "commit": "7940ea1"
+        }
       ],
       "fixed": [
-        { "description": "Windows CI test failure due to HOME vs USERPROFILE environment variable", "commit": "674480c" }
+        {
+          "description": "Windows CI test failure due to HOME vs USERPROFILE environment variable",
+          "commit": "674480c"
+        }
       ],
       "documentation": [
-        { "description": "Agent Output section in report formats guide with JSON structure documentation", "commit": "e05abec" },
-        { "description": "MCP reference updated with agent-optimized output examples", "commit": "e05abec" },
-        { "description": "README updated with `--human` and `--design-system` flag examples", "commit": "e05abec" },
-        { "description": "Roadmap updated with validation delta implementation status", "commit": "63fae41" },
-        { "description": "Source mapping feature documentation", "commit": "19e8436" },
-        { "description": "ASDM integration documentation", "commit": "2bbbb16" },
-        { "description": "Fixes.yaml configuration in guide", "commit": "389fac1" }
+        {
+          "description": "Agent Output section in report formats guide with JSON structure documentation",
+          "commit": "e05abec"
+        },
+        {
+          "description": "MCP reference updated with agent-optimized output examples",
+          "commit": "e05abec"
+        },
+        {
+          "description": "README updated with `--human` and `--design-system` flag examples",
+          "commit": "e05abec"
+        },
+        {
+          "description": "Roadmap updated with validation delta implementation status",
+          "commit": "63fae41"
+        },
+        {
+          "description": "Source mapping feature documentation",
+          "commit": "19e8436"
+        },
+        {
+          "description": "ASDM integration documentation",
+          "commit": "2bbbb16"
+        },
+        {
+          "description": "Fixes.yaml configuration in guide",
+          "commit": "389fac1"
+        }
       ],
       "dependencies": [
-        { "description": "`github.com/grokify/oscompat` v0.5.0 for cross-platform test utilities", "commit": "ff18472" },
-        { "description": "`github.com/plexusone/omnillm` v0.16.1", "commit": "d50c1db" }
+        {
+          "description": "`github.com/grokify/oscompat` v0.5.0 for cross-platform test utilities",
+          "commit": "ff18472"
+        },
+        {
+          "description": "`github.com/plexusone/omnillm` v0.16.1",
+          "commit": "d50c1db"
+        }
       ]
     },
     {
@@ -65,107 +242,266 @@
       "date": "2026-06-06",
       "commit": "9ac7c47",
       "highlights": [
-        { "description": "OpenACR (Open Accessibility Conformance Report) support for machine-readable accessibility reports" }
+        {
+          "description": "OpenACR (Open Accessibility Conformance Report) support for machine-readable accessibility reports"
+        }
       ],
       "added": [
-        { "description": "OpenACR report format via `github.com/plexusone/openacr-go` library", "commit": "0a55d99" },
-        { "description": "`FormatOpenACR` constant and OpenACR writer in report package", "commit": "0a55d99" },
-        { "description": "`GenerateOpenACR()` function with `OpenACROptions` for custom metadata", "commit": "0a55d99" },
-        { "description": "`GET /api/v1/audits/{id}/openacr` endpoint for OpenACR export", "commit": "e3c2bc0" },
-        { "description": "OpenACR endpoint supports YAML/JSON format via query parameter", "commit": "e3c2bc0" },
-        { "description": "Custom metadata support: product_name, author_email, vendor_name, catalog", "commit": "e3c2bc0" }
+        {
+          "description": "OpenACR report format via `github.com/plexusone/openacr-go` library",
+          "commit": "0a55d99"
+        },
+        {
+          "description": "`FormatOpenACR` constant and OpenACR writer in report package",
+          "commit": "0a55d99"
+        },
+        {
+          "description": "`GenerateOpenACR()` function with `OpenACROptions` for custom metadata",
+          "commit": "0a55d99"
+        },
+        {
+          "description": "`GET /api/v1/audits/{id}/openacr` endpoint for OpenACR export",
+          "commit": "e3c2bc0"
+        },
+        {
+          "description": "OpenACR endpoint supports YAML/JSON format via query parameter",
+          "commit": "e3c2bc0"
+        },
+        {
+          "description": "Custom metadata support: product_name, author_email, vendor_name, catalog",
+          "commit": "e3c2bc0"
+        }
       ],
       "fixed": [
-        { "description": "Use `crypto/rand` for job ID generation to ensure uniqueness", "commit": "e3c2bc0" }
+        {
+          "description": "Use `crypto/rand` for job ID generation to ensure uniqueness",
+          "commit": "e3c2bc0"
+        }
       ],
       "tests": [
-        { "description": "Comprehensive API endpoint tests (18 tests) covering all handlers", "commit": "7e55d35" },
-        { "description": "OpenACR conversion tests for catalog selection and adherence mapping", "commit": "7e55d35" }
+        {
+          "description": "Comprehensive API endpoint tests (18 tests) covering all handlers",
+          "commit": "7e55d35"
+        },
+        {
+          "description": "OpenACR conversion tests for catalog selection and adherence mapping",
+          "commit": "7e55d35"
+        }
       ],
       "documentation": [
-        { "description": "OpenACR section in report formats guide with usage examples", "commit": "cc87323" },
-        { "description": "OpenACR API endpoint documentation with query parameters", "commit": "cc87323" },
-        { "description": "Updated CLI help text to include OpenACR format option", "commit": "cc87323" }
+        {
+          "description": "OpenACR section in report formats guide with usage examples",
+          "commit": "cc87323"
+        },
+        {
+          "description": "OpenACR API endpoint documentation with query parameters",
+          "commit": "cc87323"
+        },
+        {
+          "description": "Updated CLI help text to include OpenACR format option",
+          "commit": "cc87323"
+        }
       ],
       "dependencies": [
-        { "description": "`github.com/plexusone/openacr-go` v0.1.0 for OpenACR document handling", "commit": "9ac7c47" }
+        {
+          "description": "`github.com/plexusone/openacr-go` v0.1.0 for OpenACR document handling",
+          "commit": "9ac7c47"
+        }
       ]
     },
     {
       "version": "v0.2.0",
       "date": "2026-03-30",
       "highlights": [
-        { "description": "Migrate browser automation from vibium-go to w3pilot" }
+        {
+          "description": "Migrate browser automation from vibium-go to w3pilot"
+        }
       ],
       "changed": [
-        { "description": "Browser automation library migrated from vibium-go to w3pilot", "commit": "9bd44bf" },
-        { "description": "Internal type renamed from `Vibe` to `Pilot` across all modules", "commit": "9bd44bf" }
+        {
+          "description": "Browser automation library migrated from vibium-go to w3pilot",
+          "commit": "9bd44bf"
+        },
+        {
+          "description": "Internal type renamed from `Vibe` to `Pilot` across all modules",
+          "commit": "9bd44bf"
+        }
       ],
       "dependencies": [
-        { "description": "w3pilot v0.8.0 replaces vibium-go for browser automation", "commit": "9bd44bf" },
-        { "description": "omnillm v0.14.0 for multi-provider LLM support", "commit": "9bd44bf" }
+        {
+          "description": "w3pilot v0.8.0 replaces vibium-go for browser automation",
+          "commit": "9bd44bf"
+        },
+        {
+          "description": "omnillm v0.14.0 for multi-provider LLM support",
+          "commit": "9bd44bf"
+        }
       ]
     },
     {
       "version": "v0.1.1",
       "date": "2026-03-02",
       "security": [
-        { "description": "Prevent path traversal in journey file loading", "commit": "47ac9f3" }
+        {
+          "description": "Prevent path traversal in journey file loading",
+          "commit": "47ac9f3"
+        }
       ],
       "added": [
-        { "description": "MIT license for open source compliance", "commit": "50acd4d" }
+        {
+          "description": "MIT license for open source compliance",
+          "commit": "50acd4d"
+        }
       ],
       "fixed": [
-        { "description": "Cross-platform CI test compatibility for journey parser", "commit": "86348cb" }
+        {
+          "description": "Cross-platform CI test compatibility for journey parser",
+          "commit": "86348cb"
+        }
       ]
     },
     {
       "version": "v0.1.0",
       "date": "2026-02-28",
       "highlights": [
-        { "description": "Go accessibility auditing toolkit for WCAG 2.0, 2.1, and 2.2 compliance testing" },
-        { "description": "axe-core integration with LLM-as-a-Judge evaluation to reduce false positives" },
-        { "description": "Multiple audit modes: single page, site crawling, and user journey testing" },
-        { "description": "Report formats: JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV" }
+        {
+          "description": "Go accessibility auditing toolkit for WCAG 2.0, 2.1, and 2.2 compliance testing"
+        },
+        {
+          "description": "axe-core integration with LLM-as-a-Judge evaluation to reduce false positives"
+        },
+        {
+          "description": "Multiple audit modes: single page, site crawling, and user journey testing"
+        },
+        {
+          "description": "Report formats: JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV"
+        }
       ],
       "added": [
-        { "description": "Core `Auditor` type with `AuditPage()`, `AuditSite()`, and `AuditJourney()` methods", "commit": "9c090af" },
-        { "description": "WCAG rules and success criteria mapping for WCAG 2.0, 2.1, and 2.2 at levels A, AA, AAA", "commit": "e0854bf" },
-        { "description": "axe-core integration for industry-standard accessibility rules", "commit": "24d4cb8" },
-        { "description": "LLM-as-a-Judge evaluation with support for Anthropic, OpenAI, Google, xAI, and Ollama", "commit": "e79c787" },
-        { "description": "Website crawler with SPA detection, depth limiting, and robots.txt respect", "commit": "391b33a" },
-        { "description": "Journey-based testing with YAML step definitions for authenticated flows", "commit": "ce7f944" },
-        { "description": "Specialized browser-based tests: keyboard, focus, reflow, target size, text spacing, hover, flash", "commit": "df6f0e5" },
-        { "description": "Report generation: JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV formats", "commit": "8cb9999" },
-        { "description": "Remediation task generation with priority assignment and fix suggestions", "commit": "a28949e" },
-        { "description": "MCP server for AI assistant integration (Claude, etc.)", "commit": "d1b4e4c" },
-        { "description": "HTTP API server with `/audit` and `/health` endpoints", "commit": "ad7e9de" },
-        { "description": "CLI tool with `audit`, `serve`, `mcp serve`, `compare`, and `demo` commands", "commit": "6781b2e" },
-        { "description": "Configuration via YAML file, environment variables, and CLI flags", "commit": "d48213d" },
-        { "description": "Authentication helpers for auditing protected pages", "commit": "8302bb6" },
-        { "description": "Multi-agent-spec integration for use in multi-agent workflows", "commit": "e87453e" }
+        {
+          "description": "Core `Auditor` type with `AuditPage()`, `AuditSite()`, and `AuditJourney()` methods",
+          "commit": "9c090af"
+        },
+        {
+          "description": "WCAG rules and success criteria mapping for WCAG 2.0, 2.1, and 2.2 at levels A, AA, AAA",
+          "commit": "e0854bf"
+        },
+        {
+          "description": "axe-core integration for industry-standard accessibility rules",
+          "commit": "24d4cb8"
+        },
+        {
+          "description": "LLM-as-a-Judge evaluation with support for Anthropic, OpenAI, Google, xAI, and Ollama",
+          "commit": "e79c787"
+        },
+        {
+          "description": "Website crawler with SPA detection, depth limiting, and robots.txt respect",
+          "commit": "391b33a"
+        },
+        {
+          "description": "Journey-based testing with YAML step definitions for authenticated flows",
+          "commit": "ce7f944"
+        },
+        {
+          "description": "Specialized browser-based tests: keyboard, focus, reflow, target size, text spacing, hover, flash",
+          "commit": "df6f0e5"
+        },
+        {
+          "description": "Report generation: JSON, HTML, Markdown, VPAT 2.4, WCAG-EM, CSV formats",
+          "commit": "8cb9999"
+        },
+        {
+          "description": "Remediation task generation with priority assignment and fix suggestions",
+          "commit": "a28949e"
+        },
+        {
+          "description": "MCP server for AI assistant integration (Claude, etc.)",
+          "commit": "d1b4e4c"
+        },
+        {
+          "description": "HTTP API server with `/audit` and `/health` endpoints",
+          "commit": "ad7e9de"
+        },
+        {
+          "description": "CLI tool with `audit`, `serve`, `mcp serve`, `compare`, and `demo` commands",
+          "commit": "6781b2e"
+        },
+        {
+          "description": "Configuration via YAML file, environment variables, and CLI flags",
+          "commit": "d48213d"
+        },
+        {
+          "description": "Authentication helpers for auditing protected pages",
+          "commit": "8302bb6"
+        },
+        {
+          "description": "Multi-agent-spec integration for use in multi-agent workflows",
+          "commit": "e87453e"
+        }
       ],
       "documentation": [
-        { "description": "README with quick start, features, and usage examples", "commit": "6a1b1a5" },
-        { "description": "MkDocs documentation site with Material theme", "commit": "6a1b1a5" },
-        { "description": "Getting Started guides: installation and quickstart", "commit": "6a1b1a5" },
-        { "description": "User Guide: audit types, configuration, LLM integration, report formats", "commit": "6a1b1a5" },
-        { "description": "Reference: CLI, HTTP API, Go library, MCP server", "commit": "6a1b1a5" },
-        { "description": "Architecture overview with component diagram", "commit": "6a1b1a5" },
-        { "description": "Example code for basic and multi-agent usage", "commit": "95f186b" }
+        {
+          "description": "README with quick start, features, and usage examples",
+          "commit": "6a1b1a5"
+        },
+        {
+          "description": "MkDocs documentation site with Material theme",
+          "commit": "6a1b1a5"
+        },
+        {
+          "description": "Getting Started guides: installation and quickstart",
+          "commit": "6a1b1a5"
+        },
+        {
+          "description": "User Guide: audit types, configuration, LLM integration, report formats",
+          "commit": "6a1b1a5"
+        },
+        {
+          "description": "Reference: CLI, HTTP API, Go library, MCP server",
+          "commit": "6a1b1a5"
+        },
+        {
+          "description": "Architecture overview with component diagram",
+          "commit": "6a1b1a5"
+        },
+        {
+          "description": "Example code for basic and multi-agent usage",
+          "commit": "95f186b"
+        }
       ],
       "fixed": [
-        { "description": "Resolve golangci-lint warnings", "commit": "b56c9d9" }
+        {
+          "description": "Resolve golangci-lint warnings",
+          "commit": "b56c9d9"
+        }
       ],
       "infrastructure": [
-        { "description": "Project structure with Go modules", "commit": "e29ff50" },
-        { "description": "Migrate to plexusone GitHub organization", "commit": "bfd83a5" }
+        {
+          "description": "Project structure with Go modules",
+          "commit": "e29ff50"
+        },
+        {
+          "description": "Migrate to plexusone GitHub organization",
+          "commit": "bfd83a5"
+        }
       ],
       "dependencies": [
-        { "description": "vibium-go v0.2.1 for browser automation", "commit": "bfd83a5" },
-        { "description": "omnillm v0.13.0 for multi-provider LLM support", "commit": "bfd83a5" },
-        { "description": "multi-agent-spec v0.8.0 for multi-agent workflow integration", "commit": "bfd83a5" },
-        { "description": "MCP SDK v1.4.0 for Model Context Protocol server", "commit": "d1b4e4c" }
+        {
+          "description": "vibium-go v0.2.1 for browser automation",
+          "commit": "bfd83a5"
+        },
+        {
+          "description": "omnillm v0.13.0 for multi-provider LLM support",
+          "commit": "bfd83a5"
+        },
+        {
+          "description": "multi-agent-spec v0.8.0 for multi-agent workflow integration",
+          "commit": "bfd83a5"
+        },
+        {
+          "description": "MCP SDK v1.4.0 for Model Context Protocol server",
+          "commit": "d1b4e4c"
+        }
       ]
     }
   ]
