@@ -23,10 +23,10 @@ func (r *Result) AgentResult() *mas.AgentResult {
 		ContentBlocks: blocks,
 		ExecutedAt:    time.Now().UTC(),
 		Outputs: map[string]interface{}{
-			"url":       r.URL,
-			"score":     r.Score,
-			"level":     r.Level,
-			"version":   r.Version,
+			"url":        r.URL,
+			"score":      r.Score,
+			"level":      r.Level,
+			"version":    r.Version,
 			"conformant": r.Conformant(),
 		},
 	}

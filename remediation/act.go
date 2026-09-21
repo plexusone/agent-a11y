@@ -18,14 +18,14 @@ type ACTRule struct {
 // These are the standardized test procedures from W3C WAI.
 const (
 	// 1.1.1 Non-text Content
-	ACTImageHasAccessibleName      ACTRuleID = "23a2a8" // Image has accessible name
+	ACTImageHasAccessibleName       ACTRuleID = "23a2a8" // Image has accessible name
 	ACTImageButtonHasAccessibleName ACTRuleID = "59796f" // Image button has accessible name
-	ACTSVGImageHasAccessibleName   ACTRuleID = "7d6734" // SVG image has accessible name
-	ACTObjectHasAccessibleName     ACTRuleID = "8fc3b6" // Object element has accessible name
+	ACTSVGImageHasAccessibleName    ACTRuleID = "7d6734" // SVG image has accessible name
+	ACTObjectHasAccessibleName      ACTRuleID = "8fc3b6" // Object element has accessible name
 
 	// 1.2.1 Audio-only and Video-only (Prerecorded)
-	ACTAudioOnlyHasAlternative  ACTRuleID = "afb423" // Audio-only has alternative
-	ACTVideoOnlyHasAlternative  ACTRuleID = "c3232f" // Video-only has alternative
+	ACTAudioOnlyHasAlternative ACTRuleID = "afb423" // Audio-only has alternative
+	ACTVideoOnlyHasAlternative ACTRuleID = "c3232f" // Video-only has alternative
 
 	// 1.2.2 Captions (Prerecorded)
 	ACTVideoHasCaptions ACTRuleID = "f51b46" // Video element visual content has captions
@@ -77,7 +77,7 @@ const (
 	ACTContentOnHoverDismissible ACTRuleID = "cae760" // Content on hover or focus is dismissible
 
 	// 2.1.1 Keyboard
-	ACTElementWithRoleIsKeyboardAccessible ACTRuleID = "0ssw9k" // Element with role is keyboard accessible
+	ACTElementWithRoleIsKeyboardAccessible   ACTRuleID = "0ssw9k" // Element with role is keyboard accessible
 	ACTScrollableElementIsKeyboardAccessible ACTRuleID = "0sk6kp" // Scrollable element is keyboard accessible
 
 	// 2.1.2 No Keyboard Trap
@@ -170,7 +170,7 @@ const (
 	ACTAuthenticationAccessible ACTRuleID = "auth-accessible" // Authentication is accessible
 
 	// 4.1.1 Parsing
-	ACTUniqueIDs               ACTRuleID = "3ea0c8" // ID attributes are unique
+	ACTUniqueIDs              ACTRuleID = "3ea0c8" // ID attributes are unique
 	ACTAttributeNotDuplicated ACTRuleID = "e6952f" // Attribute not duplicated
 
 	// 4.1.2 Name, Role, Value

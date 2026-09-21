@@ -216,10 +216,10 @@ func (t *Transformer) suggestTokens(f types.Finding) []types.TokenSuggestion {
 		// This would need actual computed styles from the audit
 		// For now, provide generic guidance
 		suggestion := t.designSystem.SuggestColorToken(
-			"#999999",        // Would come from computed styles
-			"color",          // Property
-			"#FFFFFF",        // Background (would come from computed styles)
-			4.5,              // AA contrast requirement
+			"#999999", // Would come from computed styles
+			"color",   // Property
+			"#FFFFFF", // Background (would come from computed styles)
+			4.5,       // AA contrast requirement
 		)
 		if suggestion != nil {
 			suggestions = append(suggestions, *suggestion)

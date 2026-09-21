@@ -89,7 +89,7 @@ func TestCompare_Regression(t *testing.T) {
 		URL: "https://example.com",
 		Findings: []types.AgentFinding{
 			makeFinding("color-contrast", "button.primary", "<button class='primary'>"), // Still present
-			makeFinding("link-name", "a.nav", "<a href='/about'>"),                       // New issue!
+			makeFinding("link-name", "a.nav", "<a href='/about'>"),                      // New issue!
 		},
 	}
 

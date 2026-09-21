@@ -7,8 +7,8 @@ import (
 	"log/slog"
 	"strings"
 
-	vibium "github.com/plexusone/w3pilot"
 	"github.com/plexusone/agent-a11y/types"
+	vibium "github.com/plexusone/w3pilot"
 )
 
 // Rule represents a WCAG accessibility test rule.
@@ -161,22 +161,22 @@ type BaseRule struct {
 	level       types.WCAGLevel
 }
 
-func (r *BaseRule) ID() string                 { return r.id }
-func (r *BaseRule) Name() string               { return r.name }
-func (r *BaseRule) Description() string        { return r.description }
-func (r *BaseRule) SuccessCriteria() []string  { return r.criteria }
-func (r *BaseRule) Level() types.WCAGLevel     { return r.level }
+func (r *BaseRule) ID() string                { return r.id }
+func (r *BaseRule) Name() string              { return r.name }
+func (r *BaseRule) Description() string       { return r.description }
+func (r *BaseRule) SuccessCriteria() []string { return r.criteria }
+func (r *BaseRule) Level() types.WCAGLevel    { return r.level }
 
 // ImageAltRule checks for missing alt text on images.
 type ImageAltRule struct {
 	BaseRule
 }
 
-func (r *ImageAltRule) ID() string { return "image-alt" }
-func (r *ImageAltRule) Name() string { return "Image Alt Text" }
-func (r *ImageAltRule) Description() string { return "Images must have alt text" }
+func (r *ImageAltRule) ID() string                { return "image-alt" }
+func (r *ImageAltRule) Name() string              { return "Image Alt Text" }
+func (r *ImageAltRule) Description() string       { return "Images must have alt text" }
 func (r *ImageAltRule) SuccessCriteria() []string { return []string{"1.1.1"} }
-func (r *ImageAltRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *ImageAltRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *ImageAltRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -246,11 +246,11 @@ func (r *ImageAltRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fin
 // ImageButtonAltRule checks for missing alt text on image buttons.
 type ImageButtonAltRule struct{ BaseRule }
 
-func (r *ImageButtonAltRule) ID() string { return "image-button-alt" }
-func (r *ImageButtonAltRule) Name() string { return "Image Button Alt Text" }
-func (r *ImageButtonAltRule) Description() string { return "Image buttons must have alt text" }
+func (r *ImageButtonAltRule) ID() string                { return "image-button-alt" }
+func (r *ImageButtonAltRule) Name() string              { return "Image Button Alt Text" }
+func (r *ImageButtonAltRule) Description() string       { return "Image buttons must have alt text" }
 func (r *ImageButtonAltRule) SuccessCriteria() []string { return []string{"1.1.1"} }
-func (r *ImageButtonAltRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *ImageButtonAltRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *ImageButtonAltRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -300,11 +300,11 @@ func (r *ImageButtonAltRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]typ
 // FormLabelRule checks that form inputs have labels.
 type FormLabelRule struct{ BaseRule }
 
-func (r *FormLabelRule) ID() string { return "form-label" }
-func (r *FormLabelRule) Name() string { return "Form Labels" }
-func (r *FormLabelRule) Description() string { return "Form inputs must have labels" }
+func (r *FormLabelRule) ID() string                { return "form-label" }
+func (r *FormLabelRule) Name() string              { return "Form Labels" }
+func (r *FormLabelRule) Description() string       { return "Form inputs must have labels" }
 func (r *FormLabelRule) SuccessCriteria() []string { return []string{"1.3.1", "4.1.2"} }
-func (r *FormLabelRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *FormLabelRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *FormLabelRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -362,11 +362,11 @@ func (r *FormLabelRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fi
 // HeadingStructureRule checks heading hierarchy.
 type HeadingStructureRule struct{ BaseRule }
 
-func (r *HeadingStructureRule) ID() string { return "heading-structure" }
-func (r *HeadingStructureRule) Name() string { return "Heading Structure" }
-func (r *HeadingStructureRule) Description() string { return "Headings should follow logical order" }
+func (r *HeadingStructureRule) ID() string                { return "heading-structure" }
+func (r *HeadingStructureRule) Name() string              { return "Heading Structure" }
+func (r *HeadingStructureRule) Description() string       { return "Headings should follow logical order" }
 func (r *HeadingStructureRule) SuccessCriteria() []string { return []string{"1.3.1"} }
-func (r *HeadingStructureRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *HeadingStructureRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *HeadingStructureRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -444,11 +444,11 @@ func (r *HeadingStructureRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]t
 // TableHeaderRule checks that tables have headers.
 type TableHeaderRule struct{ BaseRule }
 
-func (r *TableHeaderRule) ID() string { return "table-header" }
-func (r *TableHeaderRule) Name() string { return "Table Headers" }
-func (r *TableHeaderRule) Description() string { return "Tables must have headers" }
+func (r *TableHeaderRule) ID() string                { return "table-header" }
+func (r *TableHeaderRule) Name() string              { return "Table Headers" }
+func (r *TableHeaderRule) Description() string       { return "Tables must have headers" }
 func (r *TableHeaderRule) SuccessCriteria() []string { return []string{"1.3.1"} }
-func (r *TableHeaderRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *TableHeaderRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *TableHeaderRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -500,11 +500,11 @@ func (r *TableHeaderRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.
 // LandmarkRule checks for ARIA landmarks.
 type LandmarkRule struct{ BaseRule }
 
-func (r *LandmarkRule) ID() string { return "landmark-regions" }
-func (r *LandmarkRule) Name() string { return "Landmark Regions" }
-func (r *LandmarkRule) Description() string { return "Page should use landmark regions" }
+func (r *LandmarkRule) ID() string                { return "landmark-regions" }
+func (r *LandmarkRule) Name() string              { return "Landmark Regions" }
+func (r *LandmarkRule) Description() string       { return "Page should use landmark regions" }
 func (r *LandmarkRule) SuccessCriteria() []string { return []string{"1.3.1"} }
-func (r *LandmarkRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *LandmarkRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *LandmarkRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -543,11 +543,11 @@ func (r *LandmarkRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fin
 // ContrastRule checks color contrast.
 type ContrastRule struct{ BaseRule }
 
-func (r *ContrastRule) ID() string { return "color-contrast" }
-func (r *ContrastRule) Name() string { return "Color Contrast" }
-func (r *ContrastRule) Description() string { return "Text must have sufficient color contrast" }
+func (r *ContrastRule) ID() string                { return "color-contrast" }
+func (r *ContrastRule) Name() string              { return "Color Contrast" }
+func (r *ContrastRule) Description() string       { return "Text must have sufficient color contrast" }
 func (r *ContrastRule) SuccessCriteria() []string { return []string{"1.4.3"} }
-func (r *ContrastRule) Level() types.WCAGLevel { return types.WCAGLevelAA }
+func (r *ContrastRule) Level() types.WCAGLevel    { return types.WCAGLevelAA }
 
 func (r *ContrastRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	// Color contrast checking with luminance calculation
@@ -643,11 +643,14 @@ func (r *ContrastRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fin
 // Additional rule stubs - implement as needed
 
 type LinkDistinguishableRule struct{ BaseRule }
-func (r *LinkDistinguishableRule) ID() string { return "link-distinguishable" }
+
+func (r *LinkDistinguishableRule) ID() string   { return "link-distinguishable" }
 func (r *LinkDistinguishableRule) Name() string { return "Link Distinguishable" }
-func (r *LinkDistinguishableRule) Description() string { return "Links must be distinguishable from surrounding text" }
+func (r *LinkDistinguishableRule) Description() string {
+	return "Links must be distinguishable from surrounding text"
+}
 func (r *LinkDistinguishableRule) SuccessCriteria() []string { return []string{"1.4.1"} }
-func (r *LinkDistinguishableRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *LinkDistinguishableRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *LinkDistinguishableRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -711,11 +714,14 @@ func (r *LinkDistinguishableRule) Run(ctx context.Context, vibe *vibium.Pilot) (
 }
 
 type KeyboardAccessRule struct{ BaseRule }
-func (r *KeyboardAccessRule) ID() string { return "keyboard-access" }
+
+func (r *KeyboardAccessRule) ID() string   { return "keyboard-access" }
 func (r *KeyboardAccessRule) Name() string { return "Keyboard Access" }
-func (r *KeyboardAccessRule) Description() string { return "All functionality must be keyboard accessible" }
+func (r *KeyboardAccessRule) Description() string {
+	return "All functionality must be keyboard accessible"
+}
 func (r *KeyboardAccessRule) SuccessCriteria() []string { return []string{"2.1.1"} }
-func (r *KeyboardAccessRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *KeyboardAccessRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *KeyboardAccessRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -823,11 +829,12 @@ func (r *KeyboardAccessRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]typ
 }
 
 type FocusVisibleRule struct{ BaseRule }
-func (r *FocusVisibleRule) ID() string { return "focus-visible" }
-func (r *FocusVisibleRule) Name() string { return "Focus Visible" }
-func (r *FocusVisibleRule) Description() string { return "Focus indicator must be visible" }
+
+func (r *FocusVisibleRule) ID() string                { return "focus-visible" }
+func (r *FocusVisibleRule) Name() string              { return "Focus Visible" }
+func (r *FocusVisibleRule) Description() string       { return "Focus indicator must be visible" }
 func (r *FocusVisibleRule) SuccessCriteria() []string { return []string{"2.4.7"} }
-func (r *FocusVisibleRule) Level() types.WCAGLevel { return types.WCAGLevelAA }
+func (r *FocusVisibleRule) Level() types.WCAGLevel    { return types.WCAGLevelAA }
 
 func (r *FocusVisibleRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -926,11 +933,12 @@ func (r *FocusVisibleRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types
 }
 
 type SkipLinkRule struct{ BaseRule }
-func (r *SkipLinkRule) ID() string { return "skip-link" }
-func (r *SkipLinkRule) Name() string { return "Skip Link" }
-func (r *SkipLinkRule) Description() string { return "Page should have a skip link" }
+
+func (r *SkipLinkRule) ID() string                { return "skip-link" }
+func (r *SkipLinkRule) Name() string              { return "Skip Link" }
+func (r *SkipLinkRule) Description() string       { return "Page should have a skip link" }
 func (r *SkipLinkRule) SuccessCriteria() []string { return []string{"2.4.1"} }
-func (r *SkipLinkRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *SkipLinkRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *SkipLinkRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -969,11 +977,12 @@ func (r *SkipLinkRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fin
 }
 
 type PageTitleRule struct{ BaseRule }
-func (r *PageTitleRule) ID() string { return "page-title" }
-func (r *PageTitleRule) Name() string { return "Page Title" }
-func (r *PageTitleRule) Description() string { return "Page must have a title" }
+
+func (r *PageTitleRule) ID() string                { return "page-title" }
+func (r *PageTitleRule) Name() string              { return "Page Title" }
+func (r *PageTitleRule) Description() string       { return "Page must have a title" }
 func (r *PageTitleRule) SuccessCriteria() []string { return []string{"2.4.2"} }
-func (r *PageTitleRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *PageTitleRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *PageTitleRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	title, err := vibe.Title(ctx)
@@ -998,11 +1007,12 @@ func (r *PageTitleRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fi
 }
 
 type LinkPurposeRule struct{ BaseRule }
-func (r *LinkPurposeRule) ID() string { return "link-purpose" }
-func (r *LinkPurposeRule) Name() string { return "Link Purpose" }
-func (r *LinkPurposeRule) Description() string { return "Link purpose must be clear" }
+
+func (r *LinkPurposeRule) ID() string                { return "link-purpose" }
+func (r *LinkPurposeRule) Name() string              { return "Link Purpose" }
+func (r *LinkPurposeRule) Description() string       { return "Link purpose must be clear" }
 func (r *LinkPurposeRule) SuccessCriteria() []string { return []string{"2.4.4"} }
-func (r *LinkPurposeRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *LinkPurposeRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *LinkPurposeRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -1048,11 +1058,12 @@ func (r *LinkPurposeRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.
 }
 
 type DescriptiveHeadingRule struct{ BaseRule }
-func (r *DescriptiveHeadingRule) ID() string { return "descriptive-headings" }
-func (r *DescriptiveHeadingRule) Name() string { return "Descriptive Headings" }
-func (r *DescriptiveHeadingRule) Description() string { return "Headings should be descriptive" }
+
+func (r *DescriptiveHeadingRule) ID() string                { return "descriptive-headings" }
+func (r *DescriptiveHeadingRule) Name() string              { return "Descriptive Headings" }
+func (r *DescriptiveHeadingRule) Description() string       { return "Headings should be descriptive" }
 func (r *DescriptiveHeadingRule) SuccessCriteria() []string { return []string{"2.4.6"} }
-func (r *DescriptiveHeadingRule) Level() types.WCAGLevel { return types.WCAGLevelAA }
+func (r *DescriptiveHeadingRule) Level() types.WCAGLevel    { return types.WCAGLevelAA }
 
 func (r *DescriptiveHeadingRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -1172,11 +1183,12 @@ func (r *DescriptiveHeadingRule) Run(ctx context.Context, vibe *vibium.Pilot) ([
 }
 
 type LanguageRule struct{ BaseRule }
-func (r *LanguageRule) ID() string { return "html-lang" }
-func (r *LanguageRule) Name() string { return "HTML Language" }
-func (r *LanguageRule) Description() string { return "Page must have a lang attribute" }
+
+func (r *LanguageRule) ID() string                { return "html-lang" }
+func (r *LanguageRule) Name() string              { return "HTML Language" }
+func (r *LanguageRule) Description() string       { return "Page must have a lang attribute" }
 func (r *LanguageRule) SuccessCriteria() []string { return []string{"3.1.1"} }
-func (r *LanguageRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *LanguageRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *LanguageRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `document.documentElement.getAttribute('lang')`
@@ -1204,11 +1216,12 @@ func (r *LanguageRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fin
 }
 
 type DuplicateIDRule struct{ BaseRule }
-func (r *DuplicateIDRule) ID() string { return "duplicate-id" }
-func (r *DuplicateIDRule) Name() string { return "Duplicate IDs" }
-func (r *DuplicateIDRule) Description() string { return "IDs must be unique" }
+
+func (r *DuplicateIDRule) ID() string                { return "duplicate-id" }
+func (r *DuplicateIDRule) Name() string              { return "Duplicate IDs" }
+func (r *DuplicateIDRule) Description() string       { return "IDs must be unique" }
 func (r *DuplicateIDRule) SuccessCriteria() []string { return []string{"4.1.1"} }
-func (r *DuplicateIDRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *DuplicateIDRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *DuplicateIDRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -1258,11 +1271,12 @@ func (r *DuplicateIDRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.
 }
 
 type AriaLabelRule struct{ BaseRule }
-func (r *AriaLabelRule) ID() string { return "aria-label" }
-func (r *AriaLabelRule) Name() string { return "ARIA Labels" }
-func (r *AriaLabelRule) Description() string { return "ARIA labels must be valid" }
+
+func (r *AriaLabelRule) ID() string                { return "aria-label" }
+func (r *AriaLabelRule) Name() string              { return "ARIA Labels" }
+func (r *AriaLabelRule) Description() string       { return "ARIA labels must be valid" }
 func (r *AriaLabelRule) SuccessCriteria() []string { return []string{"4.1.2"} }
-func (r *AriaLabelRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *AriaLabelRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *AriaLabelRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -1392,11 +1406,12 @@ func (r *AriaLabelRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Fi
 }
 
 type ButtonNameRule struct{ BaseRule }
-func (r *ButtonNameRule) ID() string { return "button-name" }
-func (r *ButtonNameRule) Name() string { return "Button Name" }
-func (r *ButtonNameRule) Description() string { return "Buttons must have accessible names" }
+
+func (r *ButtonNameRule) ID() string                { return "button-name" }
+func (r *ButtonNameRule) Name() string              { return "Button Name" }
+func (r *ButtonNameRule) Description() string       { return "Buttons must have accessible names" }
 func (r *ButtonNameRule) SuccessCriteria() []string { return []string{"4.1.2"} }
-func (r *ButtonNameRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *ButtonNameRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *ButtonNameRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `
@@ -1442,11 +1457,12 @@ func (r *ButtonNameRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.F
 }
 
 type FormInputNameRule struct{ BaseRule }
-func (r *FormInputNameRule) ID() string { return "form-input-name" }
-func (r *FormInputNameRule) Name() string { return "Form Input Name" }
-func (r *FormInputNameRule) Description() string { return "Form inputs must have accessible names" }
+
+func (r *FormInputNameRule) ID() string                { return "form-input-name" }
+func (r *FormInputNameRule) Name() string              { return "Form Input Name" }
+func (r *FormInputNameRule) Description() string       { return "Form inputs must have accessible names" }
 func (r *FormInputNameRule) SuccessCriteria() []string { return []string{"4.1.2"} }
-func (r *FormInputNameRule) Level() types.WCAGLevel { return types.WCAGLevelA }
+func (r *FormInputNameRule) Level() types.WCAGLevel    { return types.WCAGLevelA }
 
 func (r *FormInputNameRule) Run(ctx context.Context, vibe *vibium.Pilot) ([]types.Finding, error) {
 	script := `

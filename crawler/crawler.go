@@ -60,9 +60,9 @@ type Config struct {
 // DefaultConfig returns default crawler configuration.
 func DefaultConfig() Config {
 	return Config{
-		MaxDepth:    3,
-		MaxPages:    100,
-		WaitForSPA:  true,
+		MaxDepth:   3,
+		MaxPages:   100,
+		WaitForSPA: true,
 		SPAIndicators: []string{
 			"[data-reactroot]",
 			"#__next",
@@ -81,15 +81,15 @@ func DefaultConfig() Config {
 
 // Page represents a discovered page.
 type Page struct {
-	URL         string        `json:"url"`
-	Title       string        `json:"title"`
-	Depth       int           `json:"depth"`
-	DiscoveredFrom string     `json:"discoveredFrom"`
-	IsSPA       bool          `json:"isSPA"`
-	SPAFramework string       `json:"spaFramework,omitempty"`
-	LoadTime    time.Duration `json:"loadTime"`
-	Links       []string      `json:"links"`
-	Error       string        `json:"error,omitempty"`
+	URL            string        `json:"url"`
+	Title          string        `json:"title"`
+	Depth          int           `json:"depth"`
+	DiscoveredFrom string        `json:"discoveredFrom"`
+	IsSPA          bool          `json:"isSPA"`
+	SPAFramework   string        `json:"spaFramework,omitempty"`
+	LoadTime       time.Duration `json:"loadTime"`
+	Links          []string      `json:"links"`
+	Error          string        `json:"error,omitempty"`
 }
 
 // Result contains the crawl results.
@@ -192,10 +192,10 @@ func (c *Crawler) Crawl(ctx context.Context, startURL string) (*Result, error) {
 		if err != nil {
 			c.logger.Warn("failed to crawl page", "url", item.url, "error", err)
 			page = &Page{
-				URL:           item.url,
-				Depth:         item.depth,
+				URL:            item.url,
+				Depth:          item.depth,
 				DiscoveredFrom: item.from,
-				Error:         err.Error(),
+				Error:          err.Error(),
 			}
 		}
 
@@ -247,8 +247,8 @@ func (c *Crawler) crawlPage(ctx context.Context, pageURL string, depth int, from
 	startTime := time.Now()
 
 	page := &Page{
-		URL:           pageURL,
-		Depth:         depth,
+		URL:            pageURL,
+		Depth:          depth,
 		DiscoveredFrom: from,
 	}
 

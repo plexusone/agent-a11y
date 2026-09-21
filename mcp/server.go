@@ -16,8 +16,8 @@ import (
 	"log/slog"
 	"time"
 
-	a11y "github.com/plexusone/agent-a11y"
 	"github.com/modelcontextprotocol/go-sdk/mcp"
+	a11y "github.com/plexusone/agent-a11y"
 )
 
 // Version is the MCP server version.

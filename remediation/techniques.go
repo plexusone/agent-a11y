@@ -16,18 +16,18 @@ const (
 type TechniqueCategory string
 
 const (
-	CategoryGeneral    TechniqueCategory = "general"
-	CategoryHTML       TechniqueCategory = "html"
-	CategoryCSS        TechniqueCategory = "css"
-	CategoryScript     TechniqueCategory = "client-side-script"
-	CategoryServer     TechniqueCategory = "server-side-script"
-	CategorySMIL       TechniqueCategory = "smil"
-	CategoryText       TechniqueCategory = "text"
-	CategoryARIA       TechniqueCategory = "aria"
-	CategoryPDF        TechniqueCategory = "pdf"
-	CategoryFlash      TechniqueCategory = "flash"
+	CategoryGeneral     TechniqueCategory = "general"
+	CategoryHTML        TechniqueCategory = "html"
+	CategoryCSS         TechniqueCategory = "css"
+	CategoryScript      TechniqueCategory = "client-side-script"
+	CategoryServer      TechniqueCategory = "server-side-script"
+	CategorySMIL        TechniqueCategory = "smil"
+	CategoryText        TechniqueCategory = "text"
+	CategoryARIA        TechniqueCategory = "aria"
+	CategoryPDF         TechniqueCategory = "pdf"
+	CategoryFlash       TechniqueCategory = "flash"
 	CategorySilverlight TechniqueCategory = "silverlight"
-	CategoryFailure    TechniqueCategory = "failures"
+	CategoryFailure     TechniqueCategory = "failures"
 )
 
 // Technique contains metadata about a WCAG technique.

@@ -157,18 +157,18 @@ func AttachRemediation(finding *types.Finding) {
 	axeRuleID := ""
 	// Map common rule IDs to axe-core rule IDs
 	axeMap := map[string]string{
-		"image-alt":           "image-alt",
-		"button-name":         "button-name",
-		"link-name":           "link-name",
-		"label":               "label",
-		"color-contrast":      "color-contrast",
-		"focus-visible":       "focus-order-semantics",
-		"keyboard-trap":       "focus-trap",
-		"keyboard-unreachable": "focusable-element",
-		"tabindex-positive":   "tabindex",
+		"image-alt":                "image-alt",
+		"button-name":              "button-name",
+		"link-name":                "link-name",
+		"label":                    "label",
+		"color-contrast":           "color-contrast",
+		"focus-visible":            "focus-order-semantics",
+		"keyboard-trap":            "focus-trap",
+		"keyboard-unreachable":     "focusable-element",
+		"tabindex-positive":        "tabindex",
 		"reflow-horizontal-scroll": "scrollable-region-focusable",
-		"target-size-minimum": "target-size",
-		"text-spacing-loss":   "avoid-inline-spacing",
+		"target-size-minimum":      "target-size",
+		"text-spacing-loss":        "avoid-inline-spacing",
 	}
 
 	if mapped, ok := axeMap[finding.RuleID]; ok {

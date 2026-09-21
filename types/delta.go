@@ -12,9 +12,9 @@ type ValidationDelta struct {
 	AfterTotal  int `json:"afterTotal"`
 
 	// Categorized changes
-	Fixed       []FixedFinding   `json:"fixed"`       // Issues that were resolved
-	Remaining   []AgentFinding   `json:"remaining"`   // Issues still present
-	Regressions []AgentFinding   `json:"regressions"` // New issues introduced
+	Fixed       []FixedFinding `json:"fixed"`       // Issues that were resolved
+	Remaining   []AgentFinding `json:"remaining"`   // Issues still present
+	Regressions []AgentFinding `json:"regressions"` // New issues introduced
 
 	// Overall status
 	Status      DeltaStatus `json:"status"`      // Overall change status
@@ -62,13 +62,13 @@ type FixedFinding struct {
 
 // DeltaSummary provides a human-readable summary of changes.
 type DeltaSummary struct {
-	TotalBefore  int     `json:"totalBefore"`
-	TotalAfter   int     `json:"totalAfter"`
-	FixedCount   int     `json:"fixedCount"`
-	NewCount     int     `json:"newCount"`     // Regressions
-	Improvement  float64 `json:"improvement"`  // Percentage
-	StatusEmoji  string  `json:"statusEmoji"`  // GO/WARN/NO-GO style
-	StatusText   string  `json:"statusText"`   // Human readable
+	TotalBefore int     `json:"totalBefore"`
+	TotalAfter  int     `json:"totalAfter"`
+	FixedCount  int     `json:"fixedCount"`
+	NewCount    int     `json:"newCount"`    // Regressions
+	Improvement float64 `json:"improvement"` // Percentage
+	StatusEmoji string  `json:"statusEmoji"` // GO/WARN/NO-GO style
+	StatusText  string  `json:"statusText"`  // Human readable
 }
 
 // Summary generates a human-readable summary of the delta.
