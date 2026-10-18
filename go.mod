@@ -3,7 +3,7 @@ module github.com/plexusone/agent-a11y
 go 1.26.4
 
 require (
-	github.com/grokify/oscompat v0.6.0
+	github.com/grokify/oscompat v0.7.0
 	github.com/modelcontextprotocol/go-sdk v1.8.0
 	github.com/plexusone/multi-agent-spec/sdk/go v0.8.0
 	github.com/plexusone/omnillm v0.17.0
